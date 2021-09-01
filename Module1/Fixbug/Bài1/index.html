@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+<div style="margin-top: 300px; position:absolute;">
+    <input type="number" id="number1" style="position: relative; ">
+    <input type="number" id="number2" style="position: relative; margin-left: 0px">
+    <label>=</label>
+    <input type="text" id="result">
+</div>
+<br>
+<input type="button" value="Add" onclick="cal('+')">
+<input type="button" value="Sub" onclick="cal('-')">
+<input type="button" value="Mul" onclick="cal('*')">
+<input type="button" value="Div" onclick="cal('/')">
+<script>
+    /*
+    * Nên đặt dấu chấm phẩy sau mỗi câu lệnh jsp
+    * Sai innertext thành value ở lúc gán biến result lên input
+    * input thiếu type
+    * Sai giá trị toán tử ở điều kiện if (== chứ không phải =)
+    * number 2 đã có thuộc tính value ở trên thì không cần dùng number2.value ở điều kiện
+    * Nên đặt lệnh parseFloat để tính toán được với số thực
+    * Thay vì parseFloat từng cái thì chúng ta nên parseFloat biến ở trên luôn. Ngắn gọn và thực thi ít hơn
+    * */
+    function cal(calculator) {
+        let number1 = parseFloat(document.getElementById("number1").value);
+        let number2 = parseFloat(document.getElementById("number2").value);
+        let result = 0;
+        switch (calculator) {
+            case '+' : {
+                result = number1 + number2;
+                break;
+            }
+            case '-' : {
+                result = number1 - number2;
+                break;
+            }
+            case '*': {
+                result = number1 * number2;
+                break;
+            }
+            case '/': {
+                if (number2 == 0) {
+                    result = ("Không thể chia cho 0");
+                } else {
+                    result = number1 / number2;
+                }
+                break;
+            }
+
+        }
+        document.getElementById("result").value = result;
+    }
+</script>
+</body>
+
+</html>

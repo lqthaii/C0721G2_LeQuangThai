@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LQT</title>
+</head>
+<body>
+<label>Mời bạn nhập 3 vào số nguyên bất kỳ:</label><br>
+<input type="number" id="number1"><br>
+<input type="number" id="number2"><br>
+<input type="number" id="number3"><br>
+<button onclick="CheckMax()">Kiểm tra</button><br>
+<p id="result"></p>
+<script>
+    function CheckMax() {
+        let number1 = parseFloat(document.getElementById("number1").value);
+        let number2 = parseFloat(document.getElementById("number2").value);
+        let number3 = parseFloat(document.getElementById("number3").value);
+        let max =number1;
+        if(number2 > max){
+            max = number2;
+        } else if(number3 >max){
+            max = number3;
+        }
+        document.getElementById("result").innerText="Số lớn nhất là: "+max;
+    }
+</script>
+</body>
+</html>

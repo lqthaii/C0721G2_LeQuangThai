@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 1</title>
+</head>
+<body>
+<script>
+    alert("Tính điểm của sinh viên");
+    let vatLy;
+    let hoaHoc;
+    let sinhHoc;
+    let ten;
+    ten = prompt("Mời bạn nhập tên của sinh viên", "Nguyễn Văn A");
+    vatLy = parseFloat(prompt("Mời bạn nhập điểm môn Vật Lý", "10"));
+    hoaHoc = parseFloat(prompt("Mời bạn nhập điểm môn Hoá học", "10"));
+    sinhHoc = parseFloat(prompt("Mời bạn nhập điểm môn Sinh học", "10"));
+    document.write("Họ và tên học sinh: " + ten);
+    document.write("<br>");
+    document.write("Vật lý: " + vatLy);
+    document.write("<br>");
+    document.write("Hoá học: " + hoaHoc);
+    document.write("<br>");
+    document.write("Sinh học: " + sinhHoc);
+    document.write("<br>");
+    let trungBinh = (parseFloat(vatLy)+parseFloat(hoaHoc)+parseFloat(sinhHoc))/3;
+    document.write("Điểm trung bình: " + trungBinh);
+</script>
+</body>
+</html>

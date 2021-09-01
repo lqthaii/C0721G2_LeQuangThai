@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        td {
+            text-align: center;
+        }
+
+        button {
+            border-radius: 15px 15px 15px;
+            background: cornflowerblue;
+            width: 70px;
+            height: 30px
+        }
+    </style>
+</head>
+<body>
+<h1>Ứng dụng quản lý sản phẩm</h1>
+<div id="display"></div>
+<button onclick="createMobile()">Create</button>
+<button onclick="sortMobile()">Sort</button>
+<div id="data"></div>
+<script>
+    class Mobile {
+        constructor(id, name, manufacturer, price) {
+            this.id = id;
+            this.name = name;
+            this.manufacturer = manufacturer;
+            this.price = price;
+        }
+
+        getid() {
+            return this.id;
+        }
+
+        setid(id) {
+            this.id = id;
+        }
+
+        getname() {
+            return this.name;
+        }
+
+        setname(name) {
+            this.name = name;
+        }
+
+        getmanufacturer() {
+            return this.manufacturer;
+        }
+
+        setmanufacturer(manufacturer) {
+            this.manufacturer = manufacturer;
+        }
+
+        getprice() {
+            return this.price;
+        }
+
+        setprice(price) {
+            this.price = price;
+        }
+
+        toString() {
+            return "Mã điện thoại: " + this.getid() + " Tên điện thoại: " + this.getname() + " Nhà sản xuất: " + this.getmanufacturer() + " Giá: " + this.getprice();
+        }
+    }
+
+    let mobiles = [];
+    mobiles.push(new Mobile(1, "Iphone 11", "Apple", 28000000));
+    displayMobile();
+
+    function createMobile() {
+        let data = "<table>"
+        data += "<tr>"
+        data += "<td width='200px'><lable>Mã Điện Thoại</lable></td>"
+        data += "<td ><input type='text' placeholder='Vui lòng nhập mã điện thoại' id='idMobile'></td>"
+        data += "</tr>"
+        data += "<tr>"
+        data += "<td width='200px'><lable>Tên Điện Thoại</lable></td>"
+        data += "<td ><input type='text' placeholder='Vui lòng nhập tên điện thoại' id='nameMobile'></td>"
+        data += "</tr>"
+        data += "<tr>"
+        data += "<td><lable>Nhà sản Xuất</lable></td>"
+        data += "<td><input type='text' placeholder='Vui lòng nhập tên nhà sản xuất' id='manufacturerMobile'></td>"
+        data += "</tr>"
+        data += "<tr>"
+        data += "<td><lable>Giá Điện Thoại</lable></td>"
+        data += "<td><input type='number' placeholder='Vui lòng nhập giá điện thoại' id='priceMobile'</td>"
+        data += "</tr>"
+        data += "</table>"
+        data += "<button onclick='saveCreateProduct()'>Save</button>"
+        document.getElementById("data").innerHTML = data;
+    }
+
+    function saveCreateProduct() {
+        let id = document.getElementById("idMobile").value;
+        let name = document.getElementById("nameMobile").value;
+        let manufacturer = document.getElementById("manufacturerMobile").value;
+        let price = document.getElementById("priceMobile").value;
+        if (name == "") {
+            alert("Vui lòng nhập tên điện thoại trước khi thêm")
+        } else if (price == "") {
+            alert("Vui lòng nhập giá điện thoại trước khi thêm")
+        } else if (id == "") {
+            alert("Vui lòng nhập ID điện thoại trước khi thêm")
+        } else if (manufacturer == "") {
+            alert("Vui lòng nhập nhà sản xuất điện thoại trước khi thêm")
+        } else {
+            mobiles.push(new Mobile(id, name, manufacturer, parseFloat(price)));
+            displayMobile();
+            document.getElementById("data").innerHTML = "";
+
+        }
+    }
+
+    function displayMobile() {
+        let data = "";
+        data += "<table>";
+        data += "<tr><th width='200px'>ID</th><th width='200px'>Name</th><th width='200px'>Manufacturer</th><th width='200px'>Price</th><th width='200px'>Action</th></tr>"
+        for (let i = 0; i < mobiles.length; i++) {
+            data += "<td>" + mobiles[i].getid() + "</td>"
+            data += "<td>" + mobiles[i].getname() + "</td>"
+            data += "<td>" + mobiles[i].getmanufacturer() + "</td>"
+            data += "<td>" + mobiles[i].getprice() + "</td>"
+            data += "<td><button onclick='deleteProduct(" + i + ")'>Delete</button><button onclick='editMobile(" + i + ")'>Edit</button></td>"
+            data += "</tr>"
+        }
+        data += "</table>"
+        document.getElementById("display").innerHTML = data;
+    }
+
+    function sortMobile() {
+        let temp;
+        for (let i = 0; i < mobiles.length; i++) {
+            for (let j = i; j < mobiles.length; j++) {
+                if (mobiles[i].getname() > mobiles[j].getname()) {
+                    temp = mobiles[i];
+                    mobiles[i] = mobiles[j];
+                    mobiles[j] = temp;
+                }
+            }
+        }
+        displayMobile();
+    }
+
+    function deleteProduct(index) {
+        if (confirm("Bạn thật sự muốn xóa sản phẩm có tên là " + mobiles[index].getname() + " ?")) {
+            mobiles.splice(index, 1);
+            document.getElementById("data").innerHTML = "";
+            displayMobile();
+        }
+    }
+
+    function editMobile(index) {
+        let data = "<table>"
+        data += "<tr>"
+        data += "<td width='200px'><lable>Mã Điện Thoại</lable></td>"
+        data += "<td ><input type='text' placeholder='Vui lòng nhập mã điện thoại' id='idMobile' value='" + mobiles[index].getid() + "'></td>"
+        data += "</tr>"
+        data += "<tr>"
+        data += "<td width='200px'><lable>Tên Điện Thoại</lable></td>"
+        data += "<td ><input type='text' placeholder='Vui lòng nhập tên điện thoại' id='nameMobile' value='" + mobiles[index].getname() + "'></td>"
+        data += "</tr>"
+        data += "<tr>"
+        data += "<td><lable>Nhà sản Xuất</lable></td>"
+        data += "<td><input type='text' placeholder='Vui lòng nhập tên nhà sản xuất' id='manufacturerMobile' value='" + mobiles[index].getmanufacturer() + "'></td>"
+        data += "</tr>"
+        data += "<tr>"
+        data += "<td><lable>Giá Điện Thoại</lable></td>"
+        data += "<td><input type='number' placeholder='Vui lòng nhập giá điện thoại' id='priceMobile' value='" + mobiles[index].getprice() + "' ></td>"
+        data += "</tr>"
+        data += "</table>"
+        data += "<button onclick='saveMobile(" + index + ")'>Save</button>"
+        document.getElementById("data").innerHTML = data;
+    }
+
+    function saveMobile(index) {
+        mobiles[index].setid(document.getElementById("idMobile").value);
+        mobiles[index].setname(document.getElementById("nameMobile").value);
+        mobiles[index].setmanufacturer(document.getElementById("manufacturerMobile").value);
+        mobiles[index].setprice(document.getElementById("priceMobile").value);
+        displayMobile();
+        document.getElementById("data").innerHTML = "";
+    }
+</script>
+</body>
+</html>

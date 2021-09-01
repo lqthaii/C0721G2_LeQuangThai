@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input placeholder="Nhập vào một từ đối xứng" id="str">
+<button onclick="checkPalindrome()">Kiểm tra</button>
+<br>
+<p id="result"></p>
+<script>
+    function checkPalindrome() {
+        let str = document.getElementById("str").value;
+        if (isPalindrome(str)) {
+            document.getElementById("result").innerText = "Đây là một từ đối xứng";
+        } else {
+            document.getElementById("result").innerText = "Đây không phải là một từ đối xứng";
+        }
+    }
+
+    function isPalindrome(str) {
+        for (let i = 0; i < str.length / 2; i++) {
+            if (str[i] !== str[str.length - i - 1]) {
+                return false;
+            }
+        }
+        return true;
+    }
+</script>
+</body>
+</html>

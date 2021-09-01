@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính diện tích tam giác vuông</title>
+</head>
+<body>
+<h1>Tính diện tích tam giác vuông</h1>
+<label>Nhập cạnh a:</label>
+<input type="number" id="a"><br>
+<label>Nhập cạnh b:</label>
+<input type="number" id="b">
+<button onclick="area()">Tính</button>
+<p id="result">Diện tích tam giác vuông là:</p>
+<script>
+    function area() {
+        let a = document.getElementById("a").value;
+        let b = document.getElementById("b").value;
+        if (a <= 0 || b <= 0) {
+            alert("Nhập sai")
+        } else {
+            document.getElementById("result").innerText = "Diện tích tam giác vuông là: " + a * b / 2;
+        }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài tập caro</title>
+</head>
+<body>
+<p id="result"></p>
+<p id="reset"></p>
+<script>
+    let round = true;
+    let board = [];
+    for (let i = 0; i < 5; i++) {
+        board[i] = ["", "", "", "", ""]
+    }
+    displayCaro();
+
+    function displayCaro() {
+        let data = "<table border='1' style='text-align: center'>"
+        for (let i = 0; i < 5; i++) {
+            data += "<tr>";
+            for (let j = 0; j < 5; j++) {
+                data += "<td onclick='changeValue(" + i + "," + j + ")' style='width: 99px; height: 99px;'> "
+                data += board[i][j];
+                data += "</td>";
+            }
+            data += "</tr>";
+        }
+        data += "</table>";
+        document.getElementById("result").innerHTML = data;
+    }
+
+    function full() {
+        for (let i = 0; i < 5; i++) {
+            for (let j = 0; j < 5; j++) {
+                if (board[i][j] == "") {
+                    return false;
+                    break;
+                }
+            }
+        }
+        return true;
+    }
+
+    function changeValue(x, y) {
+        if (full()) {
+            alert("Hai bạn hoà. Bắt đầu trò chơi mới!");
+        } else if (winCaro()) {
+            alert("Vui lòng bắt đầu lại trò chơi mới");
+        } else {
+            if (board[x][y] == "") {
+                if (round) {
+                    board[x][y] = "X";
+                    round = false;
+                } else {
+                    board[x][y] = "O";
+                    round = true;
+                }
+            } else {
+                alert("Ô này đã được đánh dấu. Vui lòng đánh lại");
+            }
+            winCaro();
+        }
+        displayCaro();
+    }
+
+    function resetCaro() {
+        for (let i = 0; i < 5; i++) {
+            for (let j = 0; j < 5; j++) {
+                board[i][j] = "";
+            }
+        }
+        displayCaro();
+    }
+
+    function winCaro() {
+        for (let i = 0; i < 5; i++) {
+            for (let j = 0; j < 3; j++) {
+                if (board[i][j] == "X" && board[i][j + 1] == "X" && board[i][j + 2] == "X") {
+                    alert("X thắng");
+                    document.getElementById("reset").innerHTML = "<button onclick='resetCaro()'>Bắt đầu lại</button>";
+                    return true;
+                } else if (board[i][j] == "O" && board[i][j + 1] == "O" && board[i][j + 2] == "O") {
+                    alert("O thắng");
+                    document.getElementById("reset").innerHTML = "<button onclick='resetCaro()'>Bắt đầu lại</button>";
+                    return true;
+                }
+            }
+        }
+        for (let i = 0; i < 3; i++) {
+            for (let j = 0; j < 5; j++) {
+                if (board[i][j] == "X" && board[i + 1][j] == "X" && board[i + 2][j] == "X") {
+                    alert("X thắng");
+                    document.getElementById("reset").innerHTML = "<button onclick='resetCaro()'>Bắt đầu lại</button>";
+                    return true;
+                } else if (board[i][j] == "O" && board[i + 1][j] == "O" && board[i + 2][j] == "O") {
+                    alert("O thắng");
+                    document.getElementById("reset").innerHTML = "<button onclick='resetCaro()'>Bắt đầu lại</button>";
+                    return true;
+                }
+            }
+            for (let j = 0; j < 3; j++) {
+                if (board[i][j] == "X" && board[i + 1][j + 1] == "X" && board[i + 2][j + 2] == "X") {
+                    alert("X thắng");
+                    document.getElementById("reset").innerHTML = "<button onclick='resetCaro()'>Bắt đầu lại</button>";
+                    return true;
+                } else if (board[i][j] == "O" && board[i + 1][j + 1] == "O" && board[i + 2][j + 2] == "O") {
+                    alert("O thắng");
+                    document.getElementById("reset").innerHTML = "<button onclick='resetCaro()'>Bắt đầu lại</button>";
+                    return true;
+                }
+            }
+            for (let j = 2; j < 5; j++) {
+                if (board[i][j] == "X" & board[i + 1][j - 1] == "X" && board[i + 2][j - 2] == "X") {
+                    alert("X thắng");
+                    document.getElementById("reset").innerHTML = "<button onclick='resetCaro()'>Bắt đầu lại</button>";
+                    return true;
+                } else if (board[i][j] == "O" & board[i + 1][j - 1] == "O" && board[i + 2][j - 2] == "O") {
+                    alert("O thắng");
+                    document.getElementById("reset").innerHTML = "<button onclick='resetCaro()'>Bắt đầu lại</button>";
+                    return true;
+                }
+            }
+        }
+    }
+</script>
+</body>
+</html>

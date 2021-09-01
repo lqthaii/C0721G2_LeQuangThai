@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        button {
+            width: 100px;
+            height: 50px;
+        }
+    </style>
+</head>
+<body>
+<table>
+    <tr>
+        <td><label>ID</label></td>
+        <td><input id="id" type="text"><br></td>
+    </tr>
+    <tr>
+        <td><label>Tên Sinh Viên</label></td>
+        <td><input id="name" type="text"><br></td>
+    </tr>
+    <tr>
+        <td><label>Ngày sinh</label></td>
+        <td><input id="birthday" type="date"><br></td>
+    </tr>
+    <tr>
+        <td><label>Giới tính</label></td>
+        <td><select id="sex">
+            <option value="Nam">Nam</option>
+            <option value="Nữ">Nữ</option>
+            <option value="Khác">Khác</option>
+        </select><br></td>
+    </tr>
+    <tr>
+        <td><label>Lớp</label></td>
+        <td><input id="classname" type="text"><br></td>
+    </tr>
+    <tr>
+        <td><label>Khoá học</label></td>
+        <td><input id="course" type="text"><br></td>
+    </tr>
+</table>
+<table>
+    <tr>
+        <td>
+            <button onclick="addStudent()">Thêm</button>
+        </td>
+        <td>
+            <button onclick="removeStudent()">Xoá sinh viên theo MSSV</button>
+        </td>
+        <td>
+            <button onclick="removeStudentNo()">Xoá sinh viên theo vị trí</button>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <button onclick="searchStudent()">Tìm kiếm</button>
+        </td>
+        <td>
+            <button onclick="printListStudent()">In danh sách</button>
+        </td>
+        <td>
+            <button>Sắp xếp danh sách</button>
+        </td>
+    </tr>
+</table>
+<p id="result"></p>
+<p id="inputdata"></p>
+<script>
+    class Student {
+        getid() {
+            return this.id;
+        }
+
+        setid(id) {
+            this.id = id;
+        }
+
+        getname() {
+            return this.name;
+        }
+
+        setname(name) {
+            this.name = name;
+        }
+
+        getbirthday() {
+            return this.birthday;
+        }
+
+        setbirthday(birthday) {
+            this.birthday = birthday;
+        }
+
+        getsex() {
+            return this.sex;
+        }
+
+        setsex(sex) {
+            this.sex = sex;
+        }
+
+        getclassname() {
+            return this.classname;
+        }
+
+        setclassname(classname) {
+            this.classname = classname;
+        }
+
+        getcourse() {
+            return this.course;
+        }
+
+        setcourse(course) {
+            this.course = course;
+        }
+
+        getStudent() {
+            return this.getid() + ", " + this.getname() + ", " + this.getbirthday() + ", " + this.getsex() + ", " + this.getclassname() + ", " + this.getclassname();
+        }
+
+        constructor(id, name, birthday, sex, classname, course) {
+            this.id = id;
+            this.name = name;
+            this.birthday = birthday;
+            this.sex = sex;
+            this.classname = classname;
+            this.course = course;
+        }
+    }
+
+    let listStudent = [];
+
+    function addStudent() {
+        let id = document.getElementById("id").value;
+        let name = document.getElementById("name").value;
+        let birthday = document.getElementById("birthday").value;
+        let sex = document.getElementById("sex").value;
+        let classname = document.getElementById("classname").value;
+        let course = document.getElementById("course").value;
+        listStudent.push(new Student(id, name, birthday, sex, classname, course));
+        console.log(listStudent);
+        document.getElementById("inputdata").innerText="Bạn đã thêm thành công";
+        resetInput();
+    }
+    function resetInput() {
+        document.getElementById("id").value="";
+        document.getElementById("name").value="";
+        document.getElementById("birthday").value="";
+        document.getElementById("sex").value="Nam";
+        document.getElementById("classname").value="";
+        document.getElementById("course").value="";
+    }
+
+    function removeStudent() {
+        let data = "<input id='idstudent' placeholder='Nhập mã số sinh viên cần xoá' style='width: 200px'><button onclick='deleteID()' style='width: 100px; height: 22px'>Xoá</button>";
+        document.getElementById("inputdata").innerHTML = data;
+    }
+
+    function removeStudentNo() {
+        let data = "<input id='no' placeholder='Nhập số thứ tự sinh viên cần xoá' style='width: 200px'><button onclick='deleteNo()' style='width: 100px; height: 22px'>Xoá</button>";
+        document.getElementById("inputdata").innerHTML = data;
+    }
+
+    function deleteID() {
+        let id = document.getElementById("idstudent").value;
+        for (let i = 0; i < listStudent.length; i++) {
+            console.log(listStudent[i].getid());
+            console.log("id:"+id);
+            if (id == listStudent[i].getid()) {
+                listStudent.splice(i, 1);
+            }
+        }
+        printListStudent();
+    }
+    function deleteNo() {
+        let no = document.getElementById("no").value;
+        no--;
+        listStudent.splice(no, 1);
+        printListStudent();
+    }
+    function printListStudent() {
+        let data = "<table>";
+        data+="<tr>"
+        data+="<th>STT</th>"
+        data+="<th>ID</th>"
+        data+="<th>Tên Sinh Viên</th>"
+        data+="<th>Ngày sinh</th>"
+        data+="<th>Giới Tính</th>"
+        data+="<th>Lớp</th>"
+        data+="<th>Khoá</th>"
+        data+="</tr>"
+        for (let i=0;i<listStudent.length;i++){
+            data+="<tr>"
+            data+="<td>"+(i+1)+"</td>"
+            data+="<td>"+listStudent[i].getid()+"</td>"
+            data+="<td>"+listStudent[i].getname()+"</td>"
+            data+="<td>"+listStudent[i].getbirthday()+"</td>"
+            data+="<td>"+listStudent[i].getsex()+"</td>"
+            data+="<td>"+listStudent[i].getclassname()+"</td>"
+            data+="<td>"+listStudent[i].getcourse()+"</td>"
+            data+="</tr>"
+        }
+        data+="</table>"
+        document.getElementById("result").innerHTML =data;
+    }
+    function searchStudent() {
+        let data = "<input id='idstudent' placeholder='Nhập mã số sinh viên cần tìm' style='width: 200px'><button onclick='searchID()' style='width: 100px; height: 22px'>Tìm Kiếm</button>";
+        document.getElementById("inputdata").innerHTML = data;
+    }
+    function searchID() {
+        let id = document.getElementById("idstudent").value;
+        let data = "<table>";
+        data+="<tr>"
+        data+="<th>STT</th>"
+        data+="<th>ID</th>"
+        data+="<th>Tên Sinh Viên</th>"
+        data+="<th>Ngày sinh</th>"
+        data+="<th>Giới Tính</th>"
+        data+="<th>Lớp</th>"
+        data+="<th>Khoá</th>"
+        data+="</tr>"
+        for (let i=0;i<listStudent.length;i++){
+            if(id==listStudent[i].getid()){
+                data+="<tr>"
+                data+="<td>"+(i+1)+"</td>"
+                data+="<td>"+listStudent[i].getid()+"</td>"
+                data+="<td>"+listStudent[i].getname()+"</td>"
+                data+="<td>"+listStudent[i].getbirthday()+"</td>"
+                data+="<td>"+listStudent[i].getsex()+"</td>"
+                data+="<td>"+listStudent[i].getclassname()+"</td>"
+                data+="<td>"+listStudent[i].getcourse()+"</td>"
+                data+="</tr>"
+                break;
+            }else{
+                data+="<tr>"
+                data+="<td>"+0+"</td>"
+                data+="<td>NaN</td>"
+                data+="<td>NaN</td>"
+                data+="<td>NaN</td>"
+                data+="<td>NaN</td>"
+                data+="<td>NaN</td>"
+                data+="<td>NaN</td>"
+                data+="</tr>"
+                break;
+            }
+        }
+        data+="</table>"
+        document.getElementById("result").innerHTML = data;
+    }
+</script>
+</body>
+</html>

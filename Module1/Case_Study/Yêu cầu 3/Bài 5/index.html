@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        td, th {
+            width: 200px;
+            text-align: center;
+        }
+
+        th {
+            background: #2196F3;
+        }
+
+        input {
+            width: 300px;
+        }
+    </style>
+</head>
+<body>
+<h1>Gọi thức uống đơn giản</h1>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Tên thức uống</th>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>Cafe</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>Cam Vắt</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>Nước ép cà rốt</td>
+    </tr>
+    <tr>
+        <td>4</td>
+        <td>Nước ép cà chua</td>
+    </tr>
+    <tr>
+        <td>5</td>
+        <td>Nước dừa</td>
+    </tr>
+    <tr>
+        <td>6</td>
+        <td>Nước lọc</td>
+    </tr>
+</table>
+<input type="number" id="choose" placeholder="Vui lòng chọn món mà bạn muốn mua">
+<button onclick="checkInfo()">Xem thông tin</button>
+<p id="info"></p>
+<script>
+    let nameProduct = ["Cafe", "Cam Vắt", "Nước ép cà rốt", "Nước ép cà chua", "Nước dừa", "Nước Lọc"];
+    let priceProduct = [8000, 15000, 15000, 20000, 22000, 5000];
+    let data = "";
+
+    function checkInfo() {
+        data = "";
+        let choose = document.getElementById("choose").value;
+        if (choose >= 1 && choose <= 6) {
+            choose--;
+            data += "Tên Sản Phẩm: " + nameProduct[choose] + "<br>";
+            data += "Giá Sản Phẩm: " + priceProduct[choose] + "<br>";
+            data += "<input type='number' id='quantity' placeholder='Vui lòng chọn số lượng bạn muốn mua'>"
+            data += "<button onclick='buyProduct()'>Mua Sản Phẩm</button>"
+            document.getElementById("info").innerHTML = data;
+        } else {
+            alert("Vui lòng lựa chọn từ 1-6");
+            document.getElementById("choose").value="";
+        }
+    }
+
+    function buyProduct() {
+        data = "";
+        let choose = document.getElementById("choose").value;
+        let quantity = document.getElementById("quantity").value;
+        choose--;
+        if(quantity>0){
+            console.log(choose);
+            console.log(quantity);
+            let total = priceProduct[choose] * quantity;
+            data += "Tên Sản Phẩm: " + nameProduct[choose] + "<br>";
+            data += "Giá Sản Phẩm: " + priceProduct[choose] + "<br>";
+            data += "Tổng thành tiền: " + total + "<br>";
+            document.getElementById("info").innerHTML = data;
+        }else {
+            alert("Bạn vui lòng nhập lại số lượng!");
+            document.getElementById("quantity").value = "";
+        }
+
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class Remote {
+        constructor(id) {
+            this.id = id;
+        }
+        chuyenKenh(tv,kenh){
+            tv.setKenh(kenh);
+        }
+        tangAmLuong(tv){
+            tv.tangAmLuong();
+        }
+        giamAmLuong(tv){
+            tv.giamAmLuong();
+        }
+        batTV(tv){
+            tv.batTV();
+        }
+        tatTV(tv){
+            tv.tatTV();
+        }
+
+    }
+
+    class TV {
+        constructor(kenh, amluong, trangthai) {
+            this.kenh = kenh;
+            this.amluong = amluong;
+            this.trangthai = trangthai;
+        }
+        batTV(){
+            this.trangthai = true;
+        }
+        tatTV(){
+            this.trangthai = false;
+        }
+        getTrangThai(){
+            return this.trangthai;
+        }
+        setKenh(kenh){
+            if(this.trangthai){
+                this.kenh =kenh;
+            } else{
+                console.log("Vui lòng bật TV");
+            }
+
+        }
+        getKenh(){
+            if(this.trangthai){
+                return this.kenh;
+            }else{
+                console.log("Vui lòng bật TV");
+            }
+
+        }
+        tangAmLuong(){
+            if(this.trangthai){
+                this.amluong++;
+            }else{
+                console.log("Vui lòng bật TV");
+            }
+
+        }
+        giamAmLuong(){
+            if(this.trangthai){
+                this.amluong--;
+            }else{
+                console.log("Vui lòng bật TV");
+            }
+
+        }
+        getAmLuong(){
+            if(this.trangthai){
+                return this.amluong;
+            }else{
+                console.log("Vui lòng bật TV");
+            }
+
+        }
+    }
+    let tv = new TV(1,10,false);
+    let remote = new Remote();
+    remote.batTV(tv);
+    console.log(tv.getTrangThai());
+    remote.chuyenKenh(tv,7);
+    console.log(tv.getKenh());
+    remote.chuyenKenh(tv,3);
+    console.log(tv.getKenh());
+    remote.tangAmLuong(tv);
+    remote.tangAmLuong(tv);
+    console.log(tv.getAmLuong());
+    remote.tatTV(tv);
+    console.log(tv.getTrangThai());
+</script>
+</body>
+</html>

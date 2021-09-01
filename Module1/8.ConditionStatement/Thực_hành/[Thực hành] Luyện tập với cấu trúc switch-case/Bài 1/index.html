@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>[Thực hành] Luyện tập với cấu trúc switch-case</title>
+</head>
+<body>
+<select id="choose" onchange="chooseBrowser()">
+    <option value="">---</option>
+    <option value="Edge">Edge</option>
+    <option value="Chrome">Chrome</option>
+    <option value="Firefox">Firefox</option>
+    <option value="Safari">Safari</option>
+    <option value="Opera">Opera</option>
+    <option value="Other">Other</option>
+
+</select>
+<script>
+    function chooseBrowser() {
+        let browser = document.getElementById("choose").value;
+        document.write(browser);
+        switch (browser) {
+            case 'Edge':
+                alert("You've got the Edge!");
+                break;
+            case 'Chrome':
+            case 'Firefox':
+            case 'Safari':
+            case 'Opera':
+                alert('Okay we support these browsers too');
+                break;
+            default:
+                alert('We hope that this page looks ok!');
+        }
+    }
+
+</script>
+</body>
+</html>

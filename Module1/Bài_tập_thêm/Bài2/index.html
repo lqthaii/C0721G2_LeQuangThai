@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lê Quang Thái</title>
+    <style>
+        div{
+            background: blue;
+            color: white;
+            width: 300px;
+            height: 40px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <p id="weather">Thời tiết hôm nay thế nào?</p>
+</div><br>
+<button onclick="sunny()">trời nắng</button>
+<button onclick="rain()">trời mưa</button>
+<script>
+function sunny() {
+    document.getElementById("weather").innerHTML="Hôm nay trời nắng";
+}
+function rain() {
+    document.getElementById("weather").innerHTML="Hôm nay trời mưa";
+}
+</script>
+</body>
+</html>

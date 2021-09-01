@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lê Quang Thái</title>
+</head>
+<body>
+<form>
+    <label>Bạn tên gì?</label>
+    <input type="text" id="name">
+    <br>
+    <label>Chọn sở thích của bạn</label><br>
+    <input type="checkbox" name="choose" value="Đi chơi">Đi chơi <br>
+    <input type="checkbox" name="choose" value="Đi Du Lịch">Đi Du Lịch<br>
+    <input type="checkbox" name="choose" value="Đi Ăn">Đi Ăn<br>
+    <input type="checkbox" name="choose" value="Đi Siêu Thị">Đi Siêu Thị<br>
+    <input type="checkbox" name="choose" value="Học lập trình">Học lập trình<br>
+</form>
+<button onclick="outputData()">Xem kết quả</button>
+<script>
+    function outputData() {
+        let name = document.getElementById("name").value;
+        var checkbox = document.getElementsByName('choose');
+        var result = "";
+        for (var i = 0; i < checkbox.length; i++) {
+            if (checkbox[i].checked === true) {
+                result += ' [' + checkbox[i].value + ']';
+            }
+        }
+        if (result == "") {
+            alert("Bạn " + name + " không thích cái gì hết ^^ ");
+        } else {
+            alert("Sở thích của " + name + " là: " + result);
+        }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let str = prompt("Vui lòng nhập vào một chuỗi")
+    function normalize(str) {
+        str = str.split("");
+        let newStr = [];
+        for (let i = 0; i < str.length; i++) {
+            if (str[i] == " " && str[i + 1] == " ") {
+
+            } else {
+                newStr.push(str[i])
+            }
+        }
+        str = newStr;
+        if (str[0].charCodeAt() >= 97 && str[0].charCodeAt() <= 122) {
+            str[0] = String.fromCharCode(str[0].charCodeAt() - 32);
+        }
+        for (let i = 1; i < str.length; i++) {
+            if (str[i - 1] == " " && str[i] != " ") {
+                if (str[i].charCodeAt() >= 97 && str[i].charCodeAt() <= 122) {
+                    str[i] = String.fromCharCode(str[i].charCodeAt() - 32);
+                }
+            }
+            if ((str[i - 1] != " " && str[i] != " " && str[i + 1] != " ") || (str[i] != " " && str[i + 1] == " ")) {
+                if (str[i].charCodeAt() >= 65 && str[i].charCodeAt() <= 90) {
+                    str[i] = String.fromCharCode(str[i].charCodeAt() + 32);
+                }
+            }
+        }
+        str = str.join("");
+        return str;
+    }
+    function checkMax(str){
+        let number=0;
+        let max =0;
+        let local;
+        let maxArr = [];
+        for(let i=0;i<str.length;i++){
+            if(str[i]!=" "){
+                number++;
+                if (number > max) {
+                    local = i;
+                    max = number;
+                }
+            }else{
+                number =0;
+            }
+        }
+        for(let i=local-max;i<max;i++){
+            maxArr.push(str[i]);
+        }
+        maxArr = maxArr.join("");
+        return maxArr;
+    }
+    document.write("Chuỗi của bạn trước khi chuẩn hoá là: "+str+"<br>");
+    str = normalize(str);
+    document.write("Chuỗi của bạn sau khi chuẩn hoá là: "+str+"<br>");
+    let strMax = checkMax(str);
+    document.write("Từ dài nhất trong chuỗi là: "+strMax);
+</script>
+</body>
+</html>

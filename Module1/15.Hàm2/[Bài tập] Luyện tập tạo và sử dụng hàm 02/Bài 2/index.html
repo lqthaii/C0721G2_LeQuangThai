@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    const PI = 3.14;
+    let radius = prompt("Mời bạn nhập vào bán kính hình tròn:");
+    function circuit(radius) {
+            return 2*radius*PI;
+    }
+    function area(radius) {
+            return radius*radius*PI;
+    }
+    let circuitCircle = circuit(radius);
+    let areaCircle = area(radius);
+    document.write("Diện tích hình tròn là: "+areaCircle +"<br>")
+    document.write("Chu vi hình tròn là: "+circuitCircle )
+</script>
+</body>
+</html>

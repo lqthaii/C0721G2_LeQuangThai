@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        input {
+            width: 50px;
+        }
+    </style>
+</head>
+<body>
+<h1>Chương trình quay xổ số Vietlot</h1>
+<table>
+    <tr>
+        <th><label>Xổ số của bạn:</label></th>
+        <td>
+            <input id="buynumber1" type="number">
+            <input id="buynumber2" type="number">
+            <input id="buynumber3" type="number">
+            <input id="buynumber4" type="number">
+            <input id="buynumber5" type="number">
+            <input id="buynumber6" type="number"></td>
+    </tr>
+    <tr>
+       <th><label>Kết quả của chương trình:</label></th>
+        <td>
+            <input id="number1" type="number">
+            <input id="number2" type="number">
+            <input id="number3" type="number">
+            <input id="number4" type="number">
+            <input id="number5" type="number">
+            <input id="number6" type="number"></td>
+    </tr>
+</table>
+
+
+<button onclick="randomNumber()">Số ngẫu nhiên</button>
+<button onclick="buyVietlot()">Mua vé</button>
+<button onclick="checkKetQua()">Xem kết quả!</button>
+<p id="result"></p>
+<script>
+    //let choose = prompt("Bạn có 2 lựa chọn:\n 1. Bạn tự chọn số \n 2. Hệ thống tự random")
+    class VietLot {
+        constructor(number1, number2, number3, number4, number5, number6) {
+            this.number1 = number1;
+            this.number2 = number2;
+            this.number3 = number3;
+            this.number4 = number4;
+            this.number5 = number5;
+            this.number6 = number6;
+        }
+
+        getnumber1() {
+            return this.number1;
+        }
+
+        setnumber1(number1) {
+            this.number1 = number1;
+        }
+
+        getnumber2() {
+            return this.number2;
+        }
+
+        setnumber2(number2) {
+            this.number2 = number2;
+        }
+
+        getnumber3() {
+            return this.number3;
+        }
+
+        setnumber3(number3) {
+            this.number3 = number3;
+        }
+
+        getnumber4() {
+            return this.number4;
+        }
+
+        setnumber4(number4) {
+            this.number4 = number4;
+        }
+
+        getnumber5() {
+            return this.number5;
+        }
+
+        setnumber5(number5) {
+            this.number5 = number5;
+        }
+
+        getnumber6() {
+            return this.number6;
+        }
+
+        setnumber6(number6) {
+            this.number6 = number6;
+        }
+
+        checkPrize(vlt) {
+            if (this.getnumber1() == vlt.getnumber1() && this.getnumber2() == vlt.getnumber2() && this.getnumber3() == vlt.getnumber3() && this.getnumber4() == vlt.getnumber4() && this.getnumber5() == vlt.getnumber5() && this.getnumber6() == vlt.getnumber6()) {
+                document.getElementById("result").innerText = "Bạn đã trúng giải Nhất";
+            } else if (this.getnumber2() == vlt.getnumber2() && this.getnumber3() == vlt.getnumber3() && this.getnumber4() == vlt.getnumber4() && this.getnumber5() == vlt.getnumber5() && this.getnumber6() == vlt.getnumber6()) {
+                document.getElementById("result").innerText = "Bạn đã trúng giải Nhì";
+            } else if (this.getnumber4() == vlt.getnumber4() && this.getnumber5() == vlt.getnumber5() && this.getnumber6() == vlt.getnumber6()) {
+                document.getElementById("result").innerText = "Bạn đã trúng giải Khuyến Khích";
+            }else {
+                document.getElementById("result").innerText = "Chúc bạn may mắn lần sau ^^";
+            }
+        }
+    }
+
+    let vietlot = new VietLot(1, 2, 3, 4, 5, 6);
+    let input = new VietLot(2, 3, 4, 5, 6);
+    let buy = false;
+    function buyVietlot() {
+        input.setnumber1(document.getElementById("buynumber1").value);
+        input.setnumber2(document.getElementById("buynumber2").value);
+        input.setnumber3(document.getElementById("buynumber3").value);
+        input.setnumber4(document.getElementById("buynumber4").value);
+        input.setnumber5(document.getElementById("buynumber5").value);
+        input.setnumber6(document.getElementById("buynumber6").value);
+        document.getElementById("result").innerText = "Bạn đã mua thành công, vui lòng xem kết quả";
+        buy = true;
+    }
+
+    function checkKetQua() {
+        if(buy){
+            vietlot.checkPrize(input);
+            document.getElementById("number1").value = vietlot.getnumber1();
+            document.getElementById("number2").value = vietlot.getnumber2();
+            document.getElementById("number3").value = vietlot.getnumber3();
+            document.getElementById("number4").value = vietlot.getnumber4();
+            document.getElementById("number5").value = vietlot.getnumber5();
+            document.getElementById("number6").value = vietlot.getnumber6();
+        }else{
+            alert("Bạn phải mua vé Vietlot trước khi xem kết quả")
+        }
+        buy =false;
+    }
+
+    function randomNumber() {
+        document.getElementById("buynumber1").value = Math.floor(Math.random() * 100);
+        document.getElementById("buynumber2").value = Math.floor(Math.random() * 100);
+        document.getElementById("buynumber3").value = Math.floor(Math.random() * 100);
+        document.getElementById("buynumber4").value = Math.floor(Math.random() * 100);
+        document.getElementById("buynumber5").value = Math.floor(Math.random() * 100);
+        document.getElementById("buynumber6").value = Math.floor(Math.random() * 100);
+    }
+
+</script>
+</body>
+</html>

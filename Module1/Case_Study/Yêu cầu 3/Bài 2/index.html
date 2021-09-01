@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let a=[7,2,5,3,5,3];
+    let b=[7,2,5,4,6,3,5,3]
+    let c =[];
+    let flag = true;
+    for(let i=0;i<b.length;i++) {
+        for (let j = 0; j < a.length; j++) {
+            if (a[j] == b[i]) { // Nếu nó tìm thấy trong mảng a thì flag = false
+                flag = false;
+            }
+        }
+        for (let k = 0; k < c.length; k++) {
+            if (c[k] == b[i]) {
+                flag = false; // Cái ni để em xét chỉ 1 lần xuất hiện. Nếu push vô 1 lần r thì lần sau k push nữa
+            }
+        }
+        if (flag) {
+            c.push(b[i]);
+        }
+        flag = true;
+    }
+    console.log(c);
+</script>
+</body>
+</html>

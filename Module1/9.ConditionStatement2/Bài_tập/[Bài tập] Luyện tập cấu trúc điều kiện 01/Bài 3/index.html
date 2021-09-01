@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<label>Mời bạn nhập vào số nguyên bất kỳ:</label>
+<input type="number" id="number">
+<button onclick="CheckNumber()">Kiểm tra</button>
+<p id="result"></p>
+<script>
+    function CheckNumber() {
+        let number = parseFloat(document.getElementById("number").value);
+        if(number < 0){
+           document.getElementById("result").innerText = "Bạn đã nhập số âm";
+        }else if(number >0){
+            document.getElementById("result").innerText = "Bạn đã nhập số dương";
+        } else {
+            document.getElementById("result").innerText = "Bạn đã nhập 0";
+        }
+    }
+</script>
+</body>
+</html>

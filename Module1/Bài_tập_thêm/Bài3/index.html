@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lê Quang Thái</title>
+</head>
+<body>
+<input type="text" id="inputData">
+<button id="submitData" onclick="clickButton()">Add</button>
+<p id="outputData"></p>
+</body>
+<script>
+    function clickButton() {
+        let inputData = document.getElementById("inputData").value;
+        if (inputData != "") {
+            document.getElementById("outputData").innerHTML="<button>"+inputData+"</button>";
+        } else {
+            alert("Bạn chưa nhập nội dung");
+        }
+    }
+</script>
+</html>

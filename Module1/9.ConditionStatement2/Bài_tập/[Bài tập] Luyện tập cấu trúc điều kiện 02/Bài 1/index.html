@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>C to F</title>
+</head>
+<body>
+<h1>Chuyển đổi nhiệt độ</h1>
+<label>Độ C:</label>
+<input type="number" id="c">
+<label>Độ F:</label>
+<input type="number" id="f"><br>
+<button onclick="changerTemperature()">Chuyển đổi</button>
+<script>
+    function changerTemperature() {
+        let c = document.getElementById("c").value;
+        if (c <= 0) {
+            alert("Nhập sai")
+        } else {
+            document.getElementById("f").value = c * 9 / 5 + 32;
+        }
+    }
+</script>
+</body>
+</html>

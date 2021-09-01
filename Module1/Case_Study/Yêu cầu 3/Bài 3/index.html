@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let number = parseInt(prompt("Vui lòng nhập vào số phân số"));
+    let numerators = [];
+    let denominator = [];
+    for (let i = 0; i < number; i++) {
+        numerators.push(parseInt(prompt("Nhập tử số thứ " + i)));
+        denominator.push(parseInt(prompt("Nhập mẫu số thứ " + i)));
+    }
+
+    function maxFraction(numerators, denominator) {
+        let max = parseFloat(numerators[0] / denominator[0]);
+        let result, local;
+        for (let i = 0; i < numerators.length; i++) {
+            result = parseFloat(numerators[i] / denominator[i]);
+            if (result > max) {
+                max = result;
+                local = i;
+            }
+        }
+        console.log(numerators[local]+"/"+denominator[local]+" là phân số lớn nhất có chỉ số là:"+ local);
+    }
+    maxFraction(numerators,denominator);
+</script>
+</body>
+</html>

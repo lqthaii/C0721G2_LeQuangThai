@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<label>Nhập vào từ bạn muốn tìm kiếm</label><br>
+<input type="text" id="inputText"><br>
+<button onclick="search()">Tìm kiếm</button><br>
+<p id="result"></p>
+<script>
+    function search() {
+        let dataEng = ["If","Else","Result"];
+        let dataVie = ["Nếu", "Hoặc","Kết Quả"];
+        let inputText = document.getElementById("inputText").value;
+        let result;
+        for(let i=0;i<dataEng.length;i++){
+            if(dataEng[i] == inputText){
+                result = dataVie[i];
+            }
+            else {
+                result = "Không tìm thấy kết quả";
+            }
+        }
+        document.getElementById("result").innerText=result;
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Ứng dụng quản lý sản phẩm</h1>
+<div>
+    <p>Thêm sản phẩm</p>
+    <input type="text" placeholder="Nhập tên sản phẩm" id="newProduct">
+    <button onclick="addProduct()">Thêm</button>
+</div>
+<br>
+<div id="result"></div>
+<script>
+    let dataProduct = new Array("Sony", "LG", "Apple")
+    let flag = false;
+    function displayData() {
+        let data = "<table>";
+        for (let i = 0; i < dataProduct.length; i++) {
+            data += "<tr id='product" + i + "'>";
+            data += "<td style='width: 20px;'>" + (i + 1) + "</td>"
+            data += "<td style='width: 100px;'>" + dataProduct[i] + "</td>";
+            data += "<td style='width: 20px;'><button onclick='editProduct(" + i + ")'>Edit</button></td>";
+            data += "<td style='width: 20px;'><button onclick='deleteProduct(" + i + ")'>Delete</button></td>";
+            data += "</tr>";
+        }
+        data += "</table>";
+        document.getElementById("result").innerHTML = data;
+    }
+
+    function addProduct() {
+        let newProduct = document.getElementById("newProduct").value;
+        if (newProduct != "") {
+            dataProduct.push(newProduct)
+        } else {
+            alert("Vui lòng nhập tên sản phẩm cần thêm");
+        }
+        document.getElementById("newProduct").value="";
+        displayData();
+    }
+
+    function editProduct(local) {
+        if(flag==true){
+            displayData();
+        }
+        document.getElementById("product" + local).innerHTML = "<tr><td>"+(local+1)+"</td>" +
+            "<td><input type='text' id='editProduct' value='" + dataProduct[local] + "'></td>" +
+            "<td><button onclick='saveProduct(" + local + ")'>Save</button></td></tr>"
+        flag = true;
+    }
+
+    function saveProduct(local) {
+        dataProduct[local] = document.getElementById("editProduct").value;
+        displayData();
+        flag = false;
+    }
+
+    function deleteProduct(local) {
+        if (confirm("Bạn có muốn xoá sản phẩm " + dataProduct[local] + " không?")) {
+            dataProduct.splice(local, 1);
+            displayData();
+        }
+    }
+
+    displayData()
+</script>
+</body>
+</html>

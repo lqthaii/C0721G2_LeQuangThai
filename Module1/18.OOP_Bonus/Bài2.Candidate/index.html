@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class Candidate {
+        constructor(id, name, birthday, scoreMath, scoreEnglish, scoreLite) {
+            this.id = id;
+            this.name = name;
+            this.birthday = birthday;
+            this.scoreMath = scoreMath;
+            this.scoreEnglish = scoreEnglish;
+            this.scoreLite = scoreLite;
+        }
+
+        getid() {
+            return this.id;
+        }
+
+        setid(id) {
+            this.id = id;
+        }
+
+        getname() {
+            return this.name;
+        }
+
+        setname(name) {
+            this.name = name;
+        }
+
+        getbirthday() {
+            return this.birthday;
+        }
+
+        setbirthday(birthday) {
+            this.birthday = birthday;
+        }
+
+        getscoreMath() {
+            return this.scoreMath;
+        }
+
+        setscoreMath(scoreMath) {
+            this.scoreMath = scoreMathvalue;
+        }
+
+        getscoreEnglish() {
+            return this.scoreEnglish;
+        }
+
+        setscoreEnglish(scoreEnglish) {
+            this.scoreEnglish = scoreEnglish;
+        }
+
+        getscoreLite() {
+            return this.scoreLite;
+        }
+
+        setscoreLite(scoreLite) {
+            this.scoreLite = scoreLite;
+        }
+        sumScore(){
+            return parseInt(this.getscoreEnglish()) + parseInt(this.getscoreLite()) + parseInt(this.getscoreMath());
+        }
+    }
+    class TestCandidate{
+        inputCandidate(){
+            let candidatearr= [];
+            let n = parseInt(prompt("Vui lòng nhập vào số Thí Sinh:"));
+            for(let i=0;i<n;i++){
+                let id= prompt("Nhập id");
+                let name= prompt("Nhập name");
+                let birthday= prompt("Nhập birthday");
+                let scoreLite= prompt("Nhập Điểm Văn");
+                let scoreEnglish= prompt("Nhập Điểm Tiếng Anh");
+                let scoreMath= prompt("Nhập Điểm Toán");
+                candidatearr.push(new Candidate(id,name,birthday,scoreMath,scoreEnglish,scoreLite));
+            }
+            for(let i=0;i<n;i++){
+                if(candidatearr[i].sumScore()>=15){
+                    document.write(i+",");
+                    document.write("SBD:"+candidatearr[i].getid()+",");
+                    document.write("Tên Thí Sinh: "+candidatearr[i].getname()+",");
+                    document.write("Ngày sinh: "+candidatearr[i].getbirthday()+",");
+                    document.write("Điểm Toán: "+candidatearr[i].getscoreMath()+",");
+                    document.write("Điểm Tiếng Anh: "+candidatearr[i].getscoreEnglish()+",");
+                    document.write("Điểm Văn: "+candidatearr[i].getscoreLite()+"<br>");
+
+                }
+            }
+        }
+    }
+    let testCandidate = new TestCandidate();
+    testCandidate.inputCandidate();
+</script>
+</body>
+</html>

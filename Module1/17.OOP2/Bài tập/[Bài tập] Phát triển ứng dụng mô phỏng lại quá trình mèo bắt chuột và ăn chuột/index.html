@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class Animals {
+        constructor(name, weight, speed, status) {
+            this.name = name;
+            this.weight = weight;
+            this.speed = speed;
+            this.status = status;
+        }
+
+        getStatus() {
+            return this.status;
+        }
+
+        setStatus(value) {
+            this.status = value;
+        }
+
+
+    }
+
+    class Rat extends Animals {
+        constructor(name, weight, speed, status) {
+            super(name, weight, speed, status);
+        }
+
+        speak() {
+            console.log("chip chip")
+        }
+    }
+
+    class Cat extends Animals {
+        constructor(name, weight, speed, status) {
+            super(name, weight, speed, status);
+        }
+
+        speak() {
+            console.log("meo meo")
+        }
+
+        catchMouse(rat) {
+            if (this.getSpeed() > rat.getSpeed() || rat.getStatus() == false) {
+                console.log("Đã bắt được chuột");
+                return true;
+            } else {
+                console.log("Không bắt được con chuột nào")
+            }
+            return false;
+        }
+
+        eatMouse(mouse) {
+            if (this.catchMouse(rat) == true) {
+                if (rat.getStatus() == true) {
+                    this.setWeight(this.getWeight() + rat.getWeight());
+                    rat.setStatus(false);
+                    console.log("Khối lượng của mèo " + this.getName() + " : " + this.getWeight())
+                } else {
+                    console.log("Mèo không ăn chuột chết")
+                }
+            } else {
+                console.log("Không bắt được con chuột nào")
+            }
+        }
+    }
+
+    let rat = new Rat("Rat", 50, 10, true);
+    let cat = new Cat("Tom", 80, 20, true);
+    rat.speak();
+    cat.speak();
+    cat.eatMouse(rat);
+</script>
+</body>
+</html>

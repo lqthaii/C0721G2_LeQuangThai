@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chuyển từ mét sang feet</title>
+</head>
+<body>
+<h1>Chuyển từ mét sang feet:</h1>
+<label>m:</label>
+<input type="number" id="m">
+<label>feet:</label>
+<input type="number" id="feet"><br>
+<button onclick="changerTemperature()">Chuyển đổi</button>
+<script>
+    function changerTemperature() {
+        let m = document.getElementById("m").value;
+        if (m <= 0) {
+            alert("Nhập sai")
+        } else {
+            document.getElementById("feet").value = m * 3.2808;
+        }
+    }
+</script>
+</body>
+</html>

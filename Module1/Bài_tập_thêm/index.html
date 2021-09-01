@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Cho hai số nguyên n,y. Hãy cho biết ngày thứ n của năm y là ngày nào. Biết rằng ngày mùng 1</h1>
+<label> Mời bạn nhập vào năm</label>
+<input type="number" id="year"><br>
+<label>Mời bạn nhập vào ngày</label>
+<input type="number" id="day"><br>
+<button onclick="check()">Kiểm tra</button>
+<p id="result"></p>
+<script>
+    function check() {
+        var n = document.getElementById("day").value;
+        var y = document.getElementById("year").value;
+        if((n < 1) || (n > 366) || (y < 1900) || (y > 2050)){
+            alert("Bạn đã nhập sai vui lòng nhập lại");
+        } else {
+        var d;
+        var m;
+        if ((y % 100 == 0 && y % 400 == 0) || (y % 4 == 0 && y % 100 != 0)) {
+            if (n <= 31) {
+                d = n;
+                m = 1;
+            } else if (n <= 60) {
+                d = n - 31;
+                m = 2;
+            } else if (n <= 91) {
+                d = n - 60;
+                m = 3;
+            } else if (n <= 121) {
+                d = n - 91;
+                m = 4;
+            } else if (n <= 152) {
+                d = n - 121;
+                m = 5;
+            } else if (n <= 182) {
+                d = n - 152;
+                m = 6;
+            } else if (n <= 213) {
+                d = n - 182;
+                m = 7;
+            } else if (n <= 244) {
+                d = n - 213;
+                m = 8;
+            } else if (n <= 274) {
+                d = n - 244;
+                m = 9;
+            } else if (n <= 305) {
+                d = n - 274;
+                m = 10;
+            } else if (n <= 335) {
+                d = n - 305;
+                m = 11;
+            } else if (n <= 366) {
+                d = n - 335;
+                m = 12;
+            }
+        } else {
+            if (n <= 31) {
+                d = n;
+                m = 1;
+            } else if (n <= 59) {
+                d = n - 31;
+                m = 2;
+            } else if (n <= 90) {
+                d = n - 59;
+                m = 3;
+            } else if (n <= 120) {
+                d = n - 90;
+                m = 4;
+            } else if (n <= 151) {
+                d = n - 120;
+                m = 5;
+            } else if (n <= 181) {
+                d = n - 151;
+                m = 6;
+            } else if (n <= 212) {
+                d = n - 181;
+                m = 7;
+            } else if (n <= 243) {
+                d = n - 212;
+                m = 8;
+            } else if (n <= 273) {
+                d = n - 243;
+                m = 9;
+            } else if (n <= 304) {
+                d = n - 273;
+                m = 10;
+            } else if (n <= 334) {
+                d = n - 304;
+                m = 11;
+            } else if (n <= 365) {
+                d = n - 334;
+                m = 12;
+            }
+        }
+            document.getElementById("result").innerText="Ngày bạn nhập là ngày: " + d + " tháng " + m + " năm " + y;
+        }
+
+    }
+    // do {
+    //     var y = prompt("Nhập vào năm:");
+    //     var n = prompt("Nhập vào ngày:");
+    // } while ((n < 1) || (n > 366) || (y < 1900) || (y > 2050));
+
+    // alert("Ngày bạn nhập là ngày: " + d + " tháng " + m + " năm " + y);
+</script>
+</body>
+</html>

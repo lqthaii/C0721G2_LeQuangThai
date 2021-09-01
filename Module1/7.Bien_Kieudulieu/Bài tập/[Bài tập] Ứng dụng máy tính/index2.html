@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+        <style>
+        body{
+            font-family: Roboto;
+            background: #373B44;
+            background: -webkit-linear-gradient(to right, #4286f4, #373B44);
+            background: linear-gradient(to right, #4286f4, #373B44);
+        }
+        .button{
+            height: 400px;
+        }
+        #calculator{
+            width:320px;
+            height:520px;
+            background-color: #eaedef;
+            top:20px;
+            margin:0 auto;
+            position:relative;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .number{
+            margin: 0px 0px 15px 15px;
+            padding: 10px 10px 10px 10px;
+            float: left;
+            width: 40px;
+            height: 5px;
+            text-align: center;
+        }
+        #result{
+            text-align: right;
+            height:60px;
+            margin: 10px 20px;
+            font-size: 30px;
+        }
+        .number,.trong{
+            width:50px;
+            height:50px;
+            margin: 15px;
+            float:left;
+            border-radius: 50%;
+            border-width: 0;
+            font-weight:bold;
+            font-size:16px;
+        }
+        button:nth-child(4) {
+            font-size: 20px;
+            background-color: #20b2aa;
+        }
+        button:nth-child(8) {
+            font-size: 20px;
+            background-color: #ffa500;
+        }
+        button:nth-child(12) {
+            font-size: 20px;
+            background-color: #f08080;
+        }
+        button:nth-child(16) {
+            font-size: 20px;
+            background-color: #7d93e0;
+        }
+        button:nth-child(20) {
+            font-size: 20px;
+            background-color: #9477af;
+        }
+        </style>
+</head>
+<body>
+<div id="calculator">
+    <div id="result"></div>
+    <div class="button">
+        <button class="number" onclick="undo()">C</button>
+        <button class="number" onclick="clean()">CE</button>
+        <button class="number" value="%">%</button>
+        <button class="number" value="/">÷</button>
+        <button class="number" value="7">7</button>
+        <button class="number" value="8">8</button>
+        <button class="number" value="9">9</button>
+        <button class="number" value="*">x</button>
+        <button class="number" value="4">4</button>
+        <button class="number" value="5">5</button>
+        <button class="number" value="6">6</button>
+        <button class="number" value="-">-</button>
+        <button class="number" value="1">1</button>
+        <button class="number" value="2">2</button>
+        <button class="number" value="3">3</button>
+        <button class="number" value="+">+</button>
+        <button class="trong"></button>
+        <button class="number" value="0">0</button>
+        <button class="trong"></button>
+        <button class="number" onclick="equal()">=</button>
+
+    </div>
+</div>
+<script >
+    const numbers = document.getElementsByClassName("number");
+    const result = document.getElementById("result");
+
+    for (let number of numbers) {
+        number.addEventListener('click', function () {
+            result.innerHTML += this.value
+        });
+    }
+    function equal(){
+        let res =result.innerHTML;
+        let output = eval(res);
+        result.innerHTML =output;
+    }
+    function clean() {
+        result.innerHTML =" ";
+    }
+
+    function undo() {
+        let res = result.innerHTML;
+        result.innerHTML = res.substring(0, res.length - 1);
+    }
+
+</script>
+</body>
+</html>

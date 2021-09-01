@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+let chieuDai = parseInt(prompt("Nhập chiều dài hình chữ nhật"))
+let chieuRong = parseInt(prompt("Nhập chiều rộng hình chữ nhật"))
+    for(let i=0;i<chieuRong;i++){
+        for(let j=0;j<chieuDai;j++){
+            if(i==0||i==chieuRong-1||j==0||j==chieuDai-1){
+                document.write("*")
+            }else {
+                document.write("&nbsp;&nbsp;");
+            }
+        }
+        document.write("<br>")
+    }
+</script>
+</body>
+</html>

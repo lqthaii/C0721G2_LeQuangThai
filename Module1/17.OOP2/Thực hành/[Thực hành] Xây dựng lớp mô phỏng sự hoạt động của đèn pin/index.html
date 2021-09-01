@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class FlashLamp{
+        constructor(status,battery) {
+            this.status = status;
+            this.battery =battery.getBattery();
+        }
+        setBattery(battery){
+            this.battery=battery;
+        }
+        getBattery(){
+            return this.battery;
+        }
+        islight(){
+            if(this.status){
+                alert("Đèn sáng");
+                battery.decreaseEnergy();
+            }else{
+                alert("Đèn tắt");
+            }
+        }
+        turnOn(){
+            this.status = true;
+        }
+        turnOff(){
+            this.status = false;
+        }
+    }
+    class Battery{
+        constructor(energy) {
+            this.energy = energy;
+        }
+        setBattery(energy) {
+            this.energy = energy;
+        }
+        getBattery(){
+            return this.energy;
+        }
+        decreaseEnergy(){
+            if(this.energy>0){
+                this.energy--;
+            }
+        }
+    }
+    let battery = new Battery();
+    battery.setBattery(10);
+    let flashLamp = new FlashLamp(true,battery);
+    //---------------------------------------------------------------------
+    document.write("Battery info:" + flashLamp.getBattery() + "<br/>");
+    flashLamp.islight();
+
+    document.write("Turn on<br/>")
+    flashLamp.turnOn();
+    flashLamp.islight();
+    document.write("Battery info:" + flashLamp.getBattery() + "<br/>");
+
+    document.write("Turn off<br/>")
+    flashLamp.turnOff();
+    flashLamp.islight();
+
+    document.write("Turn on<br/>")
+    flashLamp.turnOn();
+    flashLamp.islight();
+    document.write("Battery info:" + flashLamp.getBattery() + "<br/>");
+</script>
+</body>
+</html>

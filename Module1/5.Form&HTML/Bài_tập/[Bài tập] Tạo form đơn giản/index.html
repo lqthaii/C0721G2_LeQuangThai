@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>[Bài tập] Tạo form đơn giản</title>
+    <style>
+        .tieude{
+            background: coral;
+            color: white;
+            width: 500px;
+            text-align: center;
+        }
+        .ten{
+            color: blue;
+        }
+        .ten2{
+            color: coral;
+        }
+        .form{
+            border: solid 1px black;
+            width: 500px;
+            margin: auto;
+            padding: 10px;
+        }
+        input[type=text] {
+            width: 400px;
+            padding: 2px 40px;
+            margin: 10px 0;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    <form class="form">
+        <h1 class="tieude" >SỞ THÍCH CỦA BẠN</h1>
+        <label class="ten">Họ và tên:</label>
+        &ensp; <input type="text"><br>
+        <label class="ten">Email:</label>
+        &ensp;&ensp;&ensp;&ensp; <input type="text"><br>
+
+        <table>
+            <tr><td><label class="ten">Sở thích</label></td>
+                <td><input class="ten2" type="checkbox"> Thể thao</td>
+                <td><input class="ten2" type="checkbox"> Âm nhạc</td>
+                <td><input class="ten2" type="checkbox"> Đọc sách <br></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input class="ten2" type="checkbox"> Lướt web <br></td>
+                <td><input class="ten2" type="checkbox"> Chơi game</td>
+                <td><input class="ten2" type="checkbox"> Điện ảnh <br> </td>
+            </tr>
+            <tr><td></td>
+                <td><input class="ten2" type="checkbox"> Du lịch<br></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="submit" name="submit" value="Gửi thông tin"></td>
+                <td><input type="reset" name="reset" value="Nhập lại"></td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

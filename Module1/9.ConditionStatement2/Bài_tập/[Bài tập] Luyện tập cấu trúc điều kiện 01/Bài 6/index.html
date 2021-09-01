@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính doanh thu</title>
+</head>
+<body>
+<h1>Tính hoa hồng theo doanh số bán hàng</h1>
+<label>Nhập số doanh thu tháng này:</label>
+<input type="number" id="turnover">
+<button onclick="CalReward()">Tính hoa hồng</button>
+<p id="result">Hoa hồng tháng này là:</p>
+<script>
+    function CalReward() {
+        let turnover = parseFloat(document.getElementById("turnover").value);
+        let reward = 0;
+        if(turnover >=50000000){
+            reward = turnover*20/100;
+            document.getElementById("result").innerText ="Hoa hồng tháng này là: "+reward;
+        } else if( turnover>=20000000){
+            reward = turnover*10/100;
+            document.getElementById("result").innerText ="Hoa hồng tháng này là: "+reward;
+        }else {
+            document.getElementById("result").innerText ="Hoa hồng tháng này là: "+reward;
+        }
+    }
+</script>
+</body>
+</html>

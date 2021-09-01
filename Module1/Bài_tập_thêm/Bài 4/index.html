@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lê Quang Thái</title>
+    <style>
+        table{
+            border-collapse: collapse;
+            border: 1px solid black;
+            width: 300px;
+        }
+    </style>
+</head>
+<body>
+<table border="1px solid black">
+    <tr id="row1">
+        <td>1</td>
+        <td>Tiêu đề thứ nhất</td>
+        <td><button onClick="deleteRow1()">Delete</button> </td>
+    </tr>
+    <tr id="row2">
+        <td>2</td>
+        <td>Tiêu đề thứ hai</td>
+        <td><button onClick="deleteRow2()">Delete</button> </td>
+    </tr>
+    <tr id="row3">
+        <td>3</td>
+        <td>Tiêu đề thứ ba</td>
+        <td><button onClick="deleteRow3()">Delete</button> </td>
+    </tr>
+    <tr id="row4">
+        <td>4</td>
+        <td>Tiêu đề thứ bốn</td>
+        <td><button onClick="deleteRow4()">Delete</button> </td>
+    </tr>
+</table>
+<script>
+    function deleteRow1(){
+        document.getElementById("row1").innerHTML=null;
+    }
+    function deleteRow2(){
+        document.getElementById("row2").innerHTML=null;
+    }
+    function deleteRow3(){
+        document.getElementById("row3").innerHTML=null;
+    }
+    function deleteRow4(){
+        document.getElementById("row4").innerHTML=null;
+    }
+</script>
+</body>
+</html>

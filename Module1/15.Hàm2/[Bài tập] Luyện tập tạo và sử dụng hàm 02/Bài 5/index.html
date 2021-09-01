@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function checkMax(a,b,c) {
+        let max =a;
+        if(max<b){
+            max =b;
+        }else if(max <c ){
+            max =c;
+        }
+        return max;
+    }
+    let number1  =parseInt(prompt("Vui lòng nhập vào số thứ nhất"));
+    let number2  =parseInt(prompt("Vui lòng nhập vào số thứ hai"));
+    let number3  =parseInt(prompt("Vui lòng nhập vào số thứ ba"));
+    let max = checkMax(number1,number2,number3);
+    alert(max);
+</script>
+</body>
+</html>

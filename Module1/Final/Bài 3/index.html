@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let n;
+    let arr = [];
+    do {
+        n = prompt("Vui lòng nhập vào phần tử n");
+    } while (n < 0);
+
+    function inputArray() {
+        for (let i = 0; i < n; i++) {
+            arr[i] = parseInt(prompt("Vui lòng nhập phần tử thứ " + i));
+        }
+    }
+
+    function outputArray() {
+        console.log("Mảng bạn nhập vào là:")
+        for (let i = 0; i < arr.length; i++) {
+            console.log(arr[i] + " ");
+        }
+    }
+
+    function isPrime(n) {
+        if (n < 2) {
+            return false;
+        }
+        for (let i = 2; i < n / 2; i++) {
+            if (n % i == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    function arrayPrime(arr) {
+        let newArr = [];
+        for (let i = 0; i < arr.length; i++) {
+            if (isPrime(arr[i])) {
+                newArr.push(arr[i]);
+            }
+        }
+        return newArr;
+    }
+
+    function sortArray(arr) {
+        let temp;
+        for (let i = 0; i < arr.length; i++) {
+            for (let j = i; j < arr.length; j++) {
+                if (arr[i] > arr[j]) {
+                    temp = arr[i];
+                    arr[i] = arr[j];
+                    arr[j] = temp;
+                }
+            }
+        }
+        return arr;
+    }
+
+    inputArray();
+    outputArray();
+    let newArr = arrayPrime(arr);
+    newArr = sortArray(newArr);
+    console.log(newArr);
+</script>
+</body>
+</html>

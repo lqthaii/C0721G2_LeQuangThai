@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>[Bài tập] Máy tính đơn giản</title>
+    <style>
+        td {
+            margin: 0px 0px 15px 15px;
+            padding: 5px 5px 5px 5px;
+            float: left;
+            width: 50px;
+            height: 5px;
+            text-align: center;
+        }
+
+        button {
+            height: 30px;
+            width: 50px;
+        }
+        table{
+            width: 400px;
+            height: 300px;
+        }
+        input{
+            width: 265px;
+        }
+    </style>
+</head>
+<body>
+<table>
+    <tr>
+        <td colspan="4"><input id="output" value=""></td>
+    </tr>
+    <tr>
+        <td>
+            <button onclick="inputNumber('1')">1</button>
+        </td>
+        <td>
+            <button onclick="inputNumber('2')">2</button>
+        </td>
+        <td>
+            <button onclick="inputNumber('3')">3</button>
+        </td>
+        <td>
+            <button onclick="inputNumber('+')">+</button>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <button onclick="inputNumber('4')">4</button>
+        </td>
+        <td>
+            <button onclick="inputNumber('5')">5</button>
+        </td>
+        <td>
+            <button onclick="inputNumber('6')">6</button>
+        </td>
+        <td>
+            <button onclick="inputNumber('-')">-</button>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <button onclick="inputNumber('7')">7</button>
+        </td>
+        <td>
+            <button onclick="inputNumber('8')">8</button>
+        </td>
+        <td>
+            <button onclick="inputNumber('9')">9</button>
+        </td>
+        <td>
+            <button onclick="inputNumber('*')">X</button>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <button onclick="clean()">C</button>
+        </td>
+        <td>
+            <button onclick="inputNumber('0')">0</button>
+        </td>
+        <td>
+            <button onclick="resolve()">=</button>
+        </td>
+        <td>
+            <button onclick="inputNumber('/')">/</button>
+        </td>
+    </tr>
+</table>
+<script>
+            function inputNumber(number) {
+                // let output = document.getElementById("output").value;
+                document.getElementById("output").value += number;
+            }
+            function clean() {
+                document.getElementById("output").value ="";
+            }
+            function resolve() {
+                document.getElementById("output").value = eval(document.getElementById("output").value);
+            }
+
+</script>
+</body>
+</html>

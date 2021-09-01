@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Tính cước điện thoại</h1>
+<label>Nhập số thời gian đã gọi điện:</label>
+<input type="number" id="number">
+<button onclick="phoneCharge()">Tính cước</button>
+<p id="result">Số tiền cước này là:</p>
+<script>
+    function phoneCharge() {
+        let number = parseFloat(document.getElementById("number").value);
+        let phonecharges = 0;
+        if(number >=1000){
+            phonecharges = number*1600;
+            document.getElementById("result").innerText ="Tiền cước tháng này là: "+phonecharges;
+        } else if( number>=500){
+            phonecharges = number*1300;
+            document.getElementById("result").innerText ="Tiền cước tháng này là: "+phonecharges;
+        }else if(number >0){
+            phonecharges = number*1000;
+            document.getElementById("result").innerText ="Tiền cước tháng này là: "+phonecharges;
+        }
+        else {
+            document.getElementById("result").innerText ="Tiền cước tháng này là: "+phonecharges;
+        }
+    }
+</script>
+</body>
+</html>

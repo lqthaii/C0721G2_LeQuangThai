@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính giá điện</title>
+</head>
+<body>
+<h1>Tính giá điện</h1>
+<label>Mời bạn nhập vào số điện sử dụng(kV)</label>
+<input type="number" id="giadien"><br>
+<button onclick="tinhGiaDien()">Tính giá điện</button>
+<p id="xuatgiadien"></p>
+<script>
+    function tinhGiaDien() {
+        let giadien = document.getElementById("giadien").value;
+        let tongtien = 0;
+        if (giadien >= 110) {
+            tongtien = giadien * 1536;
+        } else if (giadien >= 22) {
+            tongtien = giadien * 1555;
+        } else if (giadien >= 6) {
+            tongtien = giadien * 1611;
+        } else {
+            tongtien = giadien * 1685;
+        }
+        document.getElementById("xuatgiadien").innerText = "Tổng số tiền bạn phải trả là:" + tongtien + "vnd";
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let n;
+    let arr = [];
+    do {
+        n = prompt("Vui lòng nhập vào phần tử n");
+    } while (n < 0 || n > 20);
+
+    function inputArray() {
+        for (let i = 0; i < n; i++) {
+            arr[i] = parseInt(prompt("Vui lòng nhập phần tử thứ " + i));
+        }
+    }
+
+    function outputArray() {
+        console.log("Mảng bạn nhập vào là:")
+        for (let i = 0; i < arr.length; i++) {
+        console.log(arr[i]+" ");
+        }
+    }
+
+    function resultArray() {
+        let evenNumber = 0;
+        let oddNumber = 0;
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i] % 2 == 0) {
+                evenNumber += arr[i];
+            } else {
+                oddNumber += arr[i];
+            }
+        }
+        return evenNumber - oddNumber;
+    }
+
+    inputArray();
+    outputArray();
+    let result = resultArray();
+    console.log("Kết quả:" + result);
+</script>
+</body>
+</html>

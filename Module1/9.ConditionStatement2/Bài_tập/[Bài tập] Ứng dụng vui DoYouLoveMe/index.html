@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>[Bài tập] Ứng dụng vui DoYouLoveMe</title>
+</head>
+<body>
+<p>Do you love me?</p>
+<button onclick="clickYes()">Yes</button>
+<button style="position: absolute" id="btnNo" onmouseover="clickNo()">No</button>
+<script>
+    function clickYes() {
+        alert("♥")
+    }
+    function clickNo() {
+        document.getElementById("btnNo").style.left = Math.random()*window.innerHeight + "px";
+        document.getElementById("btnNo").style.top = Math.random()*window.innerWidth + "px";
+    }
+</script>
+</body>
+</html>

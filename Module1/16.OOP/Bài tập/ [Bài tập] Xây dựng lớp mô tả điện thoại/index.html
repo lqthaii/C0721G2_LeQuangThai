@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        /* The switch - the box around the slider */
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+        }
+
+        /* Hide default HTML checkbox */
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        /* The slider */
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
+
+        input:checked + .slider {
+            background-color: #2196F3;
+        }
+
+        input:focus + .slider {
+            box-shadow: 0 0 1px #2196F3;
+        }
+
+        input:checked + .slider:before {
+            -webkit-transform: translateX(26px);
+            -ms-transform: translateX(26px);
+            transform: translateX(26px);
+        }
+
+        /* Rounded sliders */
+        .slider.round {
+            border-radius: 34px;
+        }
+
+        .slider.round:before {
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+<div style="background:dodgerblue; width: 350px; height: 400px;border-radius: 10px 10px 10px 10px;">
+    <p style="background: red; border-radius: 10px 10px; text-align: center; height: 50px; color: gold">Điện thoại Nokia</p>
+    <label class="switch" ><br>
+        <input type="checkbox" id="nguonNokia" onchange="changeNguonNokia()">
+        <span class="slider round"></span>
+    </label><br>
+    <label id="pinNokia">Pin:</label>
+    <button onclick="sacPinNokia()">Sạc Pin</button>
+    <br>
+    <input type="text" id="smsNokia" placeholder="Soạn tin nhắn">
+    <button onclick="nokiaSend()"> Gửi</button>
+    <button onclick="nokiaCancle()"> Huỷ</button>
+    <br>
+    <button onclick="displayHopThuDenNokia()">Hộp thư đến</button>
+    <button onclick="displayHopThuDiNokia()">Hộp thư đi</button>
+    <button onclick="displayHopThuNhapNokia()">Hộp thư nháp</button>
+    <p id="resultNokia"></p>
+</div>
+<br>
+<div style="background: dodgerblue; width: 350px; height: 400px;border-radius: 10px 10px 10px 10px;">
+    <p style="background: red; border-radius: 10px 10px; text-align: center; height: 50px; color: gold">Điện thoại Apple</p>
+    <label class="switch"><br>
+        <input type="checkbox" id="nguonApple" onchange="changeNguonApple()">
+        <span class="slider round"></span>
+    </label><br>
+    <label id="pinApple">Pin:</label>
+    <button onclick="sacPinApple()">Sạc Pin</button>
+    <br>
+    <input type="text" id="smsApple" placeholder="Soạn tin nhắn">
+    <button onclick="appleSend()">Gửi</button>
+    <button onclick="appleCancle()"> Huỷ</button>
+    <br>
+    <button onclick="displayHopThuDenApple()">Hộp thư đến</button>
+    <button onclick="displayHopThuDiApple()">Hộp thư đi</button>
+    <button onclick="displayHopThuNhapApple()">Hộp thư nháp</button>
+    <p id="resultApple"></p>
+</div>
+<script>
+    class Mobile {
+        constructor(ten, pin) {
+            this.ten = ten;
+            this.pin = pin;
+            this.nguon = "";
+            this.hopThuDen = [];
+            this.hopThuDi = [];
+            this.hopThuNhap = [];
+            this.soanTinNhan = "";
+        }
+
+        /*trangThai() {
+            this.pin--;
+            return this.status;
+        }*/
+
+        thayDoiTrangThai(status) {
+            this.pin--;
+            this.nguon = status;
+        }
+
+        sacPin() {
+            while (this.pin < 100) {
+                this.pin += 0.1;
+            }
+            this.pin = parseInt(this.pin);
+        }
+
+        vietTinNhan(tinnhan) {
+            this.soanTinNhan = tinnhan;
+        }
+
+        luuTruTinNhan() {
+            this.hopThuNhap.push(this.soanTinNhan);
+            this.soanTinNhan = "";
+            this.pin--;
+        }
+
+        guiTinNhan(mobile) {
+            mobile.hopThuDen.push(this.ten + " đã gửi tin nhắn với nội dung: " + this.soanTinNhan);
+            this.hopThuDi.push("Đã gửi tin nhắn tới " + mobile.ten + " với tin nhắn: " + this.soanTinNhan);
+            this.pin--;
+
+        }
+    }
+
+    let nokia = new Mobile("Nokia", 10);
+    let apple = new Mobile("Apple", 100);
+    nokia.nguon = document.getElementById("nguonNokia").checked;
+    apple.nguon = document.getElementById("nguonApple").checked;
+    document.getElementById("pinNokia").innerText = "Pin: " + nokia.pin;
+    document.getElementById("pinApple").innerText = "Pin: " + apple.pin;
+
+    function nokiaSend() {
+        if (nokia.nguon && nokia.pin > 0) {
+            let smsNokia = document.getElementById("smsNokia").value;
+            document.getElementById("smsNokia").value = "";
+            nokia.vietTinNhan(smsNokia);
+            nokia.guiTinNhan(apple);
+            console.log(apple.hopThuDen);
+            document.getElementById("pinNokia").innerText = "Pin: " + nokia.pin;
+        } else {
+            alert("Vui lòng bật điện thoại hoặc sạc pin");
+        }
+
+    }
+
+    function appleSend() {
+        if (apple.nguon && apple.pin > 0) {
+            let smsApple = document.getElementById("smsApple").value;
+            document.getElementById("smsApple").value = "";
+            apple.vietTinNhan(smsApple);
+            apple.guiTinNhan(nokia);
+            console.log(nokia.hopThuDen);
+            document.getElementById("pinApple").innerText = "Pin: " + apple.pin;
+        } else {
+            alert("Vui lòng bật điện thoại hoặc sạc pin");
+        }
+    }
+
+    function nokiaCancle() {
+        if (nokia.nguon && nokia.pin > 0) {
+            let smsNokia = document.getElementById("smsNokia").value;
+            nokia.vietTinNhan(smsNokia);
+            nokia.luuTruTinNhan();
+            document.getElementById("smsNokia").value = "";
+            console.log(nokia.hopThuNhap);
+            document.getElementById("pinNokia").innerText = "Pin: " + nokia.pin;
+        } else {
+            alert("Vui lòng bật điện thoại hoặc sạc pin");
+        }
+    }
+
+    function appleCancle() {
+        if (apple.nguon && apple.pin > 0) {
+            let smsApple = document.getElementById("smsApple").value;
+            apple.vietTinNhan(smsApple);
+            apple.luuTruTinNhan();
+            document.getElementById("smsApple").value = "";
+            console.log(apple.hopThuNhap);
+            document.getElementById("pinApple").innerText = "Pin: " + apple.pin;
+        } else {
+            alert("Vui lòng bật điện thoại hoặc sạc pin");
+        }
+    }
+
+    function displayHopThuDenNokia() {
+        if (nokia.nguon && nokia.pin > 0) {
+            let data = "<table>";
+            for (let i = 0; i < nokia.hopThuDen.length; i++) {
+                data += "<tr>"
+                data += "<td>" + (i + 1) + "</td>";
+                data += "<td>" + nokia.hopThuDen[i] + "</td>";
+                data += "</tr>"
+            }
+            data += "</table>";
+            document.getElementById("resultNokia").innerHTML = data;
+            document.getElementById("pinNokia").innerText = "Pin: " + nokia.pin;
+        } else {
+            alert("Vui lòng bật điện thoại hoặc sạc pin");
+        }
+    }
+
+    function displayHopThuDiNokia() {
+        if (nokia.nguon && nokia.pin > 0) {
+            let data = "<table>";
+            for (let i = 0; i < nokia.hopThuDi.length; i++) {
+                data += "<tr>"
+                data += "<td>" + (i + 1) + "</td>";
+                data += "<td>" + nokia.hopThuDi[i] + "</td>";
+                data += "</tr>"
+            }
+            data += "</table>";
+            document.getElementById("resultNokia").innerHTML = data;
+            document.getElementById("pinNokia").innerText = "Pin: " + nokia.pin;
+        } else {
+            alert("Vui lòng bật điện thoại hoặc sạc pin");
+        }
+    }
+
+    function displayHopThuNhapNokia() {
+        if (nokia.nguon && nokia.pin > 0) {
+            let data = "<table>";
+            for (let i = 0; i < nokia.hopThuNhap.length; i++) {
+                data += "<tr>"
+                data += "<td>" + (i + 1) + "</td>";
+                data += "<td>" + nokia.hopThuNhap[i] + "</td>";
+                data += "</tr>"
+            }
+            data += "</table>";
+            document.getElementById("resultNokia").innerHTML = data;
+            document.getElementById("pinNokia").innerText = "Pin: " + nokia.pin;
+        } else {
+            alert("Vui lòng bật điện thoại hoặc sạc pin");
+        }
+    }
+
+    function displayHopThuDenApple() {
+        if (apple.nguon && apple.pin > 0) {
+            let data = "<table>";
+            for (let i = 0; i < apple.hopThuDen.length; i++) {
+                data += "<tr>"
+                data += "<td>" + (i + 1) + "</td>";
+                data += "<td>" + apple.hopThuDen[i] + "</td>";
+                data += "</tr>"
+            }
+            data += "</table>";
+            document.getElementById("resultApple").innerHTML = data;
+            document.getElementById("pinApple").innerText = "Pin: " + apple.pin;
+        } else {
+            alert("Vui lòng bật điện thoại hoặc sạc pin");
+        }
+    }
+
+    function displayHopThuDiApple() {
+        if (apple.nguon && apple.pin > 0) {
+            let data = "<table>";
+            for (let i = 0; i < apple.hopThuDi.length; i++) {
+                data += "<tr>"
+                data += "<td>" + (i + 1) + "</td>";
+                data += "<td>" + apple.hopThuDi[i] + "</td>";
+                data += "</tr>"
+            }
+            data += "</table>";
+            document.getElementById("resultApple").innerHTML = data;
+            document.getElementById("pinApple").innerText = "Pin: " + apple.pin;
+        } else {
+            alert("Vui lòng bật điện thoại hoặc sạc pin");
+        }
+    }
+
+    function displayHopThuNhapApple() {
+        if (apple.nguon && apple.pin > 0) {
+
+            let data = "<table>";
+            for (let i = 0; i < apple.hopThuNhap.length; i++) {
+                data += "<tr>"
+                data += "<td>" + (i + 1) + "</td>";
+                data += "<td>" + apple.hopThuNhap[i] + "</td>";
+                data += "</tr>"
+            }
+            data += "</table>";
+            document.getElementById("resultApple").innerHTML = data;
+            document.getElementById("pinApple").innerText = "Pin: " + apple.pin;
+        } else {
+            alert("Vui lòng bật điện thoại hoặc sạc pin");
+        }
+    }
+
+    function changeNguonNokia() {
+        let nguon = document.getElementById("nguonNokia").checked;
+        nokia.thayDoiTrangThai(nguon);
+        document.getElementById("pinNokia").innerText = "Pin: " + nokia.pin;
+    }
+
+    function changeNguonApple() {
+        let nguon = document.getElementById("nguonApple").checked;
+        apple.thayDoiTrangThai(nguon);
+        document.getElementById("pinApple").innerText = "Pin: " + apple.pin;
+    }
+
+    function sacPinNokia() {
+        nokia.sacPin();
+        document.getElementById("pinNokia").innerText = "Pin: " + nokia.pin;
+    }
+
+    function sacPinApple() {
+        apple.sacPin();
+        document.getElementById("pinApple").innerText = "Pin: " + apple.pin;
+    }
+</script>
+</body>
+</html>

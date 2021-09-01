@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let number = parseInt(prompt("Nhập một số từ bàn phím"));
+    let temp;
+    let read = [];
+    while (number != 0) {
+        temp = parseInt(number % 10);
+        number = parseInt(number / 10);
+        console.log(typeof temp);
+        switch (temp) {
+            case 0 : {
+                read.unshift('Không');
+                break;
+            }
+            case 1 : {
+                read.unshift('Một');
+                break;
+            }
+            case 2 : {
+                read.unshift('Hai');
+                break;
+            }
+            case 3 : {
+                read.unshift('Ba');
+                break;
+            }
+            case 4 : {
+                read.unshift('Bốn');
+                break;
+            }
+            case 5 : {
+                read.unshift('Năm');
+                break;
+            }
+            case 6 : {
+                read.unshift('Sáu');
+                break;
+            }
+            case 7 : {
+                read.unshift('Bảy');
+                break;
+            }
+            case 8 : {
+                read.unshift('Tám');
+                break;
+            }
+            case 9 : {
+                read.unshift('Chín');
+                break;
+            }
+        }
+    }
+    for (let i = 0; i < read.length; i++) {
+        document.write(read[i]+" ");
+    }
+</script>
+</body>
+</html>

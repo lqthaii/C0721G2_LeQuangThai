@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Quản lý cán bộ</h1>
+<table>
+    <tr>
+        <th><label>ID</label></th>
+        <td><input type="text"></td>
+    </tr>
+
+</table>
+<script>
+    class Cadres {
+        constructor(id, name, sex, hometown, yearBirth, specialize, coefficientsSalary, allowance) {
+            this.id = id;
+            this.name = name;
+            this.sex = sex;
+            this.hometown = hometown;
+            this.yearBirth = yearBirth;
+            this.specialize = specialize;
+            this.coefficientsSalary = coefficientsSalary;
+            this.allowance = allowance;
+            this.realField = (this.coefficientsSalary + this.allowance) * 450000;
+        }
+    }
+
+    let cadres = [];
+
+    function displayCadres() {
+        let data = "<table>";
+        data += "<tr>"
+        data += "<th>ID</th>"
+        data += "<th>Tên Cán Bộ</th>"
+        data += "<th>Giới Tính</th>"
+        data += "<th>Quê Quán</th>"
+        data += "<th>Năm sinh</th>"
+        data += "<th>Chuyên Môn</th>"
+        data += "<th>Trình Độ</th>"
+        data += "<th>Hệ Số Lương</th>"
+        data += "<th>Phụ Cấp</th>"
+        data += "<th>Thực Lĩnh</th>"
+        data += "</tr>"
+        for (let i = 0; i < cadres.length; i++) {
+            data += "<tr>"
+            data += "<td>" + cadres[i].id + "</td>"
+            data += "<td>" + cadres[i].name + "</td>"
+            data += "<td>" + cadres[i].sex + "</td>"
+            data += "<td>" + cadres[i].hometown + "</td>"
+            data += "<td>" + cadres[i].yearBirth + "</td>"
+            data += "<td>" + cadres[i].specialize + "</td>"
+            data += "<td>" + cadres[i].coefficientsSalary + "</td>"
+            data += "<td>" + cadres[i].allowance + "</td>"
+            data += "<td>" + cadres[i].realField + "</td>"
+            data += "</tr>"
+        }
+        data += "</table>"
+    }
+    function createCadres() {
+
+    }
+</script>
+</body>
+</html>

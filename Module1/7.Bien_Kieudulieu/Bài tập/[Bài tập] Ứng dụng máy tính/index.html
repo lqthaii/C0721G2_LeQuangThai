@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>[Bài tập] Ứng dụng máy tính</title>
+</head>
+<body>
+    <input type="number" id="number1" >
+    <input type="number" id="number2" ><br>
+    <button onclick="addition()">Addition(+)</button>
+    <button onclick="subtraction()">Subtraction(-)</button>
+    <button onclick="multiplication()">Multiplication(x)</button>
+    <button onclick="division()">Division(/)</button>
+    <p id="result"></p>
+    <script>
+        function addition() {
+            let a = parseFloat(document.getElementById("number1").value);
+            let b = parseFloat(document.getElementById("number2").value);
+            let result;
+            result = a + b;
+            document.getElementById("result").innerHTML = "Result:" + result;
+        }
+
+        function subtraction() {
+            let a = parseFloat(document.getElementById("number1").value);
+            let b = parseFloat(document.getElementById("number2").value);
+            let result;
+            result = a - b;
+            document.getElementById("result").innerHTML = "Result:" + result;
+        }
+
+        function multiplication() {
+            let a = parseFloat(document.getElementById("number1").value);
+            let b = parseFloat(document.getElementById("number2").value);
+            let result;
+            result = a * b;
+            document.getElementById("result").innerHTML = "Result:" + result;
+        }
+
+        function division() {
+            if(b==0){
+                alert("Không chia được cho 0");
+            }else{
+            let a = parseFloat(document.getElementById("number1").value);
+            let b = parseFloat(document.getElementById("number2").value);
+            let result;
+            result = a / b;
+            document.getElementById("result").innerHTML = "Result:" + result;
+            }
+        }
+    </script>
+</body>
+</html>

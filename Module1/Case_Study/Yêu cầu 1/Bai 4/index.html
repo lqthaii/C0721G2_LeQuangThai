@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let chieuCao = parseInt(prompt("Vui lòng nhập chiều cao"));
+    for(let i=0;i<=chieuCao;i++){
+        for(let j=1;j<=chieuCao-i;j++)
+            document.write("&nbsp;&nbsp;");
+        for(let j=1;j<=2*i-1;j++)
+            if(j==1||j==2*i-1||i==chieuCao){
+                document.write("*");
+            }
+            else{
+                document.write("&nbsp;&nbsp;");
+            }
+        document.write("<br>");
+    }
+</script>
+</body>
+</html>

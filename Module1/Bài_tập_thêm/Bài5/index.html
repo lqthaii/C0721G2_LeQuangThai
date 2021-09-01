@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lê Quang Thái</title>
+</head>
+<body>
+<p>Bạn là thành viên của lớp C0721G2</p>
+<input type="checkbox" id="c721G2">Vâng, đúng rồi<br>
+<button onclick="turnOn()">Chọn</button>
+<button onclick="turnOff()">Bỏ Chọn</button>
+
+<script>
+    function turnOn() {
+        document.getElementById("c721G2").checked = true;
+    }
+
+    function turnOff() {
+        document.getElementById("c721G2").checked = false;
+    }
+</script>
+</body>
+</html>

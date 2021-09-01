@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let str1 = prompt("Vui lòng nhập chuỗi 1");
+    str1 = str1.split("");
+    let str2 = prompt("Vui lòng nhập chuỗi 1");
+    str2 = str2.split("");
+    commonCharacterCount(str1, str2);
+    function commonCharacterCount(str1, str2) {
+        console.log("String 1: " + str1)
+        console.log("String 2: " + str2)
+        let count = 0;
+        for (let i = 0; i < str1.length; i++) {
+            for (let j = 0; j < str2.length; j++) {
+                if(str1[i] == str2[j]) {
+                    count++;
+                    str2.splice(j,1);
+                    break;
+                }
+            }
+        }
+        console.log("Số kí tự trùng nhau: " + count);
+    }
+</script>
+</body>
+</html>

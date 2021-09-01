@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<label>Nhập số a:</label>
+<input type="number" id="a"><br>
+<label>Nhập số b:</label>
+<input type="number" id="b">
+<p>Phương trình có dạng ax + b =0</p>
+<button onclick="result()">Tính</button>
+<p id="result">x=</p>
+<script>
+    function result() {
+        let a = document.getElementById("a").value;
+        let b = document.getElementById("b").value;
+        if(a ==0 && b ==0){
+            alert("Phương trình vô số nghiệm")
+        } else if(a ==0 && b!=0){
+            alert("Phương trình vô nghiệm")
+        } else{
+            document.getElementById("result").innerText="x= "+ -b/a;
+        }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiểm tra xếp loại</title>
+</head>
+<body>
+<h1>Xếp loại học sinh</h1> <br>
+<label>Điểm bài kiểm tra:</label>
+<input type="number" id="routineTest"><br>
+<label>Điểm thi giữa kỳ:</label>
+<input type="number" id="midtermTest"><br>
+<label>Điểm thi cuối kỳ:</label>
+<input type="number" id="finalExam"><br>
+<button onclick="checkAcademic()">Kiểm tra</button>
+<p id="result"></p>
+<script>
+    function checkAcademic(){
+        let routineTest = document.getElementById("routineTest").value;
+        let midtermTest = document.getElementById("midtermTest").value;
+        let finalExam = document.getElementById("finalExam").value;
+        let average = parseFloat(routineTest*20/100+midtermTest*30/100+finalExam*50/100);
+        if(average>=8){
+            document.getElementById("result").innerText ="Good";
+        } else if(average>=6.5){
+            document.getElementById("result").innerText ="Rather";
+        } else if(average>=3.5){
+            document.getElementById("result").innerText ="Medium";
+        } else {
+            document.getElementById("result").innerText ="Feebleness";
+        }
+    }
+
+</script>
+</body>
+</html>

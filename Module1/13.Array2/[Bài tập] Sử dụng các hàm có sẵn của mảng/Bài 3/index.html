@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var UPPER = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    var LOWER = 'abcdefghijklmnopqrstuvwxyz';
+    var char = prompt("Vui lòng nhập vào một chuỗi");
+    let result =[];
+    char.split();
+    UPPER.split("");
+    LOWER.split("");
+
+    for(let i =0;i<char.length;i++){
+        for(let j=0;j<UPPER.length;j++){
+            if(char[i]==UPPER[j]){
+                result.push(char[i].toLowerCase());
+                break;
+            }
+            if(char[i]==LOWER[j]){
+                result.push(char[i].toLocaleUpperCase());
+                break;
+            }
+        }
+    }
+    console.log(result.join(""));
+</script>
+</body>
+</html>

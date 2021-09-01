@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="myCanvas" width="1368px" height="768px" style="border:1px solid #d3d3d3;"></canvas>
+<script>
+    let Rectangle = function (lengthRectangle, widthRectangle) {
+        this.lengthRectangle = lengthRectangle;
+        this.widthRectangle = widthRectangle;
+        this.getLengthRectangle = function () {
+            return this.lengthRectangle;
+        }
+        this.getWidthRectangle = function () {
+            return this.widthRectangle;
+        }
+        this.setLengthRectangle = function (lengthRectangle) {
+            this.lengthRectangle = lengthRectangle;
+        }
+        this.setWidthRectangle = function (widthRectangle) {
+            this.widthRectangle = widthRectangle;
+        }
+        this.getAreaRectangle = function () {
+            return this.lengthRectangle * this.widthRectangle;
+        }
+        this.getPerimeterRectangle = function () {
+            return (this.lengthRectangle + this.widthRectangle) * 2;
+        }
+        this.displayOnCanvas = function (){
+            let c = document.getElementById("myCanvas");
+            let ctx = c.getContext("2d");
+            ctx.fillStyle='#fa4b2a';    // color of fill
+            ctx.fillRect(10, 40, this.getWidthRectangle(), this.getLengthRectangle());
+    }}
+    let rectangle = new Rectangle(3.2);
+    let length = parseInt(prompt("Vui lòng nhập chiều dài"));
+    let width = parseInt(prompt("Vui lòng nhập chiều rộng"));
+    rectangle.setLengthRectangle(length);
+    rectangle.setWidthRectangle(width);
+    let area = rectangle.getAreaRectangle();
+    let perimeter = rectangle.getPerimeterRectangle();
+    alert("Chu vi HCN là:"+perimeter+", Diện tích HCN là:"+area);
+    rectangle.displayOnCanvas();
+</script>
+</body>
+</html>

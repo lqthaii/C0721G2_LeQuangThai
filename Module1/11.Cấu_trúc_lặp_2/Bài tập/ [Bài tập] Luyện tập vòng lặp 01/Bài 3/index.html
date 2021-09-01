@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fibonanci</title>
+</head>
+<body>
+<!--Fibonanci là số có tổng của 2 số trước nó-->
+<script>
+    for (let i = 0; i < 20; i++) {
+            document.write(fibonanci(i)+" ");
+    }
+    function fibonanci(n) {
+        if (n < 0) {
+            return -1;
+        } else if ((n == 0) || (n == 1)) {
+            return n;
+        } else {
+            return fibonanci(n - 1) + fibonanci(n - 2);
+        }
+    }
+</script>
+</body>
+</html>
