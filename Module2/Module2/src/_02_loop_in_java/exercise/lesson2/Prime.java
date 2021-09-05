@@ -8,7 +8,7 @@ public class Prime {
         int number;
         do {
             System.out.println("Please enter the prime number you want to enter:");
-            number = Integer.parseInt(sc.nextLine());
+            number = sc.nextInt();
         }
         while (number < 0);
         int count = 0, n = 2;
@@ -19,7 +19,7 @@ public class Prime {
                     flag = false;
                 }
             }
-            if (flag == true) {
+            if (flag) {
                 System.out.print(n + " ");
                 count++;
             } else {
