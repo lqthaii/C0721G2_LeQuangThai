@@ -5,13 +5,31 @@ public class Fan {
     private static final int MEDIUM = 2;
     private static final int FAST = 3;
     //========================================
-    private boolean on = false;
-    private double radius = 5;
-    private String color = "blue";
-    public Fan(){}
 
+    private boolean on=true;
+    private double radius=5;
+    private String color="blue";
+    private int speed;
+    public Fan(){}
+    public Fan(boolean on, double radius, String color){
+        this.on = on;
+        this.radius = radius;
+        this.color = color;
+    }
     public boolean isOn() {
         return on;
+    }
+    public void setLow() {
+        this.speed = SLOW;
+    }
+    public void setMedium() {
+        this.speed = MEDIUM;
+    }
+    public void setFast() {
+        this.speed = FAST;
+    }
+    public int getSpeed(){
+        return speed;
     }
 
     public void setOn(boolean on) {
@@ -37,18 +55,10 @@ public class Fan {
     @Override
     public String toString() {
         if(on){
-            return "Fan{" +
-                    "Fan is on"+
-                    ", radius=" + radius +
-                    ", color='" + color + '\'' +
-                    '}';
+            return "Fan is turn on, radius = "+radius+" ,color: "+color+" ,Speed: "+speed;
         }
         else {
-            return "Fan{" +
-                    "Fan is off"+
-                    ", radius=" + radius +
-                    ", color='" + color + '\'' +
-                    '}';
+            return "Fan is turn off, radius = "+radius+" ,color: "+color+" ,Speed: "+speed+"";
         }
     }
 }
