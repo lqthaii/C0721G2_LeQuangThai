@@ -1,9 +1,7 @@
 package _04_oop_in_java.exercise.fan;
 
 public class Fan {
-    private static final int SLOW = 1;
-    private static final int MEDIUM = 2;
-    private static final int FAST = 3;
+
     //========================================
 
     private boolean on=true;
@@ -11,22 +9,17 @@ public class Fan {
     private String color="blue";
     private int speed;
     public Fan(){}
-    public Fan(boolean on, double radius, String color){
+    public Fan(boolean on, double radius, String color, int speed){
         this.on = on;
         this.radius = radius;
         this.color = color;
+        this.speed = speed;
     }
     public boolean isOn() {
         return on;
     }
-    public void setLow() {
-        this.speed = SLOW;
-    }
-    public void setMedium() {
-        this.speed = MEDIUM;
-    }
-    public void setFast() {
-        this.speed = FAST;
+    public void setSpeed(int speed){
+        this.speed=speed;
     }
     public int getSpeed(){
         return speed;
