@@ -1,7 +1,9 @@
 package _04_oop_in_java.exercise.fan;
 
 public class Fan {
-
+    final static int SLOW = 1;
+    final static int MEDIUM = 2;
+    final static int FAST = 3;
     //========================================
 
     private boolean on=true;
