@@ -3,6 +3,7 @@ package _06_inheritance.execrises.circle_and_cylinder;
 public class Circle {
     protected double radius;
     protected String color;
+    protected double area;
     public final static double PI = 3.14;
 
 
@@ -12,6 +13,7 @@ public class Circle {
     public Circle(double radius, String color) {
         this.radius = radius;
         this.color = color;
+        this.area = Math.pow(this.radius,2)*Math.PI;
     }
 
     public double getRadius() {
@@ -20,6 +22,7 @@ public class Circle {
 
     public void setRadius(double radius) {
         this.radius = radius;
+        this.area = Math.pow(this.radius,2)*Math.PI;
     }
 
     public String getColor() {
@@ -35,7 +38,7 @@ public class Circle {
     }
 
     public double getArea(){
-        return Math.pow(this.radius,2)*PI;
+        return area ;
     }
 
     @Override
