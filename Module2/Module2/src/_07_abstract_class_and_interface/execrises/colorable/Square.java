@@ -1,6 +1,8 @@
-package _07_abstract_class_and_interface.execrises.resizeable;
+package _07_abstract_class_and_interface.execrises.colorable;
 
-public class Square extends Rectangle implements Resizeable {
+import _07_abstract_class_and_interface.execrises.resizeable.Resizeable;
+
+public class Square extends Rectangle implements Resizeable, Colorable {
     public Square() {
     }
 
@@ -31,6 +33,10 @@ public class Square extends Rectangle implements Resizeable {
         this.length = this.length*(100+percent)/100;
     }
 
+    @Override
+    public void howToColor() {
+        System.out.println("Color all four sides");
+    }
 
     @Override
     public void setWidth(double width) {

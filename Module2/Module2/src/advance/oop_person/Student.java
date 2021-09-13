@@ -16,7 +16,15 @@ public class Student extends Person {
         this.classes = classes;
         this.id = id;
     }
-
+    public void setInformation(String id, String name, int age, String address, String conduct, String classification, String classes){
+        this.conduct = conduct;
+        this.classification = classification;
+        this.classes = classes;
+        this.id = id;
+        this.name = name;
+        this.age = age;
+        this.address = address;
+    }
     public String getClasses() {
         return classes;
     }

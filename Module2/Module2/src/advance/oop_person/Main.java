@@ -27,7 +27,7 @@ public class Main {
             nhap("|6. Thoát                                |");
             nhap("-----------------------------------------");
             System.out.print("Chọn: ");
-            choose = sc.nextInt();
+            choose = Integer.parseInt(sc.nextLine());
             switch (choose) {
                 case 1: {
                     do {
@@ -36,7 +36,7 @@ public class Main {
                         nhap("2. Giáo Viên");
                         nhap("3. Quay lại");
                         nhap("Chọn:");
-                        choose1 = sc.nextInt();
+                        choose1 = Integer.parseInt(sc.nextLine());
                     } while (choose1 < 1 || choose1 > 3);
                     if (choose1 == 1) {
                         ManagerSchool.addStudent();
@@ -48,7 +48,24 @@ public class Main {
                     break;
                 }
                 case 2:
+                {
+                    do {
+                        nhap("Vui lòng chọn đối tượng muốn xoá");
+                        nhap("1. Sinh Viên");
+                        nhap("2. Giáo Viên");
+                        nhap("3. Quay lại");
+                        nhap("Chọn:");
+                        choose1 = Integer.parseInt(sc.nextLine());
+                    } while (choose1 < 1 || choose1 > 3);
+                    if (choose1 == 1) {
+                        ManagerSchool.deleteStudent();
+                    } else if (choose1 == 2) {
+                        ManagerSchool.deleteTeacher();
+                    } else {
+                        break;
+                    }
                     break;
+                }
                 case 3: {
                     do {
                         nhap("Vui lòng chọn đối tượng muốn sửa");
@@ -56,7 +73,7 @@ public class Main {
                         nhap("2. Giáo Viên");
                         nhap("3. Quay lại");
                         nhap("Chọn:");
-                        choose1 = sc.nextInt();
+                        choose1 = Integer.parseInt(sc.nextLine());
                     } while (choose1 < 1 || choose1 > 3);
                     if (choose1 == 1) {
                         ManagerSchool.editStudent();
@@ -74,7 +91,7 @@ public class Main {
                         nhap("2. Giáo Viên");
                         nhap("3. Quay lại");
                         nhap("Chọn:");
-                        choose1 = sc.nextInt();
+                        choose1 = Integer.parseInt(sc.nextLine());
                     } while (choose1 < 1 || choose1 > 3);
                     if (choose1 == 1) {
                         ManagerSchool.searchStudent();
@@ -93,20 +110,20 @@ public class Main {
                         nhap("3. Tất cả đối tượng");
                         nhap("4. Quay lại");
                         nhap("Chọn:");
-                        choose1 = sc.nextInt();
+                        choose1 = Integer.parseInt(sc.nextLine());
                     } while (choose1 < 1 || choose1 > 4);
                     if (choose1 == 1) {
                         ManagerSchool.displayStudent();
                     } else if (choose1 == 2) {
                         ManagerSchool.displayTeacher();
                     }
-                    if (choose1 == 4) {
-                    } else {
+                    if (choose1 == 3) {
                         nhap("Danh sách giáo viên");
                         ManagerSchool.displayTeacher();
                         nhap("-------------------");
                         nhap("Danh sách sinh viên");
                         ManagerSchool.displayStudent();
+                    } else {
                         break;
                     }
                     break;

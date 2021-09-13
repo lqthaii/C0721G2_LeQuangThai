@@ -14,7 +14,14 @@ public class Teacher extends Person {
         this.salary = salary;
         this.id = id;
     }
-
+    public void setInformation(String id, String name, int age, String address, String classes, double salary){
+        this.classes = classes;
+        this.salary = salary;
+        this.id = id;
+        this.name = name;
+        this.age = age;
+        this.address = address;
+    }
     public String getId() {
         return id+"";
     }

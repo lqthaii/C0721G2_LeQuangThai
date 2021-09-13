@@ -11,40 +11,53 @@ public class ManagerSchool {
     static double salary;
     static int age;
 
-    //------------------INPUT DATA ------------------------------------
+    //------------------INPUT DATA ---------------------------------------
     public static void inputDataStudent() {
-        System.out.print("ID:");
-        id = sc.nextLine();
-        System.out.print("Tên:");
-        name = sc.nextLine();
-        System.out.print("Tuổi:");
-        age = Integer.parseInt(sc.nextLine());
-        System.out.print("Lớp:");
-        classes = sc.nextLine();
-        System.out.print("Địa chỉ:");
-        address = sc.nextLine();
-        System.out.print("Hạnh kiểm:");
-        conduct = sc.nextLine();
-        System.out.print("Học lực:");
-        classification = sc.nextLine();
+        boolean flag = true;
+        do {
+            System.out.print("ID:");
+            id = sc.nextLine();
+            System.out.print("Tên:");
+            name = sc.nextLine();
+            System.out.print("Tuổi:");
+            age = Integer.parseInt(sc.nextLine());
+            System.out.print("Lớp:");
+            classes = sc.nextLine();
+            System.out.print("Địa chỉ:");
+            address = sc.nextLine();
+            System.out.print("Hạnh kiểm:");
+            conduct = sc.nextLine();
+            System.out.print("Học lực:");
+            classification = sc.nextLine();
+            if(id == null || name == null ||age ==0|| classes == null || address == null || conduct == null || classification == null){
+                System.out.println("Vui lòng không bỏ trống");
+            }
+        }
+        while (id == null || name == null || age ==0 || classes == null || address == null || conduct == null || classification == null);
     }
 
     public static void inputDataTeacher() {
-        System.out.print("ID:");
-        id = sc.nextLine();
-        System.out.print("Tên:");
-        name = sc.nextLine();
-        System.out.print("Tuổi:");
-        age = Integer.parseInt(sc.nextLine());
-        System.out.print("Lớp:");
-        classes = sc.nextLine();
-        System.out.print("Địa chỉ:");
-        address = sc.nextLine();
-        System.out.print("Lương cơ bản:");
-        salary = sc.nextDouble();
+        do {
+            System.out.print("ID:");
+            id = sc.nextLine();
+            System.out.print("Tên:");
+            name = sc.nextLine();
+            System.out.print("Tuổi:");
+            age = Integer.parseInt(sc.nextLine());
+            System.out.print("Lớp:");
+            classes = sc.nextLine();
+            System.out.print("Địa chỉ:");
+            address = sc.nextLine();
+            System.out.print("Lương cơ bản:");
+            salary = Double.parseDouble(sc.nextLine());
+            if(id == null || name == null || classes == null || address == null||age==0||salary==0){
+                System.out.println("Vui lòng không bỏ trống");
+            }
+        }
+        while (id == null || name == null || classes == null || address == null||age==0||salary==0);
     }
 
-    //------------------------ADD --------------------------------
+    //------------------------ADD -----------------------------------------
     public static void addStudent() {
         boolean check = false;
         do {
@@ -64,13 +77,19 @@ public class ManagerSchool {
             }
         }
         while (check);
-        Person[] addSV = new Person[personList.length + 1];
-        for (int i = 0; i < personList.length; i++) {
-            addSV[i] = personList[i];
+        if (isNullStudent() == -1) {
+            Person[] addSV = new Person[personList.length + 1];
+            for (int i = 0; i < personList.length; i++) {
+                addSV[i] = personList[i];
+            }
+            Student student = new Student(id, name, age, address, conduct, classification, classes);
+            addSV[addSV.length - 1] = student;
+            personList = addSV;
+        } else {
+            int local = isNullStudent();
+            ((Student) personList[isNullStudent()]).setInformation(id, name, age, address, conduct, classification, classes);
         }
-        Student student = new Student(id, name, age, address, conduct, classification, classes);
-        addSV[addSV.length - 1] = student;
-        personList = addSV;
+
     }
 
     public static void addTeacher() {
@@ -92,20 +111,30 @@ public class ManagerSchool {
             }
         }
         while (check);
-        Person[] addTC = new Person[personList.length + 1];
-        for (int i = 0; i < personList.length; i++) {
-            addTC[i] = personList[i];
+        if (isNullTeacher() == -1) {
+            Person[] addTC = new Person[personList.length + 1];
+            for (int i = 0; i < personList.length; i++) {
+                addTC[i] = personList[i];
+            }
+            Teacher teacher = new Teacher(id, name, age, address, classes, salary);
+            addTC[addTC.length - 1] = teacher;
+            personList = addTC;
+        } else {
+            int local = isNullStudent();
+            ((Teacher) personList[isNullTeacher()]).setInformation(id, name, age, address, classes, salary);
         }
-        Teacher teacher = new Teacher(id, name, age, address, classes, salary);
-        addTC[addTC.length - 1] = teacher;
-        personList = addTC;
+
     }
 
     //------------------------------DISPLAY--------------------------------
     public static void displayStudent() {
         for (int i = 0; i < personList.length; i++) {
             if (personList[i] instanceof Student) {
-                System.out.println(((Student) personList[i]).display());
+                if (((Student) personList[i]).getId() == null) {
+                    continue;
+                } else {
+                    System.out.println(((Student) personList[i]).display());
+                }
             }
         }
     }
@@ -114,12 +143,16 @@ public class ManagerSchool {
     public static void displayTeacher() {
         for (int i = 0; i < personList.length; i++) {
             if (personList[i] instanceof Teacher) {
-                System.out.println(((Teacher) personList[i]).display());
+                if (((Teacher) personList[i]).getId() == null) {
+                    continue;
+                } else {
+                    System.out.println(((Teacher) personList[i]).display());
+                }
             }
         }
     }
 
-    //-------------------------------SEARCH----------------------------------
+    //-------------------------------SEARCH--------------------------------
     public static void searchStudent() {
         String inputid;
         System.out.println("Vui lòng nhập vào id học sinh cần tìm:");
@@ -162,7 +195,7 @@ public class ManagerSchool {
         }
     }
 
-    //------------------------------ EDIT ------------------------------------
+    //------------------------------ EDIT ---------------------------------
     public static void editStudent() {
         String inputid;
         System.out.println("Vui lòng nhập vào id học sinh cần tìm:");
@@ -199,15 +232,10 @@ public class ManagerSchool {
                 }
             }
             while (flag);
-            ((Student) personList[local]).setId(id);
-            ((Student) personList[local]).setName(name);
-            ((Student) personList[local]).setAge(age);
-            ((Student) personList[local]).setAddress(address);
-            ((Student) personList[local]).setConduct(conduct);
-            ((Student) personList[local]).setClasses(classes);
-            ((Student) personList[local]).setClassification(classification);
+            ((Student) personList[local]).setInformation(id, name, age, address, conduct, classification, classes);
         }
     }
+
     public static void editTeacher() {
         String inputid;
         System.out.println("Vui lòng nhập vào id học sinh cần tìm:");
@@ -251,6 +279,71 @@ public class ManagerSchool {
             ((Teacher) personList[local]).setClasses(classes);
             ((Teacher) personList[local]).setSalary(salary);
         }
+    }
+
+    //--------------------------------DELETE-------------------------------
+    public static void deleteStudent() {
+        String inputid;
+        System.out.println("Vui lòng nhập vào id học sinh cần xoá:");
+        inputid = sc.nextLine();
+        boolean check = false;
+        int local = 0;
+        for (int i = 0; i < personList.length; i++) {
+            if (personList[i] instanceof Student) {
+                if ((((Student) personList[i]).getId()).equals(inputid)) {
+                    check = true;
+                    local = i;
+                }
+            }
+        }
+        if (!check) {
+            System.out.println("Không tìm thấy giáo viên cần xoá");
+        } else {
+            ((Student) personList[local]).setInformation(null, null, 0, null, null, null, null);
+        }
+    }
+
+    public static void deleteTeacher() {
+        String inputid;
+        System.out.println("Vui lòng nhập vào id giáo viên cần xoá:");
+        inputid = sc.nextLine();
+        boolean check = false;
+        int local = 0;
+        for (int i = 0; i < personList.length; i++) {
+            if (personList[i] instanceof Teacher) {
+                if ((((Teacher) personList[i]).getId()).equals(inputid)) {
+                    check = true;
+                    local = i;
+                }
+            }
+        }
+        if (!check) {
+            System.out.println("Không tìm thấy giáo viên cần xoá");
+        } else {
+            ((Teacher) personList[local]).setInformation(null, null, 0, null, null, 0);
+        }
+    }
+    //------------------------------Check null-----------------------------
+    public static int isNullStudent() {
+        for (int i = 0; i < personList.length; i++) {
+            if (personList[i] instanceof Student) {
+                if ((((Student) personList[i]).getId()).equals(null)) {
+                    return i;
+                }
+            }
+        }
+        return -1;
+    }
+
+    public static int isNullTeacher() {
+        for (int i = 0; i < personList.length; i++) {
+            if (personList[i] instanceof Teacher) {
+                if ((((Teacher) personList[i]).getId()).equals(null)) {
+                    return i;
+                }
+            }
+        }
+        return -1;
     }
 }
 
