@@ -46,7 +46,7 @@ public class Teacher extends Person {
         this.salary = salary;
     }
 
-    public String display() {
-        return "ID: " + this.id + "Họ và tên: " + this.name + ",Tuổi:" + this.age + ",Dạy lớp: " + this.classes + ",Địa chỉ: " + this.address + ",Lương cơ bản: " + this.salary;
+    public void display() {
+        System.out.printf("ID: %-5s|Họ và tên: %-20s|Tuổi:%2d|Dạy lớp:%5s|Địa chỉ: %-40s|Lương cơ bản: %-2f\n",this.id,this.name,this.age,this.classes,this.address,this.salary);
     }
 }

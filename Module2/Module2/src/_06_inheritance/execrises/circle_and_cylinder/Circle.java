@@ -1,10 +1,9 @@
 package _06_inheritance.execrises.circle_and_cylinder;
 
 public class Circle {
-    protected double radius;
-    protected String color;
-    protected double area;
-    public final static double PI = 3.14;
+    private double radius;
+    private String color;
+    private double area;
 
 
     public Circle() {
@@ -31,10 +30,6 @@ public class Circle {
 
     public void setColor(String color) {
         this.color = color;
-    }
-
-    public static double getPI() {
-        return PI;
     }
 
     public double getArea(){

@@ -57,7 +57,7 @@ public class Student extends Person {
         this.classification = classification;
     }
 
-    public String display() {
-        return "ID: " + this.id + ",Họ và tên: " + this.name + ",Địa chỉ: " + this.address + ",Lớp: " + this.classes + ",Xếp loại: " + this.classification + ",Hạnh kiểm: " + this.conduct;
+    public void display() {
+        System.out.format("ID: %-5|Họ và tên:%-20s|Tuổi: %-2d|Lớp: %-5s|Địa chỉ: %-40s|Xếp loại: %-5s|Hạnh kiểm: %-5s\n",this.id,this.name,this.age,this.classes,this.address,this.classification,this.conduct);
     }
 }

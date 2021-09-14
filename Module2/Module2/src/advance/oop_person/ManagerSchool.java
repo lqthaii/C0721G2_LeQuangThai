@@ -133,7 +133,7 @@ public class ManagerSchool {
                 if (((Student) personList[i]).getId() == null) {
                     continue;
                 } else {
-                    System.out.println(((Student) personList[i]).display());
+                    ((Student) personList[i]).display();
                 }
             }
         }
@@ -146,7 +146,7 @@ public class ManagerSchool {
                 if (((Teacher) personList[i]).getId() == null) {
                     continue;
                 } else {
-                    System.out.println(((Teacher) personList[i]).display());
+                    ((Teacher) personList[i]).display();
                 }
             }
         }
@@ -170,7 +170,7 @@ public class ManagerSchool {
         if (!check) {
             System.out.println("Không tìm thấy giáo viên cần sửa");
         } else {
-            System.out.println(((Student) personList[local]).display());
+            ((Student) personList[local]).display();
         }
     }
 
@@ -191,7 +191,7 @@ public class ManagerSchool {
         if (!check) {
             System.out.println("Không tìm thấy giáo viên cần sửa");
         } else {
-            System.out.println(((Teacher) personList[local]).display());
+            ((Teacher) personList[local]).display();
         }
     }
 
