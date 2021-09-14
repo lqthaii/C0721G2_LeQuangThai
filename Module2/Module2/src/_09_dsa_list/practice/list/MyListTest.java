@@ -1,4 +1,4 @@
-package _09_dsa_list.practice;
+package _09_dsa_list.practice.list;
 
 public class MyListTest {
     public static void main(String[] args) {

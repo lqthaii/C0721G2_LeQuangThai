@@ -1,4 +1,4 @@
-package _09_dsa_list.practice;
+package _09_dsa_list.practice.list;
 
 import java.util.Arrays;
 
@@ -25,5 +25,13 @@ public class MyList<E> {
             throw new IndexOutOfBoundsException("Index: " + i + ", Size " + i );
         }
         return (E) elements[i];
+    }
+    public boolean contains(E o){
+        for (int i = 0; i < size; i++) {
+            if (elements[i].equals(o)) {
+                return true;
+            }
+        }
+        return false;
     }
 }
