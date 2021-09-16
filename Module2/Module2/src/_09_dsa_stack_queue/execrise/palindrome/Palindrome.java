@@ -1,13 +1,14 @@
 package _09_dsa_stack_queue.execrise.palindrome;
 
 import java.util.ArrayDeque;
+import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
 
 public class Palindrome {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        Queue<String> queue = new ArrayDeque<>();
+        Queue<String> queue = new LinkedList<>();
         System.out.println("Vui lòng nhập vào một chuỗi");
         String str = sc.nextLine();
         for(int i=str.length();i>0;i--){

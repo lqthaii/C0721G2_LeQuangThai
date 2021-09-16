@@ -8,10 +8,10 @@ public class CountChar {
         String str = "thaith";
         str.toUpperCase();
         for(int i=0;i<str.length();i++){
-            if(!map.containsKey(str.substring(i,i+1))){
-                map.put(str.substring(i,i+1),1);
+            if(!map.containsKey(str.charAt(i)+"")){
+                map.put(str.charAt(i)+"",1);
             }else{
-                map.put(str.substring(i,i+1),map.get(str.substring(i,i+1))+1);
+                map.put(str.charAt(i)+"",map.get(str.charAt(i)+"")+1);
             }
         }
         System.out.println(map);

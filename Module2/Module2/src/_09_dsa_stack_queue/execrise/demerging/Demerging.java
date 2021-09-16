@@ -21,8 +21,6 @@ public class Demerging {
             System.out.println("Gioi Tinh (Nu/Nam)");
             sex = sc.nextLine();
             employees[i] = new Employee(id,name,birthday,sex);
-        }
-        for(int i=0;i<employees.length;i++){
             if(employees[i].sex.toUpperCase().equals("NU")){
                 nu.add(employees[i]);
             }

@@ -4,7 +4,7 @@ import java.util.Stack;
 
 public class Brackets {
     public static void main(String[] args) {
-        Stack<String> bStack = new Stack<>();
+        Stack<Character> bStack = new Stack<>();
         String str = "(– b + (b2 – 4*a*c)^0.5) / 2*a";
 
         if(checkBrackets(bStack,str)){
@@ -13,11 +13,11 @@ public class Brackets {
             System.out.println("Không hợp lệ");
         }
     }
-    public static boolean checkBrackets(Stack<String> bStack, String str){
+    public static boolean checkBrackets(Stack<Character> bStack, String str){
         String left;
         for (int i = 0; i < str.length(); i++) {
             if ((str.charAt(i) + "").equals("(")) {
-                bStack.push(str.charAt(i) + "");
+                bStack.push(str.charAt(i));
                 continue;
             }
             if ((str.charAt(i) + "").equals(")") && bStack.isEmpty()) {

@@ -1,6 +1,10 @@
 package advance.oop_person;
 
-public class Person {
+import java.util.AbstractList;
+import java.util.List;
+import java.util.RandomAccess;
+
+public class Person{
     protected String name;
     protected int age;
     protected String address;
