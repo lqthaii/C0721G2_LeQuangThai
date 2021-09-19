@@ -1,23 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="07031813-40c1-44ee-acd1-2e9bc8ea6fb0" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Module2/out/production/Module2/IntroductionJava/Exercise/BmiCalculator/main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Module2/out/production/Module2/IntroductionJava/Exercise/DayOfMonth/main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Module2/out/production/Module2/IntroductionJava/Exercise/EqualResolver/main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Module2/out/production/Module2/IntroductionJava/Exercise/LeapYearCalculator/main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Module2/src/IntroductionJava/Exercise/Lesson1/main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Module2/src/_01_introduction_java/exercise/lesson1/EnterName.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Module2/src/IntroductionJava/Exercise/Lesson2/main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Module2/src/_01_introduction_java/exercise/lesson2/ReadNumber.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Module2/src/IntroductionJava/Exercise/Lesson3/main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Module2/src/_01_introduction_java/exercise/lesson3/SwapUSD.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Module2/src/IntroductionJava/Practice/BmiCalculator/main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Module2/src/_01_introduction_java/practice/bmi_calculator/bmicalculator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Module2/src/IntroductionJava/Practice/DayOfMonth/main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Module2/src/_01_introduction_java/practice/day_of_month/DayofMonth.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Module2/src/IntroductionJava/Practice/EqualResolver/main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Module2/src/_01_introduction_java/practice/equal_resolver/EqualreSolver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Module2/src/IntroductionJava/Practice/LeapYearCalculator/main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Module2/src/_01_introduction_java/practice/leap_year_calculator/LeapYearCalculator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Module2/src/IntroductionJava/Practice/Operator/main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Module2/src/_01_introduction_java/practice/operator/Operator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Module2/src/IntroductionJava/Practice/RealTimeSystem/main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Module2/src/_01_introduction_java/practice/real_time_system/RealTimeSystem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Module2/src/IntroductionJava/Practice/Variable/main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Module2/src/_01_introduction_java/practice/variable/Variable.java" afterDir="false" />
-    </list>
+    <list default="true" id="07031813-40c1-44ee-acd1-2e9bc8ea6fb0" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -54,6 +38,7 @@
       <workItem from="1630507331225" duration="435000" />
       <workItem from="1630508494363" duration="104000" />
       <workItem from="1630601471016" duration="66000" />
+      <workItem from="1631883959038" duration="9000" />
     </task>
     <servers />
   </component>
@@ -65,10 +50,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="449" y="88" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1630508551237" />
-    <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1630601536600">
+    <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1631883966958">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1630601536600" />
+    <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1631883966958" />
     <state x="342" y="140" key="new project wizard" timestamp="1630479841578">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

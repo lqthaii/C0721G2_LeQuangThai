@@ -43,12 +43,13 @@ public class ProductManager {
 
     public void searchProduct() {
         Main.sc.nextLine();
-        System.out.println("Vui lòng nhập ID sản phẩm cần tìm:");
-        String id = Main.sc.nextLine();
-        if (!isID(id, productList)) {
-            System.out.println("Không tìm thấy phần tử cần xoá");
-        } else {
-            System.out.println(productList.get(id));
+        System.out.println("Vui lòng nhập Tên sản phẩm cần tìm:");
+        String name = Main.sc.nextLine();
+        for (Product product : productList.values()) {
+            if (name.equals(product.getName())) {
+                System.out.println(product);
+                break;
+            }
         }
     }
 
