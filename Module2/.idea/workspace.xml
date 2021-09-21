@@ -21,7 +21,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/Module2" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -39,6 +39,7 @@
       <workItem from="1630508494363" duration="104000" />
       <workItem from="1630601471016" duration="66000" />
       <workItem from="1631883959038" duration="9000" />
+      <workItem from="1632125979852" duration="171000" />
     </task>
     <servers />
   </component>
