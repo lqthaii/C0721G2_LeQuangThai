@@ -1,4 +1,4 @@
-package _14_exception_debug.execrise;
+package _14_exception_debug.exercise;
 
 import java.util.Scanner;
 
