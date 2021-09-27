@@ -3,11 +3,11 @@ package _16_io_binary_file_serialization.exercise;
 import java.io.Serializable;
 
 public class Product implements Serializable {
-    String id;
-    String name;
-    String made;
-    double price;
-    String description;
+    private String id;
+    private String name;
+    private String made;
+    private double price;
+    private String description;
 
     public Product() {
     }
