@@ -6,7 +6,7 @@ import java.util.regex.Pattern;
 public class NumberPhone {
     private Pattern pattern;
     private Matcher matcher;
-    private static final String NUMBER_REGEX = "^\\(\\d{2}\\)-\\(0\\d{1,}\\)$";
+    private static final String NUMBER_REGEX = "^\\(\\d{2}\\)-\\(0\\d{9}\\)$";
     public NumberPhone() {
         pattern = Pattern.compile(NUMBER_REGEX);
     }
