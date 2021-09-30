@@ -29,7 +29,7 @@ public class BugWeek4 {
                 for(int i=0;i<str.length;i++){
                     if ("i".equals(str[i])) {
                         bufferedWriter.write(studentObj.toString());
-                        bufferedWriter.write("\r\n");
+                        bufferedWriter.newLine();
                     }
                 }
             }

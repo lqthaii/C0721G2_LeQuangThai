@@ -1,4 +1,5 @@
 package _18_design_pattern.practice.factory_method;
 
-public class Animal {
+public abstract class Animal {
+    public abstract String makeSound();
 }

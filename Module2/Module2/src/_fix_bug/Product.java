@@ -1,14 +1,27 @@
 package _fix_bug;
 
-public class Product {
+public class Product implements Serializable {
+    private int id;
     private String name;
     private String brand;
     private int price;
 
-    public Product(String name, String brand, int price) {
+    public Product() {
+    }
+
+    public Product(int id, String name, String brand, int price) {
+        this.id = id;
         this.name = name;
         this.brand = brand;
         this.price = price;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -23,7 +36,7 @@ public class Product {
         return brand;
     }
 
-    public void setBRAND(String brand) {
+    public void setBrand(String brand) {
         this.brand = brand;
     }
 
@@ -38,7 +51,8 @@ public class Product {
     @Override
     public String toString() {
         return "Product{" +
-                "name='" + name + '\'' +
+                "id=" + id +
+                ", name='" + name + '\'' +
                 ", brand='" + brand + '\'' +
                 ", price=" + price +
                 '}';

@@ -1,4 +1,4 @@
-package exercise_04;
+package _fix_bug;
 
 public interface Serializable {
 }
