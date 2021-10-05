@@ -14,8 +14,8 @@ public class Villa extends Facility {
         this.numberFloor = numberFloor;
     }
 
-    public Villa(String name, double areaUsed, double cost, int numberMaxPeople, String rentalType, String roomStandard, double arePool, int numberFloor) {
-        super(name, areaUsed, cost, numberMaxPeople, rentalType);
+    public Villa(String id,String name, double areaUsed, double cost, int numberMaxPeople, String rentalType, String roomStandard, double arePool, int numberFloor) {
+        super(id,name, areaUsed, cost, numberMaxPeople, rentalType);
         this.roomStandard = roomStandard;
         this.arePool = arePool;
         this.numberFloor = numberFloor;
@@ -45,7 +45,7 @@ public class Villa extends Facility {
         this.numberFloor = numberFloor;
     }
     public String writeFile(){
-        return this.name+","+this.areaUsed+","+this.cost+","+this.numberMaxPeople+","+this.rentalType+","+this.roomStandard+","+this.arePool+","+this.numberFloor;
+        return this.id+","+this.name+","+this.areaUsed+","+this.cost+","+this.numberMaxPeople+","+this.rentalType+","+this.roomStandard+","+this.arePool+","+this.numberFloor;
     }
     public String toString(){
         return "Name: "+this.name+", Area Used: "+this.areaUsed+", Cost: "+this.cost+", Number Max People: "+this.numberMaxPeople+", Rental Type: "+this.rentalType+", Room Standand: "+this.roomStandard+", Area Pool"+this.arePool+", Number Floor:"+this.numberFloor;

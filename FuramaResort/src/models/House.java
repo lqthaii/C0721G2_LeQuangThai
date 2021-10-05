@@ -12,8 +12,8 @@ public class House extends Facility {
         this.numberFloor = numberFloor;
     }
 
-    public House(String name, double areaUsed, double cost, int numberMaxPeople, String rentalType, String roomStandard, int numberFloor) {
-        super(name, areaUsed, cost, numberMaxPeople, rentalType);
+    public House(String id, String name, double areaUsed, double cost, int numberMaxPeople, String rentalType, String roomStandard, int numberFloor) {
+        super(id, name, areaUsed, cost, numberMaxPeople, rentalType);
         this.roomStandard = roomStandard;
         this.numberFloor = numberFloor;
     }
@@ -33,10 +33,12 @@ public class House extends Facility {
     public void setNumberFloor(int numberFloor) {
         this.numberFloor = numberFloor;
     }
-    public String writeFile(){
-        return this.name+","+this.areaUsed+","+this.cost+","+this.numberMaxPeople+","+this.rentalType+","+this.roomStandard+","+this.numberFloor;
+
+    public String writeFile() {
+        return this.id+","+this.name + "," + this.areaUsed + "," + this.cost + "," + this.numberMaxPeople + "," + this.rentalType + "," + this.roomStandard + "," + this.numberFloor;
     }
-    public String toString(){
-        return "Name: "+this.name+", Area Used:"+this.areaUsed+", Cost:"+this.cost+", Max People:"+this.numberMaxPeople+", Rental Type:"+this.rentalType+", Room Standard:"+this.roomStandard+", Number Floor:"+this.numberFloor;
+
+    public String toString() {
+        return "Name: " + this.name + ", Area Used:" + this.areaUsed + ", Cost:" + this.cost + ", Max People:" + this.numberMaxPeople + ", Rental Type:" + this.rentalType + ", Room Standard:" + this.roomStandard + ", Number Floor:" + this.numberFloor;
     }
 }

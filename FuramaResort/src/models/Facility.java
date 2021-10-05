@@ -6,12 +6,13 @@ public abstract class Facility {
     double cost;
     int numberMaxPeople;
     String rentalType;
-
+    String id;
     public Facility() {
     }
 
-    public Facility(String name, double areaUsed, double cost, int numberMaxPeople, String rentalType) {
+    public Facility(String id,String name, double areaUsed, double cost, int numberMaxPeople, String rentalType) {
         this.name = name;
+        this.id = id;
         this.areaUsed = areaUsed;
         this.cost = cost;
         this.numberMaxPeople = numberMaxPeople;

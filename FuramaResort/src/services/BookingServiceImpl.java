@@ -12,6 +12,7 @@ public class BookingServiceImpl extends Booking implements BookingService {
     static protected TreeSet<Booking> listBooking = new TreeSet<>();
     static final String PATCH_BOOKING = "src\\data\\booking.csv";
     static final String PATCH_TOTAL_BOOKING = "src\\data\\totalBooking.csv";
+
     static {
         try {
             File file = new File(PATCH_BOOKING);
@@ -56,16 +57,28 @@ public class BookingServiceImpl extends Booking implements BookingService {
         }
     }
 
+    public void writeBooking(String patch, Booking booking) {
+        try {
+            FileWriter writer = new FileWriter(patch, true);
+            BufferedWriter bufferedWriter = new BufferedWriter(writer);
+            bufferedWriter.write(booking.writeFile());
+            bufferedWriter.newLine();
+            bufferedWriter.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     @Override
     public void add() {
-        Customer customer=chooseCustomer();
+        Customer customer = chooseCustomer();
         Facility facility = chooseFacility();
         String idbooking;
         FacilityServiceImpl.increaseUsed(facility);
         do {
             System.out.println("Please entry ID Booking");
             idbooking = sc.nextLine();
-        }while(isIDBooking(idbooking));
+        } while (isIDBooking(idbooking));
         System.out.println("Please entry begin date booking (dd/mm/yyyy)");
         String begindate = sc.nextLine();
         System.out.println("Please entry end date booking(dd/mm/yyyy)");
@@ -78,18 +91,19 @@ public class BookingServiceImpl extends Booking implements BookingService {
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        listBooking.add(new Booking(idbooking, datestart, dateend, customer, facility));
+        Booking booking = new Booking(idbooking, datestart, dateend, customer, facility);
+        listBooking.add(booking);
         writeFile(PATCH_BOOKING);
+        writeBooking(PATCH_TOTAL_BOOKING,booking);
     }
 
     @Override
     public void edit() {
-        System.out.println("Please input ");
     }
 
     @Override
     public void display() {
-        for(Booking booking : listBooking){
+        for (Booking booking : listBooking) {
             System.out.println(booking);
         }
     }
@@ -112,7 +126,8 @@ public class BookingServiceImpl extends Booking implements BookingService {
         }
         return booking;
     }
-    public Customer chooseCustomer(){
+
+    public Customer chooseCustomer() {
         CustomerServiceImpl customerService = new CustomerServiceImpl();
         Customer customer;
         do {
@@ -128,7 +143,8 @@ public class BookingServiceImpl extends Booking implements BookingService {
         } while (customer == null);
         return customer;
     }
-    public Facility chooseFacility(){
+
+    public Facility chooseFacility() {
         FacilityServiceImpl facilityService = new FacilityServiceImpl();
         Facility facility;
         do {
@@ -141,7 +157,7 @@ public class BookingServiceImpl extends Booking implements BookingService {
             } else {
                 System.out.println("ERROR");
             }
-        }while(facility == null);
+        } while (facility == null);
         return facility;
     }
 }
