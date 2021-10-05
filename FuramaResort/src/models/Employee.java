@@ -73,6 +73,6 @@ public class Employee extends Person {
                 ", Email: "+this.email+", Level: "+this.level+", Position: "+this.position+", Salary: "+this.salary;
     }
     public String writeFile(){
-        return this.id+","+this.name+","+this.birthday+","+this.sex+","+this.salary+","+this.identity+","+this.numberphone+","+this.email+","+this.level+","+this.position+","+this.salary;
+        return this.id+","+this.name+","+this.birthday+","+this.sex+","+this.identity+","+this.numberphone+","+this.email+","+this.level+","+this.position+","+this.salary;
     }
 }

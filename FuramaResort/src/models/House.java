@@ -33,6 +33,9 @@ public class House extends Facility {
     public void setNumberFloor(int numberFloor) {
         this.numberFloor = numberFloor;
     }
+    public String writeFile(){
+        return this.name+","+this.areaUsed+","+this.cost+","+this.numberMaxPeople+","+this.rentalType+","+this.roomStandard+","+this.numberFloor;
+    }
     public String toString(){
         return "Name: "+this.name+", Area Used:"+this.areaUsed+", Cost:"+this.cost+", Max People:"+this.numberMaxPeople+", Rental Type:"+this.rentalType+", Room Standard:"+this.roomStandard+", Number Floor:"+this.numberFloor;
     }

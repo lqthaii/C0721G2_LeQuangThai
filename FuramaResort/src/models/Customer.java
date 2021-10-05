@@ -8,7 +8,7 @@ public class Customer extends Person {
     public Customer() {
     }
 
-    public Customer(String name, String birthday, String sex, String identity, String numberphone, String email, String id, String guestType, String address) {
+    public Customer(String id, String name, String birthday, String sex, String identity, String numberphone, String email, String guestType, String address) {
         super(name, birthday, sex, identity, numberphone, email);
         this.id = id;
         this.guestType = guestType;
@@ -38,19 +38,20 @@ public class Customer extends Person {
     public void setAddress(String address) {
         this.address = address;
     }
-
+    public String writeFile(){
+        return this.id+","+this.name+","+this.birthday+","+this.sex+","+this.identity+","+this.numberphone+","+this.email+","+this.guestType+","+this.address;
+    }
     @Override
     public String toString() {
-        return "Customer{" +
+        return "Customer: " +
                 "id='" + id + '\'' +
-                ", guestType='" + guestType + '\'' +
-                ", address='" + address + '\'' +
                 ", name='" + name + '\'' +
+                ", guestType='" + guestType + '\'' +
                 ", birthday='" + birthday + '\'' +
                 ", sex='" + sex + '\'' +
                 ", identity='" + identity + '\'' +
                 ", numberphone='" + numberphone + '\'' +
                 ", email='" + email + '\'' +
-                '}';
+                ", address='" + address + '\'';
     }
 }

@@ -2,15 +2,15 @@ package models;
 
 public class Contract {
     private String idContract;
-    private String idBooking;
-    private String idCustomer;
+    private Booking booking;
+    private Customer customer;
     private double advanceAmount;
     private double amount;
 
-    public Contract(String idContract, String idBooking, String idCustomer, double advanceAmount, double amount) {
+    public Contract(String idContract, Booking booking, Customer customer, double advanceAmount, double amount) {
         this.idContract = idContract;
-        this.idBooking = idBooking;
-        this.idCustomer = idCustomer;
+        this.booking = booking;
+        this.customer = customer;
         this.advanceAmount = advanceAmount;
         this.amount = amount;
     }
@@ -26,20 +26,20 @@ public class Contract {
         this.idContract = idContract;
     }
 
-    public String getIdBooking() {
-        return idBooking;
+    public Booking getBooking() {
+        return booking;
     }
 
-    public void setIdBooking(String idBooking) {
-        this.idBooking = idBooking;
+    public void setBooking(Booking booking) {
+        this.booking = booking;
     }
 
-    public String getIdCustomer() {
-        return idCustomer;
+    public Customer getCustomer() {
+        return customer;
     }
 
-    public void setIdCustomer(String idCustomer) {
-        this.idCustomer = idCustomer;
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
     }
 
     public double getAdvanceAmount() {
@@ -56,5 +56,19 @@ public class Contract {
 
     public void setAmount(double amount) {
         this.amount = amount;
+    }
+
+    @Override
+    public String toString() {
+        return "Contract{" +
+                "idContract='" + idContract + '\'' +
+                ", booking=" + booking.getIdBooking() +
+                ", customer=" + customer.getName() +
+                ", advanceAmount=" + advanceAmount +
+                ", amount=" + amount +
+                '}';
+    }
+    public String writeFile(){
+        return this.getIdContract()+","+this.getBooking().getIdBooking()+","+this.getCustomer().getId()+","+this.getAdvanceAmount()+","+this.getAmount();
     }
 }

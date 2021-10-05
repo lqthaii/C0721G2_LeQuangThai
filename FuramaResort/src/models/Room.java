@@ -18,6 +18,9 @@ public class Room extends Facility {
     public void setServiceFree(String serviceFree) {
         this.serviceFree = serviceFree;
     }
+    public String writeFile(){
+        return this.name+","+this.areaUsed+","+this.cost+","+this.numberMaxPeople+","+this.rentalType+","+this.serviceFree;
+    }
     public String toString(){
         return "Name: "+this.name+", Area Used: "+this.areaUsed+", Cost: "+this.cost+", Number Max People: "+this.numberMaxPeople+", Rental Type: "+this.rentalType+", Service Free:"+this.serviceFree;
     }

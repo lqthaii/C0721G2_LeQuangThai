@@ -74,6 +74,12 @@ public class Booking implements Comparable<Booking> {
                 ", facility Name =" + facility.getName() +
                 '}';
     }
+    public String writeFile(){
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+        String strDateStart = formatter.format(dateStart);
+        String strDateEnd = formatter.format(dateEnd);
+        return idBooking +","+strDateStart+","+strDateEnd+","+customer.getId()+","+facility.getName();
+    }
 
     @Override
     public int compareTo(Booking o) {
