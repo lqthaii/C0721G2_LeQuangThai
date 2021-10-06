@@ -1,6 +1,8 @@
 package services;
 
 import models.*;
+import utils.BookingComparator;
+import utils.ReadWriteBooking;
 
 import java.io.*;
 import java.text.ParseException;
@@ -9,72 +11,14 @@ import java.util.*;
 
 public class BookingServiceImpl extends Booking implements BookingService {
     Scanner sc = new Scanner(System.in);
-    static protected TreeSet<Booking> listBooking = new TreeSet<>();
-    static final String PATCH_BOOKING = "src\\data\\booking.csv";
-    static final String PATCH_TOTAL_BOOKING = "src\\data\\totalBooking.csv";
-
-    static {
-        try {
-            File file = new File(PATCH_BOOKING);
-            if (!file.exists()) {
-                throw new FileNotFoundException();
-            }
-            BufferedReader br = new BufferedReader(new FileReader(file));
-            String line = "";
-            String[] arr;
-            SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-            while ((line = br.readLine()) != null) {
-                arr = line.split(",");
-                Date datestart = null, dateend = null;
-                try {
-                    datestart = formatter.parse(arr[1]);
-                    dateend = formatter.parse(arr[2]);
-                } catch (ParseException e) {
-                    e.printStackTrace();
-                }
-                CustomerServiceImpl customerService = new CustomerServiceImpl();
-                FacilityServiceImpl facilityService = new FacilityServiceImpl();
-                listBooking.add(new Booking(arr[0], datestart, dateend, customerService.returnCustomer(arr[3]), facilityService.returnFacility(arr[4])));
-            }
-            br.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-            //System.err.println("Fie không tồn tại or nội dung có lỗi!");
-        }
-    }
-
-    public void writeFile(String patch) {
-        try {
-            FileWriter writer = new FileWriter(patch, false);
-            BufferedWriter bufferedWriter = new BufferedWriter(writer);
-            for (Booking booking : listBooking) {
-                bufferedWriter.write(booking.writeFile());
-                bufferedWriter.newLine();
-            }
-            bufferedWriter.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void writeBooking(String patch, Booking booking) {
-        try {
-            FileWriter writer = new FileWriter(patch, true);
-            BufferedWriter bufferedWriter = new BufferedWriter(writer);
-            bufferedWriter.write(booking.writeFile());
-            bufferedWriter.newLine();
-            bufferedWriter.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
+    TreeSet<Booking> listBooking = ReadWriteBooking.readBooking();
 
     @Override
     public void add() {
         Customer customer = chooseCustomer();
+        FacilityServiceImpl.checkMaintenance();
         Facility facility = chooseFacility();
         String idbooking;
-        FacilityServiceImpl.increaseUsed(facility);
         do {
             System.out.println("Please entry ID Booking");
             idbooking = sc.nextLine();
@@ -93,8 +37,9 @@ public class BookingServiceImpl extends Booking implements BookingService {
         }
         Booking booking = new Booking(idbooking, datestart, dateend, customer, facility);
         listBooking.add(booking);
-        writeFile(PATCH_BOOKING);
-        writeBooking(PATCH_TOTAL_BOOKING,booking);
+        FacilityServiceImpl.increaseUsed(booking.getFacility().getId());
+        ReadWriteBooking.writeFile(ReadWriteBooking.PATH_BOOKING, listBooking);
+        ReadWriteBooking.writeBooking(ReadWriteBooking.PATH_TOTAL_BOOKING, booking);
     }
 
     @Override

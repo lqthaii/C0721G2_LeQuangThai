@@ -2,13 +2,14 @@ package controllers;
 
 
 import services.*;
-
 import java.util.Scanner;
+
 
 public class FuramaController {
     static Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args) {
+        FacilityServiceImpl.resetFacility();
         displayMainMenu();
     }
 
@@ -120,7 +121,7 @@ public class FuramaController {
             } else if (chooseFunction == 2) {
                 facilityService.add();
             } else if (chooseFunction == 3) {
-                facilityService.edit();
+                facilityService.displayMaintenance();
             } else if (chooseFunction == 4) {
                 System.out.println("Return Success !!");
             } else System.out.println("ERROR - 404 \nPlease choose from 1 to 4:");
