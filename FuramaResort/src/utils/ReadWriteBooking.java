@@ -40,10 +40,10 @@ public class ReadWriteBooking {
         }
     }
 
-    public static TreeSet<Booking> readBooking() {
+    public static TreeSet<Booking> readBooking(String path) {
         TreeSet<Booking> listBooking = new TreeSet<>(new BookingComparator());
         try {
-            File file = new File(PATH_BOOKING);
+            File file = new File(path);
             if (!file.exists()) {
                 throw new FileNotFoundException();
             }

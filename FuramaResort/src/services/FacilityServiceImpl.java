@@ -1,7 +1,6 @@
 package services;
 
 import models.*;
-import utils.BookingComparator;
 import utils.ReadWriteFacility;
 import utils.RegexFacility;
 
@@ -11,7 +10,7 @@ import java.util.*;
 
 public class FacilityServiceImpl extends Facility implements FacilityService {
     static Map<Facility, Integer> facilityMap = ReadWriteFacility.readFile();
-    static protected ArrayList<Facility> facilitieMaintenance = ReadWriteFacility.readFileMaintenance();
+    static ArrayList<Facility> facilitieMaintenance = ReadWriteFacility.readFileMaintenance();
     static Scanner sc = new Scanner(System.in);
 
     static private RegexFacility regexFacility = new RegexFacility();
@@ -19,11 +18,12 @@ public class FacilityServiceImpl extends Facility implements FacilityService {
     public static void resetFacility() {
         Date date = new Date();
         LocalDate localDate = date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-        int day = localDate.getDayOfMonth();
+        int day =1; //localDate.getDayOfMonth();
         if (day == 1) {
             for (Facility facility : facilitieMaintenance) {
                 facilityMap.put(facility, 0);
             }
+            facilitieMaintenance.clear();
         }
         ReadWriteFacility.writeFile(facilityMap);
         ReadWriteFacility.writeFileMaintenance(facilitieMaintenance);
@@ -56,8 +56,8 @@ public class FacilityServiceImpl extends Facility implements FacilityService {
     }
 
     public static String[] inputData(String regex) {
-        String id, name, rentalType, roomStandard, cost, areaUsed, areaPool, maxPeople, numberFloor;
-        id = input("ID ", RegexFacility.ID_VILLA_REGEX);
+        String id, name, rentalType, cost, areaUsed, maxPeople;
+        id = input("ID ", regex);
         name = input("Name", RegexFacility.NAME_REGEX);
         areaUsed = input("Area Used", RegexFacility.AREA_REGEX);
         cost = input("Cost", RegexFacility.COST_REGEX);
@@ -114,7 +114,7 @@ public class FacilityServiceImpl extends Facility implements FacilityService {
         areaUsed = Double.parseDouble(arr[2]);
         cost = Double.parseDouble(arr[3]);
         maxPeople = Integer.parseInt(arr[4]);
-        rentalType = arr[6];
+        rentalType = arr[5];
         System.out.println("Service Free:");
         serviceFree = sc.nextLine();
         return new Room(id, name, areaUsed, cost, maxPeople, rentalType, serviceFree);

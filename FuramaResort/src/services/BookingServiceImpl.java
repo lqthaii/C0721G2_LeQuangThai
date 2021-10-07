@@ -11,7 +11,7 @@ import java.util.*;
 
 public class BookingServiceImpl extends Booking implements BookingService {
     Scanner sc = new Scanner(System.in);
-    TreeSet<Booking> listBooking = ReadWriteBooking.readBooking();
+    TreeSet<Booking> listBooking = ReadWriteBooking.readBooking(ReadWriteBooking.PATH_BOOKING);
 
     @Override
     public void add() {

@@ -119,16 +119,16 @@ public class ReadWriteFacility {
             String[] arr;
             while ((line = br.readLine()) != null) {
                 arr = line.split(",");
-                if (arr[1].contains("SVVL")) {
-                    facilitieMaintenance.add(new Villa(arr[1], arr[2], Double.parseDouble(arr[3]),
-                            Double.parseDouble(arr[4]), Integer.parseInt(arr[5]), arr[6], arr[7],
-                            Double.parseDouble(arr[8]), Integer.parseInt(arr[9])));
-                } else if (arr[1].contains("SVHO")) {
-                    facilitieMaintenance.add(new House(arr[1], arr[2], Double.parseDouble(arr[3]), Double.parseDouble(arr[4]),
-                            Integer.parseInt(arr[5]), arr[6], arr[7], Integer.parseInt(arr[8])));
+                if (arr[0].contains("SVVL")) {
+                    facilitieMaintenance.add(new Villa(arr[0], arr[1], Double.parseDouble(arr[2]),
+                            Double.parseDouble(arr[3]), Integer.parseInt(arr[4]), arr[5], arr[6],
+                            Double.parseDouble(arr[7]), Integer.parseInt(arr[8])));
+                } else if (arr[0].contains("SVHO")) {
+                    facilitieMaintenance.add(new House(arr[0], arr[1], Double.parseDouble(arr[2]), Double.parseDouble(arr[3]),
+                            Integer.parseInt(arr[4]), arr[5], arr[6], Integer.parseInt(arr[7])));
                 } else {
-                    facilitieMaintenance.add(new Room(arr[1], arr[2], Double.parseDouble(arr[3]), Double.parseDouble(arr[4]),
-                            Integer.parseInt(arr[5]), arr[6], arr[7]));
+                    facilitieMaintenance.add(new Room(arr[0], arr[1], Double.parseDouble(arr[2]), Double.parseDouble(arr[3]),
+                            Integer.parseInt(arr[4]), arr[5], arr[6]));
                 }
             }
             br.close();

@@ -163,6 +163,7 @@ public class FuramaController {
     public static void menuPromotion() {
         int chooseFunction;
         do {
+            PromotionServiceImpl promotionService = new PromotionServiceImpl();
             System.out.println("******************************************");
             System.out.println("Please choose function manager Promotion:");
             System.out.println("1.Display list customers use service");
@@ -174,7 +175,7 @@ public class FuramaController {
             if (chooseFunction == 1) {
 
             } else if (chooseFunction == 2) {
-
+                promotionService.displayCustomerGetVoucher();
             }
             if (chooseFunction == 3) {
                 System.out.println("Return Success !!");
