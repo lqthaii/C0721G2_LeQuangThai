@@ -1,4 +1,5 @@
 create database student_management;
+
 use student_management;
 create table class(
 id int,
