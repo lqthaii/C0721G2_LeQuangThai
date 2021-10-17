@@ -3,6 +3,7 @@ create database furamaresort;
 
 use furamaresort;
 
+/*TẠO TABLE*/
 create table vi_tri(
 id int primary key,
 ten_vi_tri varchar(50));
@@ -37,12 +38,6 @@ create table loai_khach(
 id int primary key,
 ten varchar(50));
 
-insert into loai_khach
-values(1,"Normal"),
-(2,"Silver"),
-(3,"Gold"),
-(4,"Platinum"),
-(5,"Diamond");
 
 create table khach_hang(
 id int primary key,
@@ -61,9 +56,11 @@ id int primary key,
 ten varchar(50),
 gia int); 
 
+
 create table loai_dich_vu(
 id int primary key,
 ten varchar(50));
+
 
 create table dich_vu(
 id int primary key,
@@ -77,6 +74,8 @@ trang_thai varchar(50),
 foreign key(id_kieu_thue) references kieu_thue(id),
 foreign key(id_loai_dich_vu) references loai_dich_vu(id)
 );
+
+
 
 create table dich_vu_di_kem(
 id int primary key,
@@ -98,6 +97,7 @@ foreign key (id_nhan_vien) references nhan_vien(id),
 foreign key (id_khach_hang) references khach_hang(id),
 foreign key (id_dich_vu) references dich_vu(id));
 
+
 create table hop_dong_chi_tiet(
 id int primary key,
 id_hop_dong int,
@@ -106,7 +106,7 @@ so_luong int,
 foreign key (id_dich_vu_di_kem) references dich_vu_di_kem(id),
 foreign key (id_hop_dong) references hop_dong(id));
 
-
+/*THÊM DATA VÀO DATABASE*/
 
 insert into vi_tri
 value(1,"Giám Đốc"),
@@ -129,13 +129,38 @@ value (1,"Lãnh đạo"),
 	  (4,"Lễ Tân"),
 	  (5,"Kinh Doanh");
 
+insert into loai_khach
+values(1,"Normal"),
+(2,"Silver"),
+(3,"Gold"),
+(4,"Platinum"),
+(5,"Diamond");
+
+insert into kieu_thue
+values(1,"Ngày",100),
+	  (2,"Tuần",600),
+	  (3,"Tháng",30000);
+
+insert into loai_dich_vu
+values (1, "Villa"),
+	   (2, "House"),
+	   (3, "Room");
+
+insert into dich_vu
+values (1,300,2,3,500,1,1,"Trống"),
+		(2,400,3,5,800,2,2,"Trống"),
+		(3,300,2,1,500,3,2,"Trống");
+        
+insert into dich_vu_di_kem
+values(1,"Ăn Sáng",0,2,"OK"),
+	  (2,"Massage",1000,1,"OK");
 
 insert into khach_hang
 value (1,5,"Lê Quang Thái","2000-10-26","123456789","0123456798","quangthai645@gmail.com","Đăk Lăk"),
-(2,1,"Nguyễn Thành Luân","1980-11-10","123456789","0123456798","thanhluan@gmail.com","Tam Kỳ"),
-(3,2,"Ngô Thành Tây","1997-06-10","123123123","01234512798","tayngo@gmail.com","Hồ Chí Minh"),
+(2,5,"Nguyễn Thành Luân","1980-11-10","123456789","0123456798","thanhluan@gmail.com","Tam Kỳ"),
+(3,2,"Ngô Thành Tây","1997-06-10","123123123","01234512798","tayngo@gmail.com","Quảng Trị"),
 (4,3,"Phạm Minh Chiến","1963-10-02","123456789","0146789156","chienpham@gmail.com","Hà Nội"),
-(5,4,"Võ Ngọc Win","1998-06-07","123456789","0687122356","quangthai645@gmail.com","Gia Lai");
+(5,4,"Võ Ngọc Win","1998-06-07","123456789","0687122356","quangthai645@gmail.com","Đà Nẵng");
 
 
 
@@ -149,11 +174,54 @@ value (1,"Lê Quang Thái",1,1,1,"2000-10-26","123456789",1000,"0123456798","qua
 
 
 
+insert into hop_dong
+values (1,1,5,2,"2021-10-17","2021-10-20",null,null),
+       (2,2,3,1,"2021-10-16","2021-10-22",null,null),
+       (3,6,2,3,"2021-10-10","2021-10-16",null,null);
+
+insert into hop_dong_chi_tiet
+values (1,1,null,null),
+		(2,2,1,3),
+        (3,3,2,1);
 
 
+/*TRUY XUẤT DATABASE*/
+/*2. Hiển thị thông tin của tất cả nhân viên có trong hệ thống có tên bắt đầu là một trong các ký tự “H”, “T” hoặc “K” và có tối đa 15 ký tự.*/
+
+SELECT * FROM nhan_vien
+WHERE (ho_ten like "H%" or ho_ten like "T%" or ho_ten like "K%") and length(ho_ten) <=15 ;
 
 
+/*3.Hiển thị thông tin của tất cả khách hàng có độ tuổi từ 18 đến 50 tuổi và có địa chỉ ở “Đà Nẵng” hoặc “Quảng Trị”.*/
 
 
+SELECT * FROM khach_hang
+WHERE ((DATEDIFF(NOW(),ngay_sinh)/365) >=18 and (DATEDIFF(NOW(),ngay_sinh)/365) <=50) and (dia_chi = "Đà Nẵng" or dia_chi = "Quảng Trị");
 
+ /*4.	Đếm xem tương ứng với mỗi khách hàng đã từng đặt phòng bao nhiêu lần. Kết quả hiển thị được sắp xếp tăng dần theo số lần đặt phòng của khách hàng. Chỉ đếm những khách hàng nào có Tên loại khách hàng là “Diamond”.*/
+ 
+ SELECT khach_hang.ho_ten, count(khach_hang.ho_ten)
+ FROM khach_hang
+ inner join hop_dong on hop_dong.id_khach_hang = khach_hang.id
+ inner join loai_khach on khach_hang.id_loai_khach = loai_khach.id
+ where loai_khach.id = 5
+ group by khach_hang.ho_ten
+ order by count(khach_hang.ho_ten);
+ /**/
+ SELECT kh.id, kh.ho_ten, lk.ten, hd.id, ldv.ten, hd.ngay_lam_hop_dong, hd.ngay_ket_thuc
+ from khach_hang kh
+ inner join loai_khach lk on kh.id_loai_khach = lk.id
+ inner join hop_dong hd on kh.id = hd.id_khach_hang
+ inner join dich_vu dv on dv.id = hd.id_dich_vu
+ inner join loai_dich_vu ldv on dv.id_loai_dich_vu = ldv.id
+ 
+ 
 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
