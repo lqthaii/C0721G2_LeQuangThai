@@ -175,8 +175,8 @@ value (1,"Lê Quang Thái",1,1,1,"2000-10-26","123456789",1000,"0123456798","qua
 
 
 insert into hop_dong
-values (1,1,5,2,"2021-10-17","2021-10-20",null,null),
-       (2,2,3,1,"2021-10-16","2021-10-22",null,null),
+values (1,1,5,2,"2019-10-17","2019-10-20",null,null),
+       (2,2,3,1,"2019-01-16","2019-2-22",null,null),
        (3,6,2,3,"2021-10-10","2021-10-16",null,null);
 
 insert into hop_dong_chi_tiet
@@ -208,15 +208,20 @@ WHERE ((DATEDIFF(NOW(),ngay_sinh)/365) >=18 and (DATEDIFF(NOW(),ngay_sinh)/365) 
  group by khach_hang.ho_ten
  order by count(khach_hang.ho_ten);
  /**/
- SELECT kh.id, kh.ho_ten, lk.ten, hd.id, ldv.ten, hd.ngay_lam_hop_dong, hd.ngay_ket_thuc
+ SELECT kh.id, kh.ho_ten, lk.ten, hd.id, ldv.ten, hd.ngay_lam_hop_dong, hd.ngay_ket_thuc, (dv.chi_phi_thue+ hdct.so_luong*dvdk.gia) as "Tong Tien"
  from khach_hang kh
  inner join loai_khach lk on kh.id_loai_khach = lk.id
  inner join hop_dong hd on kh.id = hd.id_khach_hang
  inner join dich_vu dv on dv.id = hd.id_dich_vu
  inner join loai_dich_vu ldv on dv.id_loai_dich_vu = ldv.id
+ inner join hop_dong_chi_tiet hdct on hd.id = hdct.id_hop_dong
+ inner join dich_vu_di_kem dvdk on dvdk.id = hdct.id_dich_vu_di_kem;
  
- 
-
+select dv.id, dv.dien_tich, dv.chi_phi_thue, ldv.ten
+from dich_vu dv
+inner join loai_dich_vu ldv on ldv.id = dv.id_loai_dich_vu
+inner join hop_dong hd on hd.id_dich_vu = dv.id
+where year(hd.ngay_lam_hop_dong)=2019 and dv.id not in (select hd.id_dich_vu from hop_dong hd where (month(hd.ngay_lam_hop_dong)=1 or month(hd.ngay_lam_hop_dong)=2 or month(hd.ngay_lam_hop_dong)=3) and year(hd.ngay_lam_hop_dong)=2019);
  
  
  
