@@ -29,10 +29,9 @@ luong int,
 sdt varchar(11),
 email varchar(50),
 dia_chi varchar(50),
-foreign key(id_vi_tri) references vi_tri(id),
-foreign key(id_trinh_do) references trinh_do(id),
-foreign key(id_bo_phan) references bo_phan(id)
-);
+foreign key(id_vi_tri) references vi_tri(id) ON DELETE CASCADE,
+foreign key(id_trinh_do) references trinh_do(id) ON DELETE CASCADE,
+foreign key(id_bo_phan) references bo_phan(id) ON DELETE CASCADE);
 
 create table loai_khach(
 id int primary key,
@@ -84,7 +83,7 @@ gia int,
 don_vi int,
 trang_thai varchar(50));
 
-create table hop_dong(
+create table hop_dong (
 id int primary key,
 id_nhan_vien int,
 id_khach_hang int,
@@ -93,9 +92,9 @@ ngay_lam_hop_dong date,
 ngay_ket_thuc date,
 tien_dat_coc int,
 tong_tien int,
-foreign key (id_nhan_vien) references nhan_vien(id),
-foreign key (id_khach_hang) references khach_hang(id),
-foreign key (id_dich_vu) references dich_vu(id));
+foreign key (id_nhan_vien) references nhan_vien(id) ON DELETE CASCADE,
+foreign key (id_khach_hang) references khach_hang(id) ON DELETE CASCADE,
+foreign key (id_dich_vu) references dich_vu(id) ON DELETE CASCADE);
 
 
 create table hop_dong_chi_tiet(
@@ -103,8 +102,8 @@ id int primary key,
 id_hop_dong int,
 id_dich_vu_di_kem int,
 so_luong int,
-foreign key (id_dich_vu_di_kem) references dich_vu_di_kem(id),
-foreign key (id_hop_dong) references hop_dong(id));
+foreign key (id_dich_vu_di_kem) references dich_vu_di_kem(id) ON DELETE CASCADE ,
+foreign key (id_hop_dong) references hop_dong(id) ON DELETE CASCADE);
 
 /*THÊM DATA VÀO DATABASE*/
 
@@ -175,14 +174,14 @@ value (1,"Lê Quang Thái",1,1,1,"2000-10-26","123456789",1000,"0123456798","qua
 
 
 insert into hop_dong
-values (1,1,5,2,"2019-10-17","2019-10-20",null,null),
-       (2,2,3,1,"2019-01-16","2019-2-22",null,null),
-       (3,6,2,3,"2021-10-10","2021-10-16",null,null),
-	   (4,3,1,1,"2019-02-16","2019-2-22",null,null),
-	   (5,4,3,1,"2019-03-16","2019-2-22",null,null),
-	   (6,5,2,1,"2019-02-16","2019-2-22",null,null),
-	   (7,2,1,1,"2019-01-16","2019-2-22",null,null),
-       (8,6,2,3,"2021-10-10","2021-10-16",null,null);
+values (1,1,5,2,"2019-10-17","2019-10-20",null,1000000),
+       (2,2,4,1,"2019-01-16","2019-2-22",null,1500000),
+       (3,6,2,3,"2021-10-10","2021-10-16",null,3000000),
+	   (4,3,1,1,"2019-02-16","2019-2-22",null,5000000),
+	   (5,4,3,1,"2015-03-16","2019-2-22",null,4500000),
+	   (6,5,2,1,"2019-02-16","2019-2-22",null,3500000),
+	   (7,2,1,1,"2019-01-16","2019-2-22",null,1500000),
+       (8,6,2,3,"2021-10-10","2021-10-16",null,2000000);
 
 insert into hop_dong_chi_tiet
 values (1,1,null,null),
@@ -215,12 +214,13 @@ WHERE ((DATEDIFF(NOW(),ngay_sinh)/365) >=18 and (DATEDIFF(NOW(),ngay_sinh)/365) 
  /*5.	Hiển thị IDKhachHang, HoTen, TenLoaiKhach, IDHopDong, TenDichVu, NgayLamHopDong, NgayKetThuc, TongTien */
  SELECT kh.id, kh.ho_ten, lk.ten, hd.id, ldv.ten, hd.ngay_lam_hop_dong, hd.ngay_ket_thuc, (dv.chi_phi_thue+ hdct.so_luong*dvdk.gia) as "Tong Tien"
  from khach_hang kh
- inner join loai_khach lk on kh.id_loai_khach = lk.id
- inner join hop_dong hd on kh.id = hd.id_khach_hang
- inner join dich_vu dv on dv.id = hd.id_dich_vu
- inner join loai_dich_vu ldv on dv.id_loai_dich_vu = ldv.id
- inner join hop_dong_chi_tiet hdct on hd.id = hdct.id_hop_dong
- inner join dich_vu_di_kem dvdk on dvdk.id = hdct.id_dich_vu_di_kem;
+ left join hop_dong hd on kh.id = hd.id_khach_hang
+ left join loai_khach lk on kh.id_loai_khach = lk.id
+ left join dich_vu dv on dv.id = hd.id_dich_vu
+ left join loai_dich_vu ldv on dv.id_loai_dich_vu = ldv.id
+ left join hop_dong_chi_tiet hdct on hd.id = hdct.id_hop_dong
+ left join dich_vu_di_kem dvdk on dvdk.id = hdct.id_dich_vu_di_kem
+ group by kh.id;
  
  
  
@@ -278,25 +278,99 @@ right join hop_dong_chi_tiet hdct on hdct.id_hop_dong =hd.id;
  inner join loai_khach lk on kh.id_loai_khach = lk.id
  inner join dich_vu dv on dv.id = hd.id_dich_vu
  inner join loai_dich_vu ldv on dv.id_loai_dich_vu = ldv.id
- where lk.ten = "Diamond" and (kh.dia_chi = "Tam Kỳ" or kh.dia_chi ="Vũng Tàu")
+ where lk.ten = "Diamond" and (kh.dia_chi = "Tam Kỳ" or kh.dia_chi ="Vũng Tàu");
  
 /*12.	Hiển thị thông tin IDHopDong, TenNhanVien, TenKhachHang, SoDienThoaiKhachHang, TenDichVu, SoLuongDichVuDikem (được tính dựa trên tổng Hợp đồng chi tiết), TienDatCoc của tất cả các dịch vụ */
  
+ select hd.id, nv.ho_ten as "Ten_Nhan_Vien", kh.ho_ten as "Ten_Khach_Hang", kh.sdt, ldv.ten, count(hdct.id) as "So_Luong_Dich_Vu_Di_kem",hd.tien_dat_coc
+ from hop_dong hd
+ inner join nhan_vien nv on hd.id_nhan_vien = nv.id
+ inner join khach_hang kh on kh.id = hd.id_khach_hang
+ inner join dich_vu dv on hd.id_dich_vu = dv.id
+ inner join loai_dich_vu ldv on ldv.id = dv.id_loai_dich_vu
+ inner join hop_dong_chi_tiet hdct on hdct.id_hop_dong = hd.id 
+ where hd.ngay_lam_hop_dong between "2019-10-01" and "2019-12-31" and  dv.id not in (select dv.id from dich_vu dv inner join hop_dong hd on hd.id_dich_vu = dv.id where hd.ngay_lam_hop_dong between "2019-06-01" and "2019-06-31")
+ group by hd.id ;
  
  
+ /*13.Hiển thị thông tin các Dịch vụ đi kèm được sử dụng nhiều nhất bởi các Khách hàng đã đặt phòng*/
+ 
+
+ 
+ select d.id, d.ten_dich_vu,d.gia,d.don_vi, count(hdct.id) as "so_lan_su_dung"
+ from dich_vu_di_kem d
+ join hop_dong_chi_tiet hdct on d.id = hdct.id_dich_vu_di_kem
+ group by d.id
+ having so_lan_su_dung >= all (select count(hdct.id) from hop_dong_chi_tiet hdct
+								group by hdct.id_dich_vu_di_kem);
+ 
+
+ /*14.	Hiển thị thông tin tất cả các Dịch vụ đi kèm chỉ mới được sử dụng một lần duy nhất. Thông tin hiển thị bao gồm IDHopDong, TenLoaiDichVu, TenDichVuDiKem, SoLanSuDung.*/
+ 
+select dvdk.ten_dich_vu, hd.id, dvdk.ten_dich_vu, count(dvdk.id)
+from dich_vu_di_kem dvdk
+join hop_dong_chi_tiet hdct on dvdk.id = hdct.id_dich_vu_di_kem
+join hop_dong hd on hd.id = hdct.id_hop_dong
+group by dvdk.id
+having count(dvdk.id) = 1;
+ 
+/*15.	Hiển thi thông tin của tất cả nhân viên bao gồm IDNhanVien, HoTen, TrinhDo, TenBoPhan, SoDienThoai, DiaChi mới chỉ lập được tối đa 3 hợp đồng từ năm 2018 đến 2019.*/
+ 
+ select nv.id, nv.ho_ten, td.trinh_do, bp.ten_bo_phan, nv.sdt, nv.dia_chi, count(hd.id_nhan_vien) as "so_lan_tao_hop_dong"
+ from nhan_vien nv
+ join trinh_do td on td.id = nv.id_trinh_do
+ join bo_phan bp on bp.id = nv.id_bo_phan
+ join hop_dong hd on nv.id = hd.id_nhan_vien
+ where (year(hd.ngay_lam_hop_dong) between 2018 and 2019)
+ group by hd.id_nhan_vien
+ having count(hd.id_nhan_vien) <=3;
+ 
+ /*16.	Xóa những Nhân viên chưa từng lập được hợp đồng nào từ năm 2017 đến năm 2019*/
+ 
+delete from nhan_vien nv
+where not exists (select hd.id_nhan_vien from hop_dong hd
+					where year(hd.ngay_lam_hop_dong) between 2017 and 2019);
  
  
+ /*17.	Cập nhật thông tin những khách hàng có TenLoaiKhachHang từ  Platinium lên Diamond, chỉ cập nhật những khách hàng đã từng đặt phòng với tổng Tiền thanh toán trong năm 2019 là lớn hơn 10.000.000 VNĐ*/
  
+-- create view tong_tien as
+ create view upgrade_vip as
+ select kh.id, sum(hd.tong_tien)
+ from khach_hang kh
+ inner join hop_dong hd on kh.id = hd.id_khach_hang
+ where year(hd.ngay_lam_hop_dong) =2019
+ group by kh.id having sum(hd.tong_tien)>5000000;
  
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
+ update khach_hang
+ set id_loai_khach =5 
+ where id_loai_khach =4 and id in (select khach_hang.id from upgrade_vip);
+
+
+
+/* 18.	Xóa những khách hàng có hợp đồng trước năm 2016 (chú ý ràng buộc giữa các bảng).*/
+delete from khach_hang
+where khach_hang.id in (select hop_dong.id_khach_hang from hop_dong where year(ngay_lam_hop_dong) <=2016);
+
+
+
+/*19.Cập nhật giá cho các Dịch vụ đi kèm được sử dụng trên 10 lần trong năm 2019 lên gấp đôi*/
+update dich_vu_di_kem
+set gia = gia*2
+where id in (select id_dich_vu_di_kem from hop_dong_chi_tiet group by id_dich_vu_di_kem having count(id_dich_vu_di_kem)>=2);
+
+
+
+/*20.	Hiển thị thông tin của tất cả các Nhân viên và Khách hàng có trong hệ thống, thông tin hiển thị bao gồm ID (IDNhanVien, IDKhachHang), HoTen, Email, SoDienThoai, NgaySinh, DiaChi.*/
+
+
+select n.id,n.ho_ten, n.email,n.sdt,n.ngay_sinh,n.dia_chi
+from nhan_vien n
+union
+select k.id,k.ho_ten, k.email,k.sdt,k.ngay_sinh,k.dia_chi
+from khach_hang k
+
+
+
+
+
