@@ -177,7 +177,12 @@ value (1,"Lê Quang Thái",1,1,1,"2000-10-26","123456789",1000,"0123456798","qua
 insert into hop_dong
 values (1,1,5,2,"2019-10-17","2019-10-20",null,null),
        (2,2,3,1,"2019-01-16","2019-2-22",null,null),
-       (3,6,2,3,"2021-10-10","2021-10-16",null,null);
+       (3,6,2,3,"2021-10-10","2021-10-16",null,null),
+	   (4,3,1,1,"2019-02-16","2019-2-22",null,null),
+	   (5,4,3,1,"2019-03-16","2019-2-22",null,null),
+	   (6,5,2,1,"2019-02-16","2019-2-22",null,null),
+	   (7,2,1,1,"2019-01-16","2019-2-22",null,null),
+       (8,6,2,3,"2021-10-10","2021-10-16",null,null);
 
 insert into hop_dong_chi_tiet
 values (1,1,null,null),
@@ -207,7 +212,7 @@ WHERE ((DATEDIFF(NOW(),ngay_sinh)/365) >=18 and (DATEDIFF(NOW(),ngay_sinh)/365) 
  where loai_khach.id = 5
  group by khach_hang.ho_ten
  order by count(khach_hang.ho_ten);
- /**/
+ /*5.	Hiển thị IDKhachHang, HoTen, TenLoaiKhach, IDHopDong, TenDichVu, NgayLamHopDong, NgayKetThuc, TongTien */
  SELECT kh.id, kh.ho_ten, lk.ten, hd.id, ldv.ten, hd.ngay_lam_hop_dong, hd.ngay_ket_thuc, (dv.chi_phi_thue+ hdct.so_luong*dvdk.gia) as "Tong Tien"
  from khach_hang kh
  inner join loai_khach lk on kh.id_loai_khach = lk.id
@@ -217,11 +222,76 @@ WHERE ((DATEDIFF(NOW(),ngay_sinh)/365) >=18 and (DATEDIFF(NOW(),ngay_sinh)/365) 
  inner join hop_dong_chi_tiet hdct on hd.id = hdct.id_hop_dong
  inner join dich_vu_di_kem dvdk on dvdk.id = hdct.id_dich_vu_di_kem;
  
+ 
+ 
+ /*6.	Hiển thị IDDichVu, TenDichVu, DienTich, ChiPhiThue, TenLoaiDichVu của tất cả các loại Dịch vụ chưa từng được Khách hàng thực hiện đặt từ quý 1 của năm 2019*/
 select dv.id, dv.dien_tich, dv.chi_phi_thue, ldv.ten
 from dich_vu dv
 inner join loai_dich_vu ldv on ldv.id = dv.id_loai_dich_vu
 inner join hop_dong hd on hd.id_dich_vu = dv.id
 where year(hd.ngay_lam_hop_dong)=2019 and dv.id not in (select hd.id_dich_vu from hop_dong hd where (month(hd.ngay_lam_hop_dong)=1 or month(hd.ngay_lam_hop_dong)=2 or month(hd.ngay_lam_hop_dong)=3) and year(hd.ngay_lam_hop_dong)=2019);
+ 
+ 
+ /*7.	Hiển thị thông tin của tất cả các loại dịch vụ đã từng được Khách hàng đặt phòng trong năm 2018 nhưng chưa từng được Khách hàng đặt phòng  trong năm 2019.*/
+ 
+create view dich_vu_2018 as
+select dv.id 'id_dich_vu', dv.dien_tich, dv.chi_phi_thue
+from dich_vu dv
+inner join hop_dong hd on hd.id_dich_vu = dv.id
+where year(hd.ngay_lam_hop_dong)=2019;
+ 
+select dv.id, dv.dien_tich,dv.so_nguoi_toi_da, dv.chi_phi_thue, ldv.ten
+from dich_vu dv
+inner join loai_dich_vu ldv on ldv.id = dv.id_loai_dich_vu
+inner join hop_dong hd on hd.id_dich_vu = dv.id
+where year(hd.ngay_lam_hop_dong)=2018 and dv.id not in (select id_dich_vu from dich_vu_2018);
+ 
+ /*8.Hiển thị thông tin HoTenKhachHang có trong hệ thống, với yêu cầu HoThenKhachHang không trùng nhau. Học viên sử dụng theo 3 cách khác nhau để thực hiện yêu cầu trên*/
+ /*Cách 1*/
+ select distinct ho_ten from khach_hang;
+ 
+ /*Cách 2*/
+ select ho_ten from khach_hang
+ group by ho_ten;
+ 
+/*9.	Thực hiện thống kê doanh thu theo tháng, nghĩa là tương ứng với mỗi tháng trong năm 2019 thì sẽ có bao nhiêu khách hàng thực hiện đặt phòng.*/
+
+
+select month(ngay_lam_hop_dong) as "thang",count(id_khach_hang) as "so_khach_hang_dat_phong"
+from hop_dong
+where year(ngay_lam_hop_dong)=2019
+group by ngay_lam_hop_dong;
+
+/*10.	Hiển thị thông tin tương ứng với từng Hợp đồng thì đã sử dụng bao nhiêu Dịch vụ đi kèm*/ 
+
+select hd.id, hd.ngay_lam_hop_dong,hd.ngay_ket_thuc,hd.tien_dat_coc, count(hdct.id)
+from hop_dong hd
+right join hop_dong_chi_tiet hdct on hdct.id_hop_dong =hd.id;
+
+ 
+ /*11.	Hiển thị thông tin các Dịch vụ đi kèm đã được sử dụng bởi những Khách hàng có TenLoaiKhachHang là “Diamond” và có địa chỉ là “Vinh” hoặc “Quảng Ngãi”*/
+ 
+ 
+ select ldv.ten, dv.dien_tich, dv.so_tang, dv.so_nguoi_toi_da, dv.chi_phi_thue
+ from khach_hang kh
+ inner join hop_dong hd on kh.id = hd.id_khach_hang
+ inner join loai_khach lk on kh.id_loai_khach = lk.id
+ inner join dich_vu dv on dv.id = hd.id_dich_vu
+ inner join loai_dich_vu ldv on dv.id_loai_dich_vu = ldv.id
+ where lk.ten = "Diamond" and (kh.dia_chi = "Tam Kỳ" or kh.dia_chi ="Vũng Tàu")
+ 
+/*12.	Hiển thị thông tin IDHopDong, TenNhanVien, TenKhachHang, SoDienThoaiKhachHang, TenDichVu, SoLuongDichVuDikem (được tính dựa trên tổng Hợp đồng chi tiết), TienDatCoc của tất cả các dịch vụ */
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
  
  
  
