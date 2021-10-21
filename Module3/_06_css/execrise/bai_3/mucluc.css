@@ -1,0 +1,50 @@
+#tieude{
+    background: lightcoral;
+    padding: 0 10px;
+    margin-bottom: 1em;
+    text-align: center;
+    background-image:  url(img/background.jpg);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    color:  #FFFFFF;
+    padding-top: 20px;
+    font-size: 100px;
+    font-family: 'Bungee', cursive;
+    animation: filling 4s ease forwards;
+}
+@keyframes filling {
+    from{
+        background-position: center 25%;
+    }
+    to {
+        background-position: center 50%;
+    }
+}
+ol{
+    margin: auto;
+    width: 50%;
+    border: 3px solid green;
+    list-style-position: inside;
+}
+li{
+    font-weight: bold;
+    font-size: 20px;
+}
+#noidung{
+    text-align: center;
+}
+p{
+    text-indent: 50px;
+    font-size: 20px;
+}
+h3{
+    background: #ffa500;
+}
+img{
+    float: right;
+    object-fit: cover;
+    height: 450px;
+}
+div{
+    height: 500px
+}
