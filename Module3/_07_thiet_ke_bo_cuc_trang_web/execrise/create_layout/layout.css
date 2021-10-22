@@ -1,0 +1,125 @@
+.col-1 {width: 8.33%;}
+.col-2 {width: 16.66%;}
+.col-3 {width: 25%;}
+.col-4 {width: 33.33%;}
+.col-5 {width: 41.66%;}
+.col-6 {width: 50%;}
+.col-7 {width: 58.33%;}
+.col-8 {width: 66.66%;}
+.col-9 {width: 75%;}
+.col-10 {width: 83.33%;}
+.col-11 {width: 91.66%;}
+.col-12 {width: 100%;}
+.row{
+    margin: 2px;
+}
+.row:after{
+    clear: both;
+    display: block;
+    content: "";
+}
+*{
+    box-sizing: border-box;
+}
+.header{
+    height: 50px;
+    width: 100%;
+}
+.header div span{
+    color: #d61b06;
+}
+.header div{
+    font-size: 30pt;
+    text-align: center;
+    font-weight: bolder;
+}
+[class*="col-"]{
+    float: left;
+}
+#menu{
+    margin: 2px;
+    text-align: center;
+}
+#menu li{
+    list-style: none;
+    margin-top: 2px;
+    margin-left: 2px;
+
+}
+#menu li li{
+    color: lightcoral;
+}
+#menu li a{
+    text-decoration: none;
+    font-weight: bolder;
+    padding: 8px;
+    width: 100%;
+    height: 48px;
+    display: block;
+    text-align: center;
+    line-height: 30px;
+    background-color: #2196F3;
+    color: #000000;
+    border-radius: 20px;
+}
+#menu li ul {
+    position: absolute;
+    visibility: hidden;
+}
+#menu li:hover ul{
+    visibility: visible;
+}
+#menu li a:hover {
+    background: #d61b06;
+}
+.nav{
+    background: #d61b06;
+    height: 1000px;
+}
+.body{
+    background: lightcoral;
+    height: 1000px;
+}
+.align{
+    height: 100px;
+}
+#menu-nav, #menu-nav ul, #menu-nav li{
+    padding:0;
+    margin-top:5px;
+}
+#menu-nav li{
+    text-align: center;
+    list-style: none;
+    position: relative;
+    width:100%;
+    height: 30px;
+    padding:0 20px;
+    line-height: 30px;
+    cursor:pointer;
+}
+
+#menu-nav li a{
+    text-decoration:none;
+    color: white;
+}
+
+#menu-nav li:hover{
+    background-color:#0099cc;
+}
+
+#menu-nav ul{
+    position: absolute;
+    top:0;
+    left:140px;
+    visibility:hidden;
+}
+#menu-nav li li{
+    padding:0;
+    margin-left:70px;
+    background: #d61b06;
+    margin-top: 0px;
+}
+
+#menu-nav li:hover ul{
+    visibility:visible;
+}

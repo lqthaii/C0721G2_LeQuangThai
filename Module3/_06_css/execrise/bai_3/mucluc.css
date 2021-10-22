@@ -1,3 +1,9 @@
+
+/*#header{
+    background: #d61b06;
+    height: 100px;
+    width: 100%;
+}*/
 #tieude{
     background: lightcoral;
     padding: 0 10px;
@@ -47,4 +53,7 @@ img{
 }
 div{
     height: 500px
+}
+body{
+    background: aquamarine;
 }
