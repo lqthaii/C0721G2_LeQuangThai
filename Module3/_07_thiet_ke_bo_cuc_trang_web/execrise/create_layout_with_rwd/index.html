@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .col-1 {
+            width: 8.33%;
+        }
+
+        .col-2 {
+            width: 16.66%;
+        }
+
+        .col-3 {
+            width: 25%;
+        }
+
+        .col-4 {
+            width: 33.33%;
+        }
+
+        .col-5 {
+            width: 41.66%;
+        }
+
+        .col-6 {
+            width: 50%;
+        }
+
+        .col-7 {
+            width: 58.33%;
+        }
+
+        .col-8 {
+            width: 66.66%;
+        }
+
+        .col-9 {
+            width: 75%;
+        }
+
+        .col-10 {
+            width: 83.33%;
+        }
+
+        .col-11 {
+            width: 91.66%;
+        }
+
+        .col-12 {
+            width: 100%;
+        }
+        *{
+            box-sizing: border-box;
+        }
+
+        [class*="col-"] {
+            float: left;
+            padding: 5px;
+        }
+
+        .header {
+            top: 0px;
+            position: fixed;
+            background-color: lightcoral;
+            height: 60px;
+            width: 100%;
+        }
+
+        .header div {
+            margin-top: 5px;
+        }
+
+        .header img {
+            height: 40px;
+            width: 40px;
+            cursor: pointer;
+        }
+        #search{
+            top: 0px;
+        }
+        .row button {
+            border-radius: 30%;
+            height: 30px;
+            width: 30px;
+        }
+        .profile img,.nav img{
+            margin-left: 30px;
+        }
+        .nav-left{
+            position: absolute;
+            top: 50px;
+            height: 1000px;
+            background-color: #33b5e5;
+        }
+        .row:after{
+            clear: both;
+            content: "";
+            display: block;
+
+        }
+    </style>
+</head>
+<body>
+<div class="row header">
+    <div class="col-4">
+        <img src="facebook.png"/>
+        <img src="https://img.icons8.com/ios-glyphs/30/000000/search--v1.png" onclick="search()">
+        <input id="search" type="text" placeholder="Tìm kiếm ">
+    </div>
+    <div class="nav col-4">
+        <img src="https://img.icons8.com/material-rounded/24/000000/home.png"/>
+        <img src="https://img.icons8.com/ios-filled/50/000000/group-foreground-selected.png"/>
+        <img src="https://img.icons8.com/external-kiranshastry-lineal-kiranshastry/64/000000/external-flag-miscellaneous-kiranshastry-lineal-kiranshastry.png"/>
+        <img src="https://img.icons8.com/ios-filled/50/000000/watch-tv.png"/>
+        <img src="https://img.icons8.com/external-kiranshastry-solid-kiranshastry/64/000000/external-group-business-and-management-kiranshastry-solid-kiranshastry-4.png"/>
+    </div>
+    <div class="profile col-4">
+        <img src="https://img.icons8.com/material-outlined/24/000000/circled-menu.png"/>
+        <img src="https://img.icons8.com/ios-filled/50/000000/facebook-messenger.png"/>
+        <img src="https://img.icons8.com/material-rounded/24/000000/bell--v2.png"/>
+        <img src="https://img.icons8.com/ios-filled/50/000000/sort-down.png"/>
+    </div>
+</div>
+<div class="row nav-left col-12">
+    <div class="col-4">
+        <div class="row">
+            <div class="col-12">
+                <button>ABC</button>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
