@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="7fa3f2b2-02f6-4e67-9d7a-d07d64afb26d" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../Module2/.idea/Module2.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Module2/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Module2/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Module2/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Module2/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Module2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Module2/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Module2/Module2/src/Main/main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Module2/Module2/src/Main/main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Module2/Module2/src/bai_tap/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Module2/Module2/src/bai_tap/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Module2/Module2/src/cinema/Cinema.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Module2/Module2/src/cinema/Cinema.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Module2/Module2/src/cinema/CinemaControler.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Module2/Module2/src/cinema/CinemaControler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Module2/Module2/src/cinema/CinemaImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Module2/Module2/src/cinema/CinemaImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Module2/Module2/src/cinema/Film.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Module2/Module2/src/cinema/Film.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Module2/Module2/src/cinema/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Module2/Module2/src/cinema/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Module2/Module2/src/cinema/ReadWriteFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Module2/Module2/src/cinema/ReadWriteFile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Module2/Module2/src/cinema/data/Cinema.csv" beforeDir="false" afterPath="$PROJECT_DIR$/../Module2/Module2/src/cinema/data/Cinema.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Module2/src/controller/QuanLySoTietKiem.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Module2/src/controller/QuanLySoTietKiem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Module2/src/data/customer.csv" beforeDir="false" afterPath="$PROJECT_DIR$/../Module2/src/data/customer.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Module2/src/data/longTerm.csv" beforeDir="false" afterPath="$PROJECT_DIR$/../Module2/src/data/longTerm.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Module2/src/data/shortTerm1.csv" beforeDir="false" afterPath="$PROJECT_DIR$/../Module2/src/data/shortTerm1.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Module2/src/models/KhachHang.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Module2/src/models/KhachHang.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Module2/src/models/STKCoThoiHan.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Module2/src/models/STKCoThoiHan.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Module2/src/models/STKDaiHan.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Module2/src/models/STKDaiHan.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Module2/src/models/STKVoThoiHan.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Module2/src/models/STKVoThoiHan.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Module2/src/models/SoTietKiem.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Module2/src/models/SoTietKiem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Module2/src/services/DichVu.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Module2/src/services/DichVu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Module2/src/services/DichVuKhachHang.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Module2/src/services/DichVuKhachHang.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Module2/src/services/DichVuSTKCoThoiHan.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Module2/src/services/DichVuSTKCoThoiHan.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Module2/src/services/DichVuSTKDaiHan.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Module2/src/services/DichVuSTKDaiHan.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Module2/src/services/DichVuSTKVoThoiHan.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Module2/src/services/DichVuSTKVoThoiHan.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Module2/src/utils/DocGhiKhachHang.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Module2/src/utils/DocGhiKhachHang.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Module2/src/utils/DocGhiSTKCoThoiHan.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Module2/src/utils/DocGhiSTKCoThoiHan.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Module2/src/utils/DocGhiSTKDaiHan.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Module2/src/utils/DocGhiSTKDaiHan.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Module2/src/utils/DocGhiSTKVoThoiHan.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Module2/src/utils/DocGhiSTKVoThoiHan.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Module2/src/utils/RegexSTK.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Module2/src/utils/RegexSTK.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_08_bootstrap/execrise/langding_page/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_08_bootstrap/execrise/langding_page/index.html" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="201paplPYvCUAR7C7Dm3v6yLWyZ" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="7fa3f2b2-02f6-4e67-9d7a-d07d64afb26d" name="Default Changelist" comment="" />
+      <created>1635222015060</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1635222015060</updated>
+      <workItem from="1635222026430" duration="36000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="342" y="102" key="new project wizard" timestamp="1635222061199">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="342" y="102" key="new project wizard/0.0.1920.1040@0.0.1920.1040" timestamp="1635222061199" />
+  </component>
+</project>
