@@ -27,8 +27,8 @@ public class UserRepository implements IUserRepository {
         User user = null;
         try {
             PreparedStatement preparedStatement = BaseRepository.connection.prepareStatement("select *" +
-                    "from `user`" +
-                    "where id = ?");
+                    " from `user`" +
+                    " where id = ?");
             preparedStatement.setString(1, id);
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {

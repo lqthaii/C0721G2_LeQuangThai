@@ -9,6 +9,7 @@ import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 @WebServlet(name = "UserServlet", urlPatterns = {"","/users"})
@@ -100,7 +101,9 @@ public class UserServlet extends HttpServlet {
     private void showUser(HttpServletRequest request, HttpServletResponse response){
         String id = request.getParameter("id");
         User user = this.userService.selectUser(id);
-        request.setAttribute("user",user);
+        List<User> userList = new ArrayList<>();
+        userList.add(user);
+        request.setAttribute("userList",userList);
         try {
             request.getRequestDispatcher("user/view.jsp").forward(request,response);
         } catch (ServletException e) {
