@@ -10,13 +10,25 @@ public class BaseRepository {
     private static String jdbcUsername = "root";
     private static String jdbcPassword = "261020";
 
-    static {
+    public Connection getConnection() {
+        connection = null;
         try {
             Class.forName("com.mysql.jdbc.Driver");
             connection = DriverManager.getConnection(jdbcURL, jdbcUsername, jdbcPassword);
-        } catch (ClassNotFoundException | SQLException e) {
+        } catch (SQLException | ClassNotFoundException e) {
+            // TODO Auto-generated catch block
             e.printStackTrace();
         }
+        return connection;
+    }
+    public static void close(){
+            try {
+                if(connection!=null){
+                connection.close();
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
     }
 }
 

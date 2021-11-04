@@ -3,12 +3,12 @@ package model;
 public class Employee {
     private String id;
     private String name;
-    private String position;
-    private String level;
-    private String part;
+    private Position position;
+    private Level level;
+    private Part part;
     private String birthday;
     private String identity;
-    private String salary;
+    private double salary;
     private String numberPhone;
     private String email;
     private String address;
@@ -16,7 +16,7 @@ public class Employee {
     public Employee() {
     }
 
-    public Employee(String id, String name, String position, String level, String part, String birthday, String identity, String salary, String numberPhone, String email, String address) {
+    public Employee(String id, String name, Position position, Level level, Part part, String birthday, String identity, double salary, String numberPhone, String email, String address) {
         this.id = id;
         this.name = name;
         this.position = position;
@@ -46,27 +46,27 @@ public class Employee {
         this.name = name;
     }
 
-    public String getPosition() {
+    public Position getPosition() {
         return position;
     }
 
-    public void setPosition(String position) {
+    public void setPosition(Position position) {
         this.position = position;
     }
 
-    public String getLevel() {
+    public Level getLevel() {
         return level;
     }
 
-    public void setLevel(String level) {
+    public void setLevel(Level level) {
         this.level = level;
     }
 
-    public String getPart() {
+    public Part getPart() {
         return part;
     }
 
-    public void setPart(String part) {
+    public void setPart(Part part) {
         this.part = part;
     }
 
@@ -86,11 +86,11 @@ public class Employee {
         this.identity = identity;
     }
 
-    public String getSalary() {
+    public double getSalary() {
         return salary;
     }
 
-    public void setSalary(String salary) {
+    public void setSalary(double salary) {
         this.salary = salary;
     }
 

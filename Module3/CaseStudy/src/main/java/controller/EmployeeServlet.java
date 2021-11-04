@@ -1,7 +1,8 @@
 package controller;
 
-import model.Customer;
 import model.Employee;
+import service.iemployee.IEmployeeService;
+import service.Impl.employee.EmployeeService;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -11,9 +12,17 @@ import java.util.List;
 
 @WebServlet(name = "EmployeeServlet", value = "/employee")
 public class EmployeeServlet extends HttpServlet {
+    IEmployeeService employeeService = new EmployeeService();
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getRequestDispatcher("/furamaresort/list_employee.jsp");
+        String action = request.getParameter("actionUser");
+        switch (action){
+            case "delete":
+                deleteEmployee(request,response);
+                break;
+            default:
+                showEmployee(request,response);
+        }
     }
 
     @Override
@@ -21,14 +30,19 @@ public class EmployeeServlet extends HttpServlet {
 
     }
     private void showEmployee(HttpServletRequest request, HttpServletResponse response){
-        List<Employee> employees = this.customerService.getAllCustomer();
+        List<Employee> employees = this.employeeService.getAllEmployee();
         try {
-            request.setAttribute("customerList",customers);
-            request.getRequestDispatcher("furama/list_customer.jsp").forward(request,response);
+            request.setAttribute("employeeList",employees);
+            request.getRequestDispatcher("furama/list_employee.jsp").forward(request,response);
         } catch (ServletException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+    private void deleteEmployee(HttpServletRequest request, HttpServletResponse response){
+        int id = Integer.parseInt(request.getParameter("id"));
+        this.employeeService.deleteEmployee(id);
+        showEmployee(request,response);
     }
 }

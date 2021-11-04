@@ -2,7 +2,7 @@ package model;
 
 public class Customer {
     private String id;
-    private String idTypeCustomer;
+    private TypeCustomer typeCustomer;
     private String name;
     private String birthday;
     private String identity;
@@ -13,9 +13,9 @@ public class Customer {
     public Customer() {
     }
 
-    public Customer(String id, String idTypeCustomer, String name, String birthday, String identity, String email, String address, String numberPhone) {
+    public Customer(String id, TypeCustomer idTypeCustomer, String name, String birthday, String identity, String email, String address, String numberPhone) {
         this.id = id;
-        this.idTypeCustomer = idTypeCustomer;
+        this.typeCustomer = idTypeCustomer;
         this.name = name;
         this.birthday = birthday;
         this.identity = identity;
@@ -32,12 +32,12 @@ public class Customer {
         this.id = id;
     }
 
-    public String getIdTypeCustomer() {
-        return idTypeCustomer;
+    public TypeCustomer getTypeCustomer() {
+        return typeCustomer;
     }
 
-    public void setIdTypeCustomer(String idTypeCustomer) {
-        this.idTypeCustomer = idTypeCustomer;
+    public void setTypeCustomer(TypeCustomer typeCustomer) {
+        this.typeCustomer = typeCustomer;
     }
 
     public String getName() {

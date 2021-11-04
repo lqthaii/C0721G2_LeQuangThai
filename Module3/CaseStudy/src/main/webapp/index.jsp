@@ -13,15 +13,17 @@
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   </head>
   <body>
-  <div class="row">
+  <div class="container-fluid">
+  <div class="row header">
+    <div class="col-1"></div>
     <div class="col-1">
-      <a class="navbar-brand" href="#">
-        <img src="/docs/4.1/assets/brand/bootstrap-solid.svg" width="30" height="30" alt="">
+      <a class="navbar-brand" href="">
+        <img src="img/logo.png" width="50" height="50" alt="">
       </a>
     </div>
-    <div class="col-9"></div>
+    <div class="col-8"></div>
     <div class="col-2">
-      <a class="navbar-brand" href="#">Lê Quang Thái</a>
+      <a class="navbar-brand" href="">Lê Quang Thái</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -36,7 +38,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link ml-4" href="#">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-link ml-4" href="index.jsp">Home <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item active">
           <a class="nav-link ml-4" href="/employee?actionUser=listEmployee">Employee<span class="sr-only">(current)</span></a>
@@ -58,12 +60,12 @@
     </div>
   </nav>
   <div class="row mt-3">
-    <div id="list-example" class="list-group col-4">
-      <a class="list-group-item list-group-item-action" href="#list-item-1">Item 1</a>
-      <a class="list-group-item list-group-item-action" href="#list-item-2">Item 2</a>
+    <div id="list-example" class="list-group col-2">
+      <a class="list-group-item list-group-item-action" href="/employee?actionUser=listEmployee">Employee</a>
+      <a class="list-group-item list-group-item-action" href="/customer?actionUser=listCustomer">Customer</a>
       <a class="list-group-item list-group-item-action" href="#list-item-3">Item 3</a>
     </div>
-    <div data-spy="scroll" data-target="#list-example" data-offset="0" class="scrollspy-example col-8">
+    <div data-spy="scroll" data-target="#list-example" data-offset="0" class="scrollspy-example col-10">
       <h4 id="list-item-1">Item 1</h4>
       <p>...</p>
       <h4 id="list-item-2">Item 2</h4>
@@ -78,6 +80,7 @@
     <div class="mx-auto" style="width: 200px;">
       Footer
     </div>
+  </div>
   </div>
   </body>
 </html>
