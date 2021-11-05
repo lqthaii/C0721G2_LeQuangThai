@@ -65,15 +65,66 @@
       <a class="list-group-item list-group-item-action" href="/customer?actionUser=listCustomer">Customer</a>
       <a class="list-group-item list-group-item-action" href="/service">Service</a>
     </div>
+
     <div data-spy="scroll" data-target="#list-example" data-offset="0" class="scrollspy-example col-10">
-      <h4 id="list-item-1">Item 1</h4>
-      <p>...</p>
-      <h4 id="list-item-2">Item 2</h4>
-      <p>...</p>
-      <h4 id="list-item-3">Item 3</h4>
-      <p>...</p>
-      <h4 id="list-item-4">Item 4</h4>
-      <p>...</p>
+      <div class="row mt-5">
+      <div class="card text-white bg-primary mb-3 ml-5 col-3" style="max-width: 18rem;">
+        <div class="card-header text-center ">Customer</div>
+        <div class="card-body">
+          <h5 class="card-title">Customer Manager</h5>
+          <p class="card-text">Management page for everyone</p>
+          <div class="row mt-3">
+            <div class="col-4"></div>
+            <div class="col-4">
+              <button type="button" class="btn btn-danger" onclick="window.location.href='/customer'">Go to</button>
+            </div>
+            <div class="col-4"></div>
+          </div>
+        </div>
+      </div>
+      <div class="card text-white bg-success mb-3 ml-5 col-3" style="max-width: 18rem;">
+        <div class="card-header text-center">Employee</div>
+        <div class="card-body">
+          <h5 class="card-title">Employee Manager</h5>
+          <p class="card-text">Management page for admins</p>
+          <div class="row mt-5">
+            <div class="col-4"></div>
+            <div class="col-4">
+              <button type="button" class="btn btn-danger" onclick="window.location.href='/employee'">Go to</button>
+            </div>
+            <div class="col-4"></div>
+          </div>
+        </div>
+      </div>
+      <div class="card text-white bg-warning mb-3 ml-5 col-3" style="max-width: 18rem;">
+        <div class="card-header text-center">Service</div>
+        <div class="card-body">
+          <h5 class="card-title">Service Manager</h5>
+          <p class="card-text">Management page for admins</p>
+          <div class="row mt-5">
+            <div class="col-4"></div>
+            <div class="col-4">
+              <button type="button" class="btn btn-danger" onclick="window.location.href='/service'">Go to</button>
+            </div>
+            <div class="col-4"></div>
+          </div>
+        </div>
+      </div>
+      <div class="card text-white bg-info mb-3 ml-5 col-3" style="max-width: 18rem;">
+        <div class="card-header text-center">Contract</div>
+        <div class="card-body">
+          <h5 class="card-title">Contract Manager</h5>
+          <p class="card-text">Management page for admins</p>
+          <div class="row mt-5">
+            <div class="col-4"></div>
+            <div class="col-4">
+              <button type="button" class="btn btn-danger" onclick="window.location.href='#'">Go to</button>
+            </div>
+            <div class="col-4"></div>
+          </div>
+        </div>
+      </div>
+    </div>
     </div>
   </div>
   <div class="row mb-0">

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component inheritJdk="true">
+	<output-test url="file://$MODULE_DIR$/../../build/classes/java/test"/>
+	<exclude-output/>
+	<contentEntry url="file://$MODULE_DIR$/../../src/test">
+		<testFolder url="file://$MODULE_DIR$/../../src/test/java"/>
+		<testFolder url="file://$MODULE_DIR$/../../src/test/resources"/>
+	</contentEntry>
+	<levels>
+		<level name="Gradle: javax.servlet:jstl:1.2" value="project"/>
+		<level name="Gradle: mysql:mysql-connector-java:8.0.23" value="project"/>
+		<level name="Gradle: com.google.protobuf:protobuf-java:3.11.4" value="project"/>
+	</levels>
+</component>
