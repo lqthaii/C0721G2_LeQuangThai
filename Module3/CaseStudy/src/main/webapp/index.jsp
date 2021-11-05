@@ -69,7 +69,7 @@
     <div data-spy="scroll" data-target="#list-example" data-offset="0" class="scrollspy-example col-10">
       <div class="row mt-5">
       <div class="card text-white bg-primary mb-3 ml-5 col-3" style="max-width: 18rem;">
-        <div class="card-header text-center ">Customer</div>
+        <div class="card-header text-center font-weight-bold">Customer</div>
         <div class="card-body">
           <h5 class="card-title">Customer Manager</h5>
           <p class="card-text">Management page for everyone</p>
@@ -83,7 +83,7 @@
         </div>
       </div>
       <div class="card text-white bg-success mb-3 ml-5 col-3" style="max-width: 18rem;">
-        <div class="card-header text-center">Employee</div>
+        <div class="card-header text-center font-weight-bold">Employee</div>
         <div class="card-body">
           <h5 class="card-title">Employee Manager</h5>
           <p class="card-text">Management page for admins</p>
@@ -97,7 +97,7 @@
         </div>
       </div>
       <div class="card text-white bg-warning mb-3 ml-5 col-3" style="max-width: 18rem;">
-        <div class="card-header text-center">Service</div>
+        <div class="card-header text-center font-weight-bold">Service</div>
         <div class="card-body">
           <h5 class="card-title">Service Manager</h5>
           <p class="card-text">Management page for admins</p>
@@ -111,7 +111,7 @@
         </div>
       </div>
       <div class="card text-white bg-info mb-3 ml-5 col-3" style="max-width: 18rem;">
-        <div class="card-header text-center">Contract</div>
+        <div class="card-header text-center font-weight-bold">Contract</div>
         <div class="card-body">
           <h5 class="card-title">Contract Manager</h5>
           <p class="card-text">Management page for admins</p>

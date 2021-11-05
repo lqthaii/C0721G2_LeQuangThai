@@ -16,12 +16,13 @@
 <body>
 <div class="container-fluid">
 <div class="row">
+    <div class="col-1"></div>
     <div class="col-1">
-        <a class="navbar-brand" href="#">
-            <img src="/docs/4.1/assets/brand/bootstrap-solid.svg" width="30" height="30" alt="">
+        <a class="navbar-brand" href="">
+            <img src="img/logo.png" width="50" height="50" alt="">
         </a>
     </div>
-    <div class="col-9"></div>
+    <div class="col-8"></div>
     <div class="col-2">
         <a class="navbar-brand" href="#">Lê Quang Thái</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -50,7 +51,7 @@
                 <a class="nav-link ml-4" href="/service">Service <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link ml-4" href="#">Contract <span class="sr-only">(current)</span></a>
+                <a class="nav-link ml-4" href="/contract">Contract <span class="sr-only">(current)</span></a>
             </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">
