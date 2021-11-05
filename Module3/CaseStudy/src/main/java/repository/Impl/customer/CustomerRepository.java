@@ -2,10 +2,10 @@ package repository.Impl.customer;
 
 import model.Customer;
 import model.TypeCustomer;
-import repository.customer.ICustomerRepository;
+import repository.ICustomerRepository;
 import repository.Impl.BaseRepository;
 import service.Impl.customer.CustomerTypeService;
-import service.icustomer.ICustomerTypeService;
+import service.ICustomerTypeService;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -143,4 +143,5 @@ public class CustomerRepository implements ICustomerRepository {
             e.printStackTrace();
         }
     }
+
 }

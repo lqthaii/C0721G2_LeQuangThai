@@ -53,7 +53,7 @@
                 <a class="nav-link ml-4" href="/customer?actionUser=listCustomer">Customer <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link ml-4" href="#">Service <span class="sr-only">(current)</span></a>
+                <a class="nav-link ml-4" href="/service">Service <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item active">
                 <a class="nav-link ml-4" href="#">Contract <span class="sr-only">(current)</span></a>
@@ -65,12 +65,12 @@
         </form>
     </div>
 </nav>
-<div class="row mt-3">
-    <div id="list-example" class="list-group col-2">
-        <a class="list-group-item list-group-item-action" href="/employee?actionUser=listEmployee">Employee</a>
-        <a class="list-group-item list-group-item-action" href="/customer?actionUser=listCustomer">Customer</a>
-        <a class="list-group-item list-group-item-action" href="#list-item-3">Item 3</a>
-    </div>
+    <div class="row mt-3">
+        <div id="list-example" class="list-group col-2">
+            <a class="list-group-item list-group-item-action" href="/employee?actionUser=listEmployee">Employee</a>
+            <a class="list-group-item list-group-item-action" href="/customer?actionUser=listCustomer">Customer</a>
+            <a class="list-group-item list-group-item-action" href="/service">Service</a>
+        </div>
     <div data-spy="scroll" data-target="#list-example" data-offset="0" class="scrollspy-example col-10">
         <table class="table caption-top" id="tableCustomer">
             <thead>
@@ -175,7 +175,7 @@
         $('#tableCustomer').dataTable({
             "dom": 'lrtip',
             "lengthChange": false,
-            "pageLength": 4
+            "pageLength": 10
         });
     });
 </script>

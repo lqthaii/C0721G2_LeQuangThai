@@ -40,7 +40,6 @@
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
@@ -53,7 +52,7 @@
                     <a class="nav-link ml-4" href="/customer?actionUser=listCustomer">Customer <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link ml-4" href="#">Service <span class="sr-only">(current)</span></a>
+                    <a class="nav-link ml-4" href="/service">Service <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item active">
                     <a class="nav-link ml-4" href="#">Contract <span class="sr-only">(current)</span></a>
@@ -69,7 +68,7 @@
         <div id="list-example" class="list-group col-2">
             <a class="list-group-item list-group-item-action" href="/employee?actionUser=listEmployee">Employee</a>
             <a class="list-group-item list-group-item-action" href="/customer?actionUser=listCustomer">Customer</a>
-            <a class="list-group-item list-group-item-action" href="#list-item-3">Item 3</a>
+            <a class="list-group-item list-group-item-action" href="/service">Service</a>
         </div>
         <div data-spy="scroll" data-target="#list-example" data-offset="0" class="scrollspy-example col-10">
             <table class="table caption-top" id="tableCustomer">
@@ -129,7 +128,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <button type="button" class="btn btn-info">Edit</button>
+                            <button type="button" class="btn btn-info" onclick="window.location.href='/employee?actionUser=edit&id=${employee.getId()}'">Edit</button>
                         </td>
                     </tr>
                 </c:forEach>
@@ -141,7 +140,7 @@
                 </c:if>
                 <tr>
                     <td>
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" onclick="window.location.href='/employee?actionUser=create'">Thêm khách hàng</button>
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" onclick="window.location.href='/employee?actionUser=create'">Thêm nhân viên</button>
                     </td>
                 </tr>
             </table>
@@ -181,7 +180,7 @@
         $('#tableCustomer').dataTable({
             "dom": 'lrtip',
             "lengthChange": false,
-            "pageLength": 4
+            "pageLength": 10
         });
     });
 </script>

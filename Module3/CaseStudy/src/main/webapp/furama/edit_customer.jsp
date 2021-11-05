@@ -38,7 +38,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link ml-4" href="#">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link ml-4" href="index.jsp">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item active">
                     <a class="nav-link ml-4" href="/employee?actionUser=listEmployee">Employee<span class="sr-only">(current)</span></a>
@@ -47,7 +47,7 @@
                     <a class="nav-link ml-4" href="/customer?actionUser=listCustomer">Customer <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link ml-4" href="#">Service <span class="sr-only">(current)</span></a>
+                    <a class="nav-link ml-4" href="/service">Service <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item active">
                     <a class="nav-link ml-4" href="#">Contract <span class="sr-only">(current)</span></a>
@@ -63,7 +63,7 @@
         <div id="list-example" class="list-group col-2">
             <a class="list-group-item list-group-item-action" href="/employee?actionUser=listEmployee">Employee</a>
             <a class="list-group-item list-group-item-action" href="/customer?actionUser=listCustomer">Customer</a>
-            <a class="list-group-item list-group-item-action" href="#list-item-3">Item 3</a>
+            <a class="list-group-item list-group-item-action" href="/service">Service</a>
         </div>
         <div data-spy="scroll" data-target="#list-example" data-offset="0" class="scrollspy-example col-10">
             <form method="post">

@@ -6,22 +6,22 @@ public class Service {
     String numberFloors;
     String maximumPeople;
     String priceRent;
-    String typeRent;
-    String idLoaiDichVu;
-    String trangThai;
+    TypeRent typeRent;
+    TypeService typeService;
+    String status;
 
     public Service() {
     }
 
-    public Service(String id, String dienTich, String soTang, String soNguoiToiDa, String chiPhiThue, String idKieuThue, String idLoaiDichVu, String trangThai) {
+    public Service(String id, String dienTich, String soTang, String soNguoiToiDa, String priceRent, TypeRent typeRent, TypeService typeService, String status) {
         this.id = id;
         this.area = dienTich;
         this.numberFloors = soTang;
         this.maximumPeople = soNguoiToiDa;
-        this.priceRent = chiPhiThue;
-        this.typeRent = idKieuThue;
-        this.idLoaiDichVu = idLoaiDichVu;
-        this.trangThai = trangThai;
+        this.priceRent = priceRent;
+        this.typeRent = typeRent;
+        this.typeService = typeService;
+        this.status = status;
     }
 
     public String getId() {
@@ -64,27 +64,27 @@ public class Service {
         this.priceRent = priceRent;
     }
 
-    public String getTypeRent() {
+    public TypeRent getTypeRent() {
         return typeRent;
     }
 
-    public void setTypeRent(String typeRent) {
+    public void setTypeRent(TypeRent typeRent) {
         this.typeRent = typeRent;
     }
 
-    public String getIdLoaiDichVu() {
-        return idLoaiDichVu;
+    public TypeService getTypeService() {
+        return typeService;
     }
 
-    public void setIdLoaiDichVu(String idLoaiDichVu) {
-        this.idLoaiDichVu = idLoaiDichVu;
+    public void setTypeService(TypeService typeService) {
+        this.typeService = typeService;
     }
 
-    public String getTrangThai() {
-        return trangThai;
+    public String getStatus() {
+        return status;
     }
 
-    public void setTrangThai(String trangThai) {
-        this.trangThai = trangThai;
+    public void setStatus(String status) {
+        this.status = status;
     }
 }

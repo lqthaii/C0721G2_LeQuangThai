@@ -1,9 +1,9 @@
 package service.Impl.customer;
 
 import model.TypeCustomer;
-import repository.customer.ICustomerTypeRepository;
+import repository.ICustomerTypeRepository;
 import repository.Impl.customer.CustomerTypeRepository;
-import service.icustomer.ICustomerTypeService;
+import service.ICustomerTypeService;
 
 import java.util.List;
 

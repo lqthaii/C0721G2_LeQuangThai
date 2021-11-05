@@ -1,8 +1,13 @@
 package repository.Impl.employee;
 
 import model.*;
+import repository.ILevelEmployeeRepository;
+import repository.IPartEmployeeRepository;
+import repository.IPositionEmployeeRepository;
 import repository.Impl.BaseRepository;
-import repository.employee.IEmployeeRepository;
+import repository.IEmployeeRepository;
+import service.ICustomerTypeService;
+import service.Impl.customer.CustomerTypeService;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -50,12 +55,71 @@ public class EmployeeRepository implements IEmployeeRepository {
 
     @Override
     public Employee getEmployee(String id) {
-        return null;
+        IPartEmployeeRepository partEmployeeRepository = new PartEmployeeRepository();
+        ILevelEmployeeRepository levelEmployeeRepository = new LevelEmployeeRepository();
+        IPositionEmployeeRepository positionEmployeeRepository = new PositionEmployeeRepository();
+        Employee employee = new Employee();
+        Part part = null;
+        Level level =null;
+        Position position =null;
+        try {
+            PreparedStatement preparedStatement = baseRepository.getConnection().prepareStatement("select * from nhan_vien where id=?");
+            preparedStatement.setInt(1,Integer.parseInt(id));
+            ResultSet resultSet= preparedStatement.executeQuery();
+            while(resultSet.next()){
+                part = partEmployeeRepository.getPartEmployee(resultSet.getInt("id_bo_phan"));
+                level = levelEmployeeRepository.getLevelEmployee(resultSet.getInt("id_trinh_do"));
+                position = positionEmployeeRepository.getPositionEmployee(resultSet.getInt("id_vi_tri"));
+                String name = resultSet.getString("ho_ten");
+                String birthday = resultSet.getString("ngay_sinh");
+                String identity = resultSet.getString("so_cmnd");
+                double salary = Double.valueOf(resultSet.getFloat("luong"));
+                String numberPhone = resultSet.getString("sdt");
+                String email = resultSet.getString("email");
+                String address = resultSet.getString("dia_chi");
+                employee.setId(id);
+                employee.setName(name);
+                employee.setBirthday(birthday);
+                employee.setIdentity(identity);
+                employee.setNumberPhone(numberPhone);
+                employee.setEmail(email);
+                employee.setAddress(address);
+                employee.setPart(part);
+                employee.setLevel(level);
+                employee.setPosition(position);
+                employee.setSalary(salary);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        finally {
+            BaseRepository.close();
+        }
+        return employee;
     }
 
     @Override
     public void addEmployee(Employee employee) {
-
+        PreparedStatement preparedStatement=null;
+        Connection connection = baseRepository.getConnection();
+        try {
+            preparedStatement = connection.prepareStatement("insert into nhan_vien (id,ho_ten,id_vi_tri,id_trinh_do,id_bo_phan,ngay_sinh,so_cmnd,luong,sdt,email,dia_chi) " +
+                    " value (?,?,?,?,?,?,?,?,?,?,?)");
+            preparedStatement.setInt(1,Integer.parseInt(employee.getId()));
+            preparedStatement.setString(2,employee.getName());
+            preparedStatement.setInt(3,Integer.parseInt(employee.getPosition().getId()));
+            preparedStatement.setInt(4,Integer.parseInt(employee.getLevel().getId()));
+            preparedStatement.setInt(5,Integer.parseInt(employee.getPart().getId()));
+            preparedStatement.setString(6,employee.getBirthday());
+            preparedStatement.setString(7,employee.getIdentity());
+            preparedStatement.setInt(8,((int)employee.getSalary()));
+            preparedStatement.setString(9,employee.getNumberPhone());
+            preparedStatement.setString(10,employee.getEmail());
+            preparedStatement.setString(11,employee.getAddress());
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -65,6 +129,31 @@ public class EmployeeRepository implements IEmployeeRepository {
         try {
             preparedStatement = connection.prepareStatement("delete from nhan_vien where id=?");
             preparedStatement.setInt(1,id);
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void updateEmployee(Employee employee) {
+        PreparedStatement preparedStatement =null;
+        Connection connection = baseRepository.getConnection();
+        try {
+            preparedStatement = connection.prepareStatement("update nhan_vien set ho_ten =?,id_vi_tri=?,id_trinh_do =?,ngay_sinh =?, " +
+                    " so_cmnd=?, sdt =?, email =?,dia_chi=?, id_bo_phan=?,luong =?" +
+                    " where id=?");
+            preparedStatement.setString(1,employee.getName());
+            preparedStatement.setInt(2,Integer.parseInt(employee.getPosition().getId()));
+            preparedStatement.setInt(3,Integer.parseInt(employee.getLevel().getId()));
+            preparedStatement.setString(4,employee.getBirthday());
+            preparedStatement.setString(5,employee.getIdentity());
+            preparedStatement.setString(6,employee.getNumberPhone());
+            preparedStatement.setString(7,employee.getEmail());
+            preparedStatement.setString(8,employee.getAddress());
+            preparedStatement.setInt(9,Integer.parseInt(employee.getPart().getId()));
+            preparedStatement.setFloat(10,(float) employee.getSalary());
+            preparedStatement.setInt(11,Integer.parseInt(employee.getId()));
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();

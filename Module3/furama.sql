@@ -131,6 +131,7 @@ value (1,"Lãnh đạo"),
 insert into loai_khach
 values(1,"Normal"),
 (2,"Silver"),
+(6,"Bronze"),
 (3,"Gold"),
 (4,"Platinum"),
 (5,"Diamond");
@@ -368,9 +369,16 @@ select n.id,n.ho_ten, n.email,n.sdt,n.ngay_sinh,n.dia_chi
 from nhan_vien n
 union
 select k.id,k.ho_ten, k.email,k.sdt,k.ngay_sinh,k.dia_chi
-from khach_hang k
+from khach_hang k;
 
 
 
 
+select * from nhan_vien;
 
+
+select nv.id, nv.ho_ten, vt.id, vt.ten_vi_tri,td.id, td.trinh_do,bp.id,bp.ten_bo_phan,ngay_sinh, so_cmnd, luong,sdt,email,dia_chi
+from nhan_vien nv
+join vi_tri vt on nv.id_vi_tri = vt.id
+join trinh_do td on td.id = nv.id_trinh_do
+join bo_phan bp on bp.id = nv.id_bo_phan

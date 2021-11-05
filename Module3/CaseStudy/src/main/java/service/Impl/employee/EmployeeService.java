@@ -1,9 +1,9 @@
 package service.Impl.employee;
 
 import model.Employee;
-import repository.employee.IEmployeeRepository;
+import repository.IEmployeeRepository;
 import repository.Impl.employee.EmployeeRepository;
-import service.iemployee.IEmployeeService;
+import service.IEmployeeService;
 
 import java.util.List;
 
@@ -16,16 +16,21 @@ public class EmployeeService implements IEmployeeService {
 
     @Override
     public Employee getEmployee(String id) {
-        return null;
+        return this.employeeRepository.getEmployee(id);
     }
 
     @Override
     public void addEmployee(Employee employee) {
-
+        this.employeeRepository.addEmployee(employee);
     }
 
     @Override
     public void deleteEmployee(int id) {
         this.employeeRepository.deleteEmployee(id);
+    }
+
+    @Override
+    public void updateEmployee(Employee employee) {
+        this.employeeRepository.updateEmployee(employee);
     }
 }

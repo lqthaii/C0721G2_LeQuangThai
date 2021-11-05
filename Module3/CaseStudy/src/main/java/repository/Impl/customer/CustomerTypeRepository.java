@@ -1,7 +1,7 @@
 package repository.Impl.customer;
 
 import model.TypeCustomer;
-import repository.customer.ICustomerTypeRepository;
+import repository.ICustomerTypeRepository;
 import repository.Impl.BaseRepository;
 
 import java.sql.PreparedStatement;
