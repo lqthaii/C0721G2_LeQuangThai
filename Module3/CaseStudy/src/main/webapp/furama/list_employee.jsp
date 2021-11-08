@@ -58,17 +58,18 @@
                     <a class="nav-link ml-4" href="/contract">Contract <span class="sr-only">(current)</span></a>
                 </li>
             </ul>
-            <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <form class="form-inline my-2 my-lg-0" method="post" action="/employee?actionUser=search">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search">
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
             </form>
         </div>
     </nav>
-    <div class="row mt-3">
+    <div class="row mt-3 ml-3 mr-3">
         <div id="list-example" class="list-group col-2">
-            <a class="list-group-item list-group-item-action" href="/employee?actionUser=listEmployee">Employee</a>
-            <a class="list-group-item list-group-item-action" href="/customer?actionUser=listCustomer">Customer</a>
+            <a class="list-group-item list-group-item-action" href="/employee">Employee</a>
+            <a class="list-group-item list-group-item-action" href="/customer">Customer</a>
             <a class="list-group-item list-group-item-action" href="/service">Service</a>
+            <a class="list-group-item list-group-item-action" href="/contract">Contract</a>
         </div>
         <div data-spy="scroll" data-target="#list-example" data-offset="0" class="scrollspy-example col-10">
             <table class="table caption-top" id="tableCustomer">

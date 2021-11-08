@@ -33,4 +33,9 @@ public class CustomerService implements ICustomerService {
     public void updateCustomer(Customer customer) {
         this.customerRepository.updateCustomer(customer);
     }
+
+    @Override
+    public List<Customer> searchCustomer(String name) {
+        return this.customerRepository.searchCustomer(name);
+    }
 }

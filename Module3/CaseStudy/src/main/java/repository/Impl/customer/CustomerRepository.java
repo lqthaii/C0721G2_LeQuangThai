@@ -2,6 +2,7 @@ package repository.Impl.customer;
 
 import model.Customer;
 import model.TypeCustomer;
+import model.TypeService;
 import repository.ICustomerRepository;
 import repository.Impl.BaseRepository;
 import service.Impl.customer.CustomerTypeService;
@@ -144,4 +145,42 @@ public class CustomerRepository implements ICustomerRepository {
         }
     }
 
+    @Override
+    public List<Customer> searchCustomer(String name) {
+        ICustomerTypeService customerTypeService = new CustomerTypeService();
+        List<Customer> customers = new ArrayList<>();
+        PreparedStatement preparedStatement =null;
+        Connection connection = baseRepository.getConnection();
+        try {
+            preparedStatement = connection.prepareStatement("select * from khach_hang where ho_ten like ?");
+            preparedStatement.setString(1, "%" + name + "%");
+            ResultSet resultSet = preparedStatement.executeQuery();
+            Customer customer =null;
+            TypeCustomer typeCustomer =null;
+            while(resultSet.next()){
+                customer = new Customer();
+                typeCustomer = customerTypeService.getTypeCustomer(String.valueOf(resultSet.getInt("id_loai_khach")));
+                String id = resultSet.getString("id");
+                String name1 = resultSet.getString("ho_ten");
+                String birthday = resultSet.getString("ngay_sinh");
+                String identity = resultSet.getString("so_cmnd");
+                String numberPhone = resultSet.getString("sdt");
+                String email = resultSet.getString("email");
+                String address = resultSet.getString("dia_chi");
+                customer.setId(id);
+                customer.setName(name1);
+                customer.setBirthday(birthday);
+                customer.setIdentity(identity);
+                customer.setNumberPhone(numberPhone);
+                customer.setEmail(email);
+                customer.setAddress(address);
+                customer.setTypeCustomer(typeCustomer);
+                customers.add(customer);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return customers;
+    }
 }

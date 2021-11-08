@@ -56,6 +56,9 @@ public class EmployeeServlet extends HttpServlet {
             case "create":
                 createEmployee(request,response);
                 break;
+            case "search":
+                searchEmployee(request,response);
+                break;
         }
     }
     private void showEmployee(HttpServletRequest request, HttpServletResponse response){
@@ -138,5 +141,17 @@ public class EmployeeServlet extends HttpServlet {
         this.employeeService.addEmployee(employee);
         request.setAttribute("messager","Thêm thành công");
         showEmployee(request,response);
+    }
+    private void searchEmployee(HttpServletRequest request, HttpServletResponse response){
+        String name = request.getParameter("search");
+        List <Employee> employees = this.employeeService.searchEmployee(name);
+        request.setAttribute("employeeList",employees);
+        try {
+            request.getRequestDispatcher("furama/list_employee.jsp").forward(request,response);
+        } catch (ServletException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

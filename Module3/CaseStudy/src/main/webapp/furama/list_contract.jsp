@@ -47,10 +47,10 @@
                     <a class="nav-link ml-4" href="index.jsp">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link ml-4" href="/employee?actionUser=listEmployee">Employee<span class="sr-only">(current)</span></a>
+                    <a class="nav-link ml-4" href="/employee">Employee<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link ml-4" href="/customer?actionUser=listCustomer">Customer <span class="sr-only">(current)</span></a>
+                    <a class="nav-link ml-4" href="/customer">Customer <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item active">
                     <a class="nav-link ml-4" href="/service">Service <span class="sr-only">(current)</span></a>
@@ -65,11 +65,12 @@
             </form>
         </div>
     </nav>
-    <div class="row mt-3">
+    <div class="row mt-3 ml-3 mr-3">
         <div id="list-example" class="list-group col-2">
-            <a class="list-group-item list-group-item-action" href="/employee?actionUser=listEmployee">Employee</a>
-            <a class="list-group-item list-group-item-action" href="/customer?actionUser=listCustomer">Customer</a>
+            <a class="list-group-item list-group-item-action" href="/employee">Employee</a>
+            <a class="list-group-item list-group-item-action" href="/customer">Customer</a>
             <a class="list-group-item list-group-item-action" href="/service">Service</a>
+            <a class="list-group-item list-group-item-action" href="/contract">Contract</a>
         </div>
         <div data-spy="scroll" data-target="#list-example" data-offset="0" class="scrollspy-example col-10">
             <table class="table caption-top" id="tableCustomer">
@@ -123,7 +124,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <button type="button" class="btn btn-info" onclick="window.location.href='/contract?actionUser=edit&id=${customer.id}'">Edit</button>
+                            <button type="button" class="btn btn-info" onclick="window.location.href='/contract?actionUser=edit&id=${contract.id}'">Edit</button>
                         </td>
                     </tr>
                 </c:forEach>

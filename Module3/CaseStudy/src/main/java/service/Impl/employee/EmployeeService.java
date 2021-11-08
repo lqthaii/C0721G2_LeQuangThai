@@ -33,4 +33,9 @@ public class EmployeeService implements IEmployeeService {
     public void updateEmployee(Employee employee) {
         this.employeeRepository.updateEmployee(employee);
     }
+
+    @Override
+    public List<Employee> searchEmployee(String name) {
+        return this.employeeRepository.searchEmployee(name);
+    }
 }

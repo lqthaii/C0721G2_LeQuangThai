@@ -62,9 +62,10 @@
     </nav>
     <div class="row mt-3">
         <div id="list-example" class="list-group col-2">
-            <a class="list-group-item list-group-item-action" href="/employee?actionUser=listEmployee">Employee</a>
-            <a class="list-group-item list-group-item-action" href="/customer?actionUser=listCustomer">Customer</a>
+            <a class="list-group-item list-group-item-action" href="/employee">Employee</a>
+            <a class="list-group-item list-group-item-action" href="/customer">Customer</a>
             <a class="list-group-item list-group-item-action" href="/service">Service</a>
+            <a class="list-group-item list-group-item-action" href="/contract">Contract</a>
         </div>
         <div data-spy="scroll" data-target="#list-example" data-offset="0" class="scrollspy-example col-10">
             <form method="post" action="/contract?actionUser=create">

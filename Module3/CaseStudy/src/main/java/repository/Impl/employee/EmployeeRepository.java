@@ -6,8 +6,12 @@ import repository.IPartEmployeeRepository;
 import repository.IPositionEmployeeRepository;
 import repository.Impl.BaseRepository;
 import repository.IEmployeeRepository;
-import service.ICustomerTypeService;
-import service.Impl.customer.CustomerTypeService;
+import service.ILevelEmployeeService;
+import service.IPartEmployeeService;
+import service.IPositionEmployeeService;
+import service.Impl.employee.LevelEmployeeService;
+import service.Impl.employee.PartEmployeeService;
+import service.Impl.employee.PositionEmployeeService;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -158,5 +162,42 @@ public class EmployeeRepository implements IEmployeeRepository {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+    @Override
+    public List<Employee> searchEmployee(String name) {
+        ILevelEmployeeService levelEmployeeService = new LevelEmployeeService();
+        IPartEmployeeService partEmployeeService = new PartEmployeeService();
+        IPositionEmployeeService positionEmployeeService = new PositionEmployeeService();
+        List<Employee> employees = new ArrayList<>();
+        PreparedStatement preparedStatement =null;
+        Connection connection = baseRepository.getConnection();
+        try {
+            preparedStatement = connection.prepareStatement("select * from nhan_vien where ho_ten like ?");
+            preparedStatement.setString(1, "%" + name + "%");
+            ResultSet resultSet = preparedStatement.executeQuery();
+            Employee employee =null;
+            Level level =null;
+            Part part =null;
+            Position position =null;
+                while(resultSet.next()){
+                    level = levelEmployeeService.getLevelEmployee(Integer.parseInt(resultSet.getString("id_trinh_do")));
+                    part = partEmployeeService.getPartEmployee(Integer.parseInt(resultSet.getString("id_bo_phan")));
+                    position = positionEmployeeService.getPositionEmployee(Integer.parseInt(resultSet.getString("id_vi_tri")));
+                    String id = resultSet.getString("id");
+                    String name1 = resultSet.getString("ho_ten");
+                    String birthday = resultSet.getString("ngay_sinh");
+                    String identity = resultSet.getString("so_cmnd");
+                    String numberPhone = resultSet.getString("sdt");
+                    double salary = Double.valueOf(resultSet.getString("luong"));
+                    String email = resultSet.getString("email");
+                    String address = resultSet.getString("dia_chi");
+                    employee = new Employee(id,name1,position,level,part,birthday,identity,salary,numberPhone,email,address);
+                    employees.add(employee);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return employees;
     }
 }

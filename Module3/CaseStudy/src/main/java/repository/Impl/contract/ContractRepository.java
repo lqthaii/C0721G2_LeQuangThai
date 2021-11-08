@@ -2,11 +2,12 @@ package repository.Impl.contract;
 
 import model.*;
 import repository.IContractRepository;
+import repository.IEmployeeRepository;
 import repository.Impl.BaseRepository;
-import service.ICustomerService;
-import service.IEmployeeService;
-import service.IServiceService;
+import service.*;
+import service.Impl.contract.ContractService;
 import service.Impl.customer.CustomerService;
+import service.Impl.customer.CustomerTypeService;
 import service.Impl.employee.EmployeeService;
 import service.Impl.service.ServiceService;
 
@@ -50,12 +51,55 @@ public class ContractRepository implements IContractRepository {
 
     @Override
     public Contract getContract(String id) {
-        return null;
+        IEmployeeService employeeService = new EmployeeService();
+        ICustomerService customerService = new CustomerService();
+        IServiceService serviceService = new ServiceService();
+        Contract contract = null;
+        Employee employee = null;
+        Customer customer = null;
+        Service service = null;
+        try {
+            PreparedStatement preparedStatement = baseRepository.getConnection().prepareStatement("select * from hop_dong where id=?");
+            preparedStatement.setInt(1,Integer.parseInt(id));
+            ResultSet resultSet= preparedStatement.executeQuery();
+            while(resultSet.next()){
+                employee = this.employeeService.getEmployee(String.valueOf(resultSet.getInt("id_nhan_vien")));
+                customer = this.customerService.getCustomer(String.valueOf(resultSet.getInt("id_khach_hang")));
+                service = this.serviceService.getService(String.valueOf(resultSet.getInt("id_dich_vu")));
+                String dateCreateContract = String.valueOf(resultSet.getDate("ngay_lam_hop_dong"));
+                String dateEnd = String.valueOf(resultSet.getDate("ngay_ket_thuc"));
+                int deposit = resultSet.getInt("tien_dat_coc");
+                int totalMoney = resultSet.getInt("tong_tien");
+                contract = new Contract(id,employee,customer,service,dateCreateContract,dateEnd,deposit,totalMoney);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        finally {
+            BaseRepository.close();
+        }
+        return contract;
     }
 
     @Override
     public void addContract(Contract contract) {
-
+        PreparedStatement preparedStatement=null;
+        Connection connection = baseRepository.getConnection();
+        try {
+            preparedStatement = connection.prepareStatement("insert into hop_dong " +
+                    " values (?,?,?,?,?,?,?,?)");
+            preparedStatement.setInt(1,Integer.parseInt(contract.getId()));
+            preparedStatement.setInt(2,Integer.parseInt(contract.getEmployee().getId()));
+            preparedStatement.setInt(3,Integer.parseInt(contract.getCustomer().getId()));
+            preparedStatement.setInt(4,Integer.parseInt(contract.getService().getId()));
+            preparedStatement.setDate(5,Date.valueOf(contract.getDateCreateContract()));
+            preparedStatement.setDate(6,Date.valueOf(contract.getDateEnd()));
+            preparedStatement.setInt(7,contract.getDeposits());
+            preparedStatement.setInt(8,contract.getTotalMoney());
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
