@@ -13,12 +13,9 @@ public class SandWichController {
         return "sandwich";
     }
     @PostMapping(value = "sandwich")
-    public String eatSandwich(@RequestParam (value = "sandwich1") String sandwich1,
-                              @RequestParam (value = "sandwich2") String sandwich2,
-                              @RequestParam (value = "sandwich3") String sandwich3,
-                              @RequestParam (value = "sandwich4") String sandwich4,
+    public String eatSandwich(@RequestParam (value = "sandwich") String sandwich,
                               Model model){
-        String result = "Eat Sandwich with " + sandwich1 + " "+ sandwich2+ " "+ sandwich3+ " "+ sandwich4;
+        String result = "Eat Sandwich with " + sandwich;
         model.addAttribute("result",result);
         return "result";
     }

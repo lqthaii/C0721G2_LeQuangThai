@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="6ae4281b-089b-4789-b71e-74340e3fa1f0" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../../../Module3/CaseStudy/.idea/CaseStudy.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Module3/CaseStudy/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../_02_spring_controller/execrise/calculator/src/main/java/com/codegym/controller/CalculatorController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../_02_spring_controller/execrise/calculator/src/main/webapp/WEB-INF/applicationContext.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../_02_spring_controller/execrise/calculator/src/main/webapp/WEB-INF/dispatcher-servlet.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../_02_spring_controller/execrise/calculator/src/main/webapp/WEB-INF/views/result.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../_02_spring_controller/execrise/calculator/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Module1/11.Cấu_trúc_lặp_2/Bài tập/ [Bài tập] Luyện tập vòng lặp 01/Bài 1/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Module1/11.Cấu_trúc_lặp_2/Bài tập/ [Bài tập] Luyện tập vòng lặp 01/Bài 2/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Module1/11.Cấu_trúc_lặp_2/Bài tập/ [Bài tập] Luyện tập vòng lặp 01/Bài 3/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Module1/11.Cấu_trúc_lặp_2/Bài tập/ [Bài tập] Luyện tập vòng lặp 01/Bài 4/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Module1/11.Cấu_trúc_lặp_2/Bài tập/ [Bài tập] Luyện tập vòng lặp 01/Bài 5/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Module1/11.Cấu_trúc_lặp_2/Bài tập/ [Bài tập] Luyện tập vòng lặp 01/Bài 6/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Module1/11.Cấu_trúc_lặp_2/Bài tập/ [Bài tập] Luyện tập vòng lặp 01/Bài 7/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Module1/11.Cấu_trúc_lặp_2/Bài tập/ [Bài tập] Luyện tập vòng lặp 01/Bài 8/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Module1/14.Hàm1/Thực hành/ [Thực hành] Chuyển đổi nhiệt độ/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Module1/16.OOP/Bài tập/ [Bài tập] Xây dựng lớp mô tả điện thoại/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Module1/6.Javascript/Thực_hành/ [Thực hành] Nhúng JavaScript/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Module1/6.Javascript/Thực_hành/ [Thực hành] Nhúng JavaScript/index2.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Module1/6.Javascript/Thực_hành/ [Thực hành] Nhúng JavaScript/index3.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Module1/6.Javascript/Thực_hành/ [Thực hành] Nhúng JavaScript/xinchao.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Module1/8.ConditionStatement/Thực_hành/ [Thực hành] Luyện tập với cấu trúc if...else...if/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Module3/CaseStudy/.gradle/7.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Module3/CaseStudy/.gradle/7.1/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Module3/CaseStudy/.gradle/7.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Module3/CaseStudy/.gradle/7.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Module3/CaseStudy/.gradle/7.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Module3/CaseStudy/.gradle/7.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Module3/CaseStudy/.gradle/7.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Module3/CaseStudy/.gradle/7.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Module3/CaseStudy/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Module3/CaseStudy/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Module3/CaseStudy/build/classes/java/main/repository/Impl/customer/CustomerRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Module3/CaseStudy/build/classes/java/main/repository/Impl/customer/CustomerRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Module3/CaseStudy/build/libs/CaseStudy-1.0-SNAPSHOT.war" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Module3/CaseStudy/build/libs/CaseStudy-1.0-SNAPSHOT.war" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Module3/CaseStudy/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Module3/CaseStudy/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Module3/CaseStudy/src/main/java/repository/Impl/customer/CustomerRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Module3/CaseStudy/src/main/java/repository/Impl/customer/CustomerRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Module3/CaseStudy/src/main/webapp/footer.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Module3/CaseStudy/src/main/webapp/footer.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Module3/CaseStudy/src/main/webapp/furama/list_contract.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Module3/CaseStudy/src/main/webapp/furama/list_contract.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Module3/CaseStudy/src/main/webapp/furama/list_customer.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Module3/CaseStudy/src/main/webapp/furama/list_customer.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Module3/CaseStudy/src/main/webapp/header.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Module3/CaseStudy/src/main/webapp/header.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Module3/CaseStudy/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Module3/CaseStudy/src/main/webapp/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Module3/CaseStudy/src/main/webapp/order.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Module3/CaseStudy/src/main/webapp/order.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Module3/FinalModule3/.gradle/7.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Module3/FinalModule3/.gradle/7.1/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Module3/FinalModule3/.gradle/7.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Module3/FinalModule3/.gradle/7.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Module3/FinalModule3/.gradle/7.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Module3/FinalModule3/.gradle/7.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Module3/FinalModule3/.gradle/7.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Module3/FinalModule3/.gradle/7.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Module3/FinalModule3/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Module3/FinalModule3/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Module3/FinalModule3/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Module3/FinalModule3/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Module3/FinalModule3/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Module3/FinalModule3/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Module3/FinalModule3/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Module3/FinalModule3/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Module3/FinalModule3/src/main/java/controller/BookCardServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Module3/FinalModule3/src/main/java/controller/BookCardServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Module3/FinalModule3/src/main/java/controller/BookServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Module3/FinalModule3/src/main/java/controller/BookServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Module3/FinalModule3/src/main/java/model/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Module3/FinalModule3/src/main/java/model/Book.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Module3/FinalModule3/src/main/java/model/BookCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Module3/FinalModule3/src/main/java/model/BookCard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Module3/FinalModule3/src/main/java/model/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Module3/FinalModule3/src/main/java/model/Student.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Module3/FinalModule3/src/main/java/repository/BaseRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Module3/FinalModule3/src/main/java/repository/BaseRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Module3/FinalModule3/src/main/java/repository/IBookCardRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Module3/FinalModule3/src/main/java/repository/IBookCardRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Module3/FinalModule3/src/main/java/repository/IBookRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Module3/FinalModule3/src/main/java/repository/IBookRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Module3/FinalModule3/src/main/java/repository/IStudentRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Module3/FinalModule3/src/main/java/repository/IStudentRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Module3/FinalModule3/src/main/java/repository/Impl/BookCardRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Module3/FinalModule3/src/main/java/repository/Impl/BookCardRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Module3/FinalModule3/src/main/java/repository/Impl/BookRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Module3/FinalModule3/src/main/java/repository/Impl/BookRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Module3/FinalModule3/src/main/java/repository/Impl/StudentRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Module3/FinalModule3/src/main/java/repository/Impl/StudentRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Module3/FinalModule3/src/main/java/service/IBookCardService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Module3/FinalModule3/src/main/java/service/IBookCardService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Module3/FinalModule3/src/main/java/service/IBookService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Module3/FinalModule3/src/main/java/service/IBookService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Module3/FinalModule3/src/main/java/service/IStudentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Module3/FinalModule3/src/main/java/service/IStudentService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Module3/FinalModule3/src/main/java/service/Impl/BookCardService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Module3/FinalModule3/src/main/java/service/Impl/BookCardService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Module3/FinalModule3/src/main/java/service/Impl/StudentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Module3/FinalModule3/src/main/java/service/Impl/StudentService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Module3/FinalModule3/src/main/java/validation/Validate.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Module3/FinalModule3/src/main/java/validation/Validate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Module3/FinalModule3/src/main/webapp/footer.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Module3/FinalModule3/src/main/webapp/footer.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Module3/FinalModule3/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Module3/FinalModule3/src/main/webapp/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Module3/FinalModule3/src/main/webapp/nav_left.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Module3/FinalModule3/src/main/webapp/nav_left.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Module3/FinalModule3/src/main/webapp/school/book.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Module3/FinalModule3/src/main/webapp/school/book.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Module3/FinalModule3/src/main/webapp/school/bookRent.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Module3/FinalModule3/src/main/webapp/school/bookRent.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Module3/FinalModule3/src/main/webapp/school/listBookCard.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Module3/FinalModule3/src/main/webapp/school/listBookCard.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Module3/MDI-MedicalAdvising/src/main/java/controller/AccountServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Module3/MDI-MedicalAdvising/src/main/java/controller/AccountServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Module3/MDI-MedicalAdvising/src/main/java/controller/QuestionServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Module3/MDI-MedicalAdvising/src/main/java/controller/QuestionServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Module3/MDI-MedicalAdvising/src/main/java/model/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Module3/MDI-MedicalAdvising/src/main/java/model/Account.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Module3/MDI-MedicalAdvising/src/main/java/model/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Module3/MDI-MedicalAdvising/src/main/java/model/Customer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Module3/MDI-MedicalAdvising/src/main/java/model/TypeAccount.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Module3/MDI-MedicalAdvising/src/main/java/model/TypeAccount.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Module3/MDI-MedicalAdvising/src/main/java/repository/AccountRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Module3/MDI-MedicalAdvising/src/main/java/repository/AccountRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Module3/MDI-MedicalAdvising/src/main/java/repository/BaseRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Module3/MDI-MedicalAdvising/src/main/java/repository/BaseRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Module3/MDI-MedicalAdvising/src/main/java/repository/QuestionRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Module3/MDI-MedicalAdvising/src/main/java/repository/QuestionRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Module3/MDI-MedicalAdvising/src/main/java/service/AccountService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Module3/MDI-MedicalAdvising/src/main/java/service/AccountService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Module3/MDI-MedicalAdvising/src/main/java/service/QuestionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Module3/MDI-MedicalAdvising/src/main/java/service/QuestionService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Module3/MDI-MedicalAdvising/src/main/webapp/Doctor/question.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Module3/MDI-MedicalAdvising/src/main/webapp/Doctor/question.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Module3/MDI-MedicalAdvising/src/main/webapp/assets/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Module3/MDI-MedicalAdvising/src/main/webapp/assets/css/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Module3/MDI-MedicalAdvising/src/main/webapp/createDrug.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Module3/MDI-MedicalAdvising/src/main/webapp/createDrug.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Module3/MDI-MedicalAdvising/src/main/webapp/header.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Module3/MDI-MedicalAdvising/src/main/webapp/header.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Module3/MDI-MedicalAdvising/src/main/webapp/js/order.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Module3/MDI-MedicalAdvising/src/main/webapp/js/order.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Module3/MDI-MedicalAdvising/src/main/webapp/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Module3/MDI-MedicalAdvising/src/main/webapp/login.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Module3/MDI-MedicalAdvising/src/main/webapp/profile.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Module3/MDI-MedicalAdvising/src/main/webapp/profile.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Module3/MDI-MedicalAdvising/src/main/webapp/register.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Module3/MDI-MedicalAdvising/src/main/webapp/register.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Module3/furama.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Module3/furama.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../_02_spring_controller/execrise/sandwich_condiments/.gradle/7.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../_02_spring_controller/execrise/sandwich_condiments/.gradle/7.1/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../_02_spring_controller/execrise/sandwich_condiments/.gradle/7.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../_02_spring_controller/execrise/sandwich_condiments/.gradle/7.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../_02_spring_controller/execrise/sandwich_condiments/.gradle/7.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../_02_spring_controller/execrise/sandwich_condiments/.gradle/7.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../_02_spring_controller/execrise/sandwich_condiments/.gradle/7.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../_02_spring_controller/execrise/sandwich_condiments/.gradle/7.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../_02_spring_controller/execrise/sandwich_condiments/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../_02_spring_controller/execrise/sandwich_condiments/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../_02_spring_controller/execrise/sandwich_condiments/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../_02_spring_controller/execrise/sandwich_condiments/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../_02_spring_controller/execrise/sandwich_condiments/build/classes/java/main/com/codegym/controller/SandWichController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../_02_spring_controller/execrise/sandwich_condiments/build/classes/java/main/com/codegym/controller/SandWichController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../_02_spring_controller/execrise/sandwich_condiments/build/libs/sandwich_condiments-1.0-SNAPSHOT.war" beforeDir="false" afterPath="$PROJECT_DIR$/../../_02_spring_controller/execrise/sandwich_condiments/build/libs/sandwich_condiments-1.0-SNAPSHOT.war" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../_02_spring_controller/execrise/sandwich_condiments/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../../_02_spring_controller/execrise/sandwich_condiments/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../_02_spring_controller/execrise/sandwich_condiments/src/main/java/com/codegym/controller/SandWichController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../_02_spring_controller/execrise/sandwich_condiments/src/main/java/com/codegym/controller/SandWichController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../_02_spring_controller/execrise/sandwich_condiments/src/main/webapp/WEB-INF/views/sandwich.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../_02_spring_controller/execrise/sandwich_condiments/src/main/webapp/WEB-INF/views/sandwich.jsp" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
+  <component name="ProjectId" id="22U3nUydjlVKJUTAj99yW9VpQmF" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/form_biding" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="6ae4281b-089b-4789-b71e-74340e3fa1f0" name="Changes" comment="" />
+      <created>1639878508098</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1639878508098</updated>
+      <workItem from="1639878511089" duration="20000" />
+    </task>
+    <servers />
+  </component>
+</project>

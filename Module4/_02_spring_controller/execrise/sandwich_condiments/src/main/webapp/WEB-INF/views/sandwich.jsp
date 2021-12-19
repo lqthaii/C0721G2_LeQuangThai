@@ -13,13 +13,13 @@
 <body>
 <h1>SandWich Condiments</h1>
 <form action="/sandwich" method="get">
-    <input type="checkbox" id="sandwich1" name="sandwich1" value="Lettuce">
+    <input type="checkbox" id="sandwich1" name="sandwich" value="Lettuce">
     <label for="sandwich1">Lettuce</label>
-    <input type="checkbox" id="sandwich2" name="sandwich2"  value="Tomato">
+    <input type="checkbox" id="sandwich2" name="sandwich"  value="Tomato">
     <label for="sandwich2">Tomato</label>
-    <input type="checkbox" id="sandwich3" name="sandwich3"  value="Mustard">
+    <input type="checkbox" id="sandwich3" name="sandwich"  value="Mustard">
     <label for="sandwich3">Mustard</label>
-    <input type="checkbox" id="sandwich4" name="sandwich4"  value="Sprouts">
+    <input type="checkbox" id="sandwich4" name="sandwich"  value="Sprouts">
     <label for="sandwich4">Sprouts</label><br>
     <button type="submit">Xác nhận</button>
 </form>
